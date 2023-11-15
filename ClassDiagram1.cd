@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AnimalAnimation" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Assets\2D Cute Domestic Animal Pack V.1\Scripts\AnimalAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharacterAnimation" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEBAEyAAQQAAAAAAEAAAIAAAIAAAAAAAAAQgAAA=</HashCode>
+      <FileName>Assets\2D Cute Domestic Animal Pack V.1\Scripts\CharacterAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButtonDisappear">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAACAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\script\ButtonDisappear.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButtonGame">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEAAAAAACAAIMAQJCEAAAIAAAAAAgIAhAAgAAAAAAA=</HashCode>
+      <FileName>Assets\script\ButtonGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButtonObjectFiller">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACAAAAAAAAAAAAAABAAAAAAAAAIAAgAAAAA=</HashCode>
+      <FileName>Assets\script\ButtonObjectFiller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButtonSequence">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEQAAAAACAAAMAAICEAAAIAAAAAAAIAgAAgAAAAAAA=</HashCode>
+      <FileName>Assets\script\ButtonSequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraResolution">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\script\CameraResolution.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Exit">
+    <Position X="3" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\script\Exit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="6.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgCAAGAAAAAAAAAAAEAAAABMAAAAAAAARAIIAAA=</HashCode>
+      <FileName>Assets\script\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NextBtn">
+    <Position X="8.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAABAACAAAAAAAAAAAAAAAAAAAACgcQAAAAAEAEA=</HashCode>
+      <FileName>Assets\script\NextBtn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectSwitch">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAACAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\script\ObjectSwitch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnMouseDown_Hide">
+    <Position X="3" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\script\OnMouseDown_Hide.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnMouseDown_Show">
+    <Position X="12" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAYAAAAAAAAEA=</HashCode>
+      <FileName>Assets\script\OnMouseDown_Show.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OnMouseDown_SwitchScene">
+    <Position X="6.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAgAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\script\OnMouseDown_SwitchScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PopupManager">
+    <Position X="8.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIQAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\script\PopupManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Random">
+    <Position X="10" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\script\Random.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneController">
+    <Position X="3" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAAAAAhAAAAACAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Assets\script\SceneController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShowObjectsSequentially">
+    <Position X="4.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAEACIAAAAAAAAQAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\script\ShowObjectsSequentially.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sometimesmove">
+    <Position X="12" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAIAAAAAAAQAAAAEAAAAAAAA=</HashCode>
+      <FileName>Assets\script\Sometimesmove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager">
+    <Position X="10" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\script\SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WordButton">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABBACAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\script\WordButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assets.Scripts.Fixed">
+    <Position X="4.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAEA=</HashCode>
+      <FileName>Assets\script\Fixed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Acting" Collapsed="true">
+    <Position X="3" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEBAEwAAAQAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\2D Cute Domestic Animal Pack V.1\Scripts\Acting.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
