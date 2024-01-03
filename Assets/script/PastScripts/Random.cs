@@ -3,19 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Random : MonoBehaviour
-
 {
-
     public float Speed = 50.0f;
 
     private Transform myTransform = null;
 
-
-
     // Start is called before the first frame update
-
     void Start()
-
     {
 
         myTransform = GetComponent<Transform>();
@@ -25,9 +19,7 @@ public class Random : MonoBehaviour
 
 
     // Update is called once per frame
-
     void Update()
-
     {
 
         Vector3 moveAmount = Speed * Vector3.back * Time.deltaTime;

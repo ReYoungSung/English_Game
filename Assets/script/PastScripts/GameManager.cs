@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     private List<string> receivedWords = new List<string>(); // 전달받은 단어 저장 리스트
     public Text messageText; // 메시지를 표시할 UI 텍스트
 
-
-
     public List<Button> answerButtons; // 정답 버튼 리스트
     private List<Button> clickedButtons = new List<Button>(); // 클릭한 버튼을 저장할 리스트
 
@@ -45,7 +43,6 @@ public class GameManager : MonoBehaviour
     {
         receivedWords.Add(word); // 단어 저장
         UpdateOutputText(); // 출력 업데이트
-
     }
 
 

@@ -41,5 +41,4 @@ public class NextBtn : MonoBehaviour
     public GameObject a;
     public GameObject b;
     public GameObject c;
-
 }

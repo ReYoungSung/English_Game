@@ -18,8 +18,8 @@ public class RunningTime : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(transform.root.gameObject); // 타이머 오브젝트를 삭제하지 않도록 설정
-            SceneManager.sceneLoaded += OnSceneLoaded; // 씬 로딩 이벤트에 대한 구독
+            DontDestroyOnLoad(transform.root.gameObject); // 타이머 오브젝트를 삭제하지 않도록 설정 
+            SceneManager.sceneLoaded += OnSceneLoaded; // 씬 로딩 이벤트에 대한 구독 
         }
         else
         {
