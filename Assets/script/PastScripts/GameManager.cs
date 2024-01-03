@@ -57,11 +57,11 @@ public class GameManager : MonoBehaviour
     private void RestartScene()
     {
         // 현재 씬을 재시작합니다.
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);  
     }
 
-    private void UpdateMessage(string message)
+    private void UpdateMessage(string message) 
     {
-        messageText.text = message;
+        messageText.text = message;  
     }
 }

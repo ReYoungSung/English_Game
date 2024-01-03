@@ -10,12 +10,27 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     void Start()
     {
         // 게임 시작 시 PlayerPrefs에 저장된 모든 데이터 삭제
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll(); 
     }
 
-    public void OnMouseDown()
+    private void Update()
+    {
+        Debug.Log(SceneOption.Instance.ChapterNum + " / " + SceneOption.Instance.UnitNum);
+    }
+
+    public void ChangeChapter(int a)  
+    {
+        SceneOption.Instance.ChapterNum = a;  
+    }
+
+    public void ChangeUnit(int b) 
+    {
+        SceneOption.Instance.UnitNum = b; 
+    }
+
+    public void LoadOtherScene() 
     {
         // 씬을 전환한다
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName); 
     }
 }

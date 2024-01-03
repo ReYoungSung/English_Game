@@ -26,7 +26,7 @@ public class RunningTime : MonoBehaviour
             Destroy(gameObject);
         }
 
-        startTime = Time.time; // 씬이 시작될 때 시간 기록
+        startTime = Time.time; // 씬이 시작될 때 시간 기록 
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
