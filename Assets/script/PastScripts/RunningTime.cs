@@ -11,7 +11,7 @@ public class RunningTime : MonoBehaviour
     private float startTime;
     private bool isTimerRunning = true; // 타이머가 실행 중인지 여부
 
-    private static RunningTime instance;
+    private static RunningTime instance;  
 
     private void Awake()
     {

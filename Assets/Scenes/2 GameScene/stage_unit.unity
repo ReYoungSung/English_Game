@@ -2677,7 +2677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1876404505274481360, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
       propertyPath: m_Text
-      value: hers
+      value: her
       objectReference: {fileID: 0}
     - target: {fileID: 1876404505274481360, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
       propertyPath: m_FontData.m_MaxSize
@@ -2693,7 +2693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1876404505274481362, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
       propertyPath: m_Name
-      value: hers
+      value: her
       objectReference: {fileID: 0}
     - target: {fileID: 1876404505274481363, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2725,7 +2725,7 @@ PrefabInstance:
       objectReference: {fileID: 887752329}
     - target: {fileID: 8390917564258779793, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
       propertyPath: word
-      value: hers
+      value: her
       objectReference: {fileID: 0}
     - target: {fileID: 8390917564258779793, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
       propertyPath: manager
@@ -2734,7 +2734,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4541134448008722536, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
     - {fileID: 4419173087978705890, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
-    - {fileID: 3437311802255197934, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
 --- !u!224 &887752326 stripped
 RectTransform:
@@ -3902,7 +3902,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4541134448008722536, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
     - {fileID: 4419173087978705890, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
-    - {fileID: 3437311802255197934, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
 --- !u!224 &1300949889 stripped
 RectTransform:
@@ -4458,7 +4458,7 @@ PrefabInstance:
       objectReference: {fileID: 2045828165}
     m_RemovedComponents:
     - {fileID: 4541134448008722536, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
-    - {fileID: 3437311802255197934, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
 --- !u!114 &1664941385 stripped
 MonoBehaviour:
@@ -4622,7 +4622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1876404505274481360, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
       propertyPath: m_Text
-      value: her
+      value: hers
       objectReference: {fileID: 0}
     - target: {fileID: 1876404505274481360, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
       propertyPath: m_FontData.m_MaxSize
@@ -4638,7 +4638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1876404505274481362, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
       propertyPath: m_Name
-      value: her
+      value: hers
       objectReference: {fileID: 0}
     - target: {fileID: 1876404505274481363, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4670,7 +4670,7 @@ PrefabInstance:
       objectReference: {fileID: 1689498957}
     - target: {fileID: 8390917564258779793, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
       propertyPath: word
-      value: her
+      value: hers
       objectReference: {fileID: 0}
     - target: {fileID: 8390917564258779793, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
       propertyPath: manager
@@ -4678,7 +4678,7 @@ PrefabInstance:
       objectReference: {fileID: 2045828165}
     m_RemovedComponents:
     - {fileID: 4541134448008722536, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
-    - {fileID: 3437311802255197934, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
 --- !u!224 &1689498954 stripped
 RectTransform:
@@ -5685,7 +5685,7 @@ PrefabInstance:
       objectReference: {fileID: 2045828165}
     m_RemovedComponents:
     - {fileID: 4541134448008722536, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
-    - {fileID: 3437311802255197934, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
 --- !u!224 &1997373223 stripped
 RectTransform:
@@ -5834,7 +5834,7 @@ PrefabInstance:
     - target: {fileID: 1780009487682904858, guid: c5bcff985bac9cc41a1191b6a877deb3, type: 3}
       propertyPath: answerButtons.Array.data[1]
       value: 
-      objectReference: {fileID: 1689498957}
+      objectReference: {fileID: 887752329}
     - target: {fileID: 1780009487682904858, guid: c5bcff985bac9cc41a1191b6a877deb3, type: 3}
       propertyPath: answerButtons.Array.data[2]
       value: 
@@ -5897,7 +5897,8 @@ MonoBehaviour:
   - {fileID: 1689498957}
   - {fileID: 1664941385}
   buttonPositions: []
-  targetSequence: 010000000600000003000000
+  targetSequence: 010000000200000003000000
+  clickedSet: 
   nextSceneIndex: 19
 --- !u!224 &2089764313 stripped
 RectTransform:
@@ -6101,7 +6102,7 @@ PrefabInstance:
       objectReference: {fileID: 2045828165}
     m_RemovedComponents:
     - {fileID: 4541134448008722536, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
-    - {fileID: 3437311802255197934, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
 --- !u!224 &2111226992 stripped
 RectTransform:
@@ -6327,11 +6328,7 @@ PrefabInstance:
       propertyPath: word
       value: make
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 3437311802255197934, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 772e037cdceaf6f46b809c0c00a88fd4, type: 3}
 --- !u!224 &2136230348 stripped
 RectTransform:

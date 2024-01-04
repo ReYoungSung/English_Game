@@ -8,7 +8,7 @@ public class ButtonGame : MonoBehaviour
     public List<Button> buttons; // 버튼 리스트
     public List<Vector3> buttonPositions; // 버튼 위치 리스트
     public List<int> targetSequence; // 지정한 번호 순서 리스트
-    private HashSet<int> clickedSet = new HashSet<int>(); // 클릭한 번호를 저장하는 HashSet
+    public List<int> clickedSet = new List<int>(); // 클릭한 번호를 저장하는 HashSet 
     public int nextSceneIndex; // 다음 씬의 인덱스 번호를 설정
 
     void Start() 
@@ -19,15 +19,8 @@ public class ButtonGame : MonoBehaviour
             PlayerPrefs.DeleteKey("CorrectClickCount");
         }
 
-        // 버튼 클릭 이벤트를 각 버튼에 추가
-        for (int i = 0; i < buttons.Count; i++)
-        {
-            int buttonNumber = i + 1; // 버튼의 번호 (1부터 시작)
-            buttons[i].onClick.AddListener(() => OnButtonClick(buttonNumber));
-        }
-
         // 버튼 위치 정보를 초기화
-        InitializeButtonPositions();
+        InitializeButtonPositions(); 
 
         // 버튼들을 랜덤하게 섞기
         ShuffleButtons();
@@ -46,7 +39,7 @@ public class ButtonGame : MonoBehaviour
 
     void ShuffleButtons()
     {
-        int buttonCount = buttons.Count;
+        int buttonCount = buttons.Count; 
 
         // 버튼 위치를 섞기 위해 Fisher-Yates 알고리즘 사용
         for (int i = buttonCount - 1; i > 0; i--)
@@ -72,14 +65,15 @@ public class ButtonGame : MonoBehaviour
         clickedSet.Add(buttonNumber);
 
         // 버튼을 누를 때마다 현재까지의 클릭 순서와 정답 순서를 비교
-        if (clickedSet.Count == targetSequence.Count)
+        if (clickedSet.Count == targetSequence.Count) 
         {
             if (IsCorrectSequence())
             {
                 // 정답인 경우
-                PlayerPrefs.DeleteKey("CorrectClickCount");
+                PlayerPrefs.DeleteKey("CorrectClickCount"); 
 
-                Debug.Log("정답입니다.");
+                Debug.Log("정답입니다."); 
+
                 // 다음 씬으로 전환
                 LoadNextScene();
 
@@ -102,19 +96,19 @@ public class ButtonGame : MonoBehaviour
     }
 
     bool IsCorrectSequence()
-    {
+    {   
         if (clickedSet.Count != targetSequence.Count)
             return false;
 
         for (int i = 0; i < targetSequence.Count; i++)
         {
-            if (!clickedSet.Contains(targetSequence[i]))
+            if (clickedSet[i] != targetSequence[i])
             {
                 return false;
             }
         }
-        return true;
-    }
+        return true; 
+    }   
 
     void ReloadScene()
     {
