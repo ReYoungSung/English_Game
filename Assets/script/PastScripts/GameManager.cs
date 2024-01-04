@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         // 버튼과 해당 버튼의 단어를 딕셔너리에 추가  
         InitializeButtonWords(); 
 
-        // UI 초기화
+        // UI 초기화  
         UpdateOutputText(); 
     }
 

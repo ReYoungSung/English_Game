@@ -11,7 +11,7 @@ public class ButtonGame : MonoBehaviour
     private HashSet<int> clickedSet = new HashSet<int>(); // 클릭한 번호를 저장하는 HashSet
     public int nextSceneIndex; // 다음 씬의 인덱스 번호를 설정
 
-    void Start()
+    void Start() 
     {
         // 이전에 눌렀던 정답을 PlayerPrefs에서 읽어옴
         if (PlayerPrefs.HasKey("CorrectClickCount"))
@@ -53,7 +53,7 @@ public class ButtonGame : MonoBehaviour
         {
             int randomIndex = UnityEngine.Random.Range(0, i + 1);
 
-            // 현재 버튼 위치와 랜덤하게 선택된 버튼 위치를 교환
+            // 현재 버튼 위치와 랜덤하게 선택된 버튼 위치를 교환,ll
             Vector3 tempPosition = buttonPositions[i];
             buttonPositions[i] = buttonPositions[randomIndex];
             buttonPositions[randomIndex] = tempPosition;
@@ -123,7 +123,7 @@ public class ButtonGame : MonoBehaviour
 
     void LoadNextScene()
     {
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings) 
         {
             SceneManager.LoadScene(nextSceneIndex);
         }

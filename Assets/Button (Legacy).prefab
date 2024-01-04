@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   word: 
-  manager: {fileID: 1780009487682904858, guid: c5bcff985bac9cc41a1191b6a877deb3, type: 3}
 --- !u!65 &8034402778787662411
 BoxCollider:
   m_ObjectHideFlags: 0
