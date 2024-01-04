@@ -754,6 +754,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674619978}
   m_CullTransparentMesh: 1
+--- !u!1001 &1799071098
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8271489538812492680, guid: 56344472de07ea1449d36962eae67577, type: 3}
+      propertyPath: m_Name
+      value: ButtonManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271489538812492682, guid: 56344472de07ea1449d36962eae67577, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271489538812492682, guid: 56344472de07ea1449d36962eae67577, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0018141232
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271489538812492682, guid: 56344472de07ea1449d36962eae67577, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.021845434
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271489538812492682, guid: 56344472de07ea1449d36962eae67577, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.033123445
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271489538812492682, guid: 56344472de07ea1449d36962eae67577, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271489538812492682, guid: 56344472de07ea1449d36962eae67577, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271489538812492682, guid: 56344472de07ea1449d36962eae67577, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271489538812492682, guid: 56344472de07ea1449d36962eae67577, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271489538812492682, guid: 56344472de07ea1449d36962eae67577, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271489538812492682, guid: 56344472de07ea1449d36962eae67577, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271489538812492682, guid: 56344472de07ea1449d36962eae67577, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56344472de07ea1449d36962eae67577, type: 3}
+--- !u!114 &1799071099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8271489538812492683, guid: 56344472de07ea1449d36962eae67577, type: 3}
+  m_PrefabInstance: {fileID: 1799071098}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88621a4c0ea6ed4d9bbf14533c0537c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1858545985
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,7 +834,6 @@ GameObject:
   - component: {fileID: 1858545989}
   - component: {fileID: 1858545988}
   - component: {fileID: 1858545987}
-  - component: {fileID: 1858545990}
   - component: {fileID: 1858545991}
   m_Layer: 5
   m_Name: chapterbtn
@@ -840,16 +907,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1858545990}
+      - m_Target: {fileID: 1799071099}
         m_TargetAssemblyTypeName: OnMouseDown_SwitchScene, Assembly-CSharp
-        m_MethodName: OnMouseDown
-        m_Mode: 1
+        m_MethodName: LoadOtherScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: chapterMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1858545988
@@ -890,19 +957,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858545985}
   m_CullTransparentMesh: 1
---- !u!114 &1858545990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858545985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a88621a4c0ea6ed4d9bbf14533c0537c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: chapter
 --- !u!61 &1858545991
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -6,27 +6,27 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Text outputText; // 단어 출력을 위한 UI 텍스트
-    private List<string> receivedWords = new List<string>(); // 전달받은 단어 저장 리스트
+    private List<string> receivedWords = new List<string>(); // 전달받은 단어 저장 리스트 
     public Text messageText; // 메시지를 표시할 UI 텍스트
 
     public List<Button> answerButtons; // 정답 버튼 리스트
-    private List<Button> clickedButtons = new List<Button>(); // 클릭한 버튼을 저장할 리스트
+    private List<Button> clickedButtons = new List<Button>(); // 클릭한 버튼을 저장할 리스트 
 
     
     // 버튼들의 단어를 관리하기 위한 딕셔너리
-    private Dictionary<Button, string> buttonWords = new Dictionary<Button, string>();
-
+    private Dictionary<Button, string> buttonWords = new Dictionary<Button, string>(); 
+     
     private void Start()
     {
-        // 버튼과 해당 버튼의 단어를 딕셔너리에 추가
-        InitializeButtonWords();
+        // 버튼과 해당 버튼의 단어를 딕셔너리에 추가  
+        InitializeButtonWords(); 
 
         // UI 초기화
-        UpdateOutputText();
+        UpdateOutputText(); 
     }
 
     // 버튼들의 단어를 딕셔너리에 추가
-    private void InitializeButtonWords()
+    private void InitializeButtonWords() 
     {
         foreach (Button button in answerButtons)
         {

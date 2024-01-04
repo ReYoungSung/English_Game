@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class OnMouseDown_SwitchScene : MonoBehaviour
 {
-    public string sceneName;  // 씬 이름：Inspector에 지정
-
     void Start()
     {
         // 게임 시작 시 PlayerPrefs에 저장된 모든 데이터 삭제
@@ -15,7 +13,7 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(SceneOption.Instance.ChapterNum + " / " + SceneOption.Instance.UnitNum);
+        Debug.Log("챕터 번호:"+SceneOption.Instance.ChapterNum + " | 유닛 번호:"+ SceneOption.Instance.UnitNum);
     }
 
     public void ChangeChapter(int a)  
@@ -28,7 +26,7 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         SceneOption.Instance.UnitNum = b; 
     }
 
-    public void LoadOtherScene() 
+    public void LoadOtherScene(string sceneName) 
     {
         // 씬을 전환한다
         SceneManager.LoadScene(sceneName); 
