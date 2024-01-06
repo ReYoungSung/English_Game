@@ -21,7 +21,7 @@ public class ButtonGame : MonoBehaviour
     void Start() 
     {
         // UI 초기화  
-        UpdateOutputText();
+        UpdateOutputText(); 
 
         // 이전에 눌렀던 정답을 PlayerPrefs에서 읽어옴 
         if (PlayerPrefs.HasKey("CorrectClickCount"))

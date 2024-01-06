@@ -1,0 +1,4 @@
+repository "EnglishGame@BalGaLak@cloud"
+  path "/"
+    br "/main"
+    co "/main"

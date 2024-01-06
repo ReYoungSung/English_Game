@@ -9,7 +9,7 @@ public class SceneOption : MonoBehaviour
 
     public int ChapterNum = 1;
     public int UnitNum = 1;
-
+     
     public int CurrentLevelNumber = 0;
 
     public List<int> UnlockedStageList = new List<int>();
