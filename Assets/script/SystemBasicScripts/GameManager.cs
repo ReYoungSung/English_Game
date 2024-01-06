@@ -49,20 +49,20 @@ public class GameManager : MonoBehaviour
     {
         //현재 챕터와 유닛을 불러옴
         koreanText.text = Korean_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString();   
-        englishText.text = English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Replace("/", " ");  
+        englishText.text = English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Replace("/", " ");   
 
         //영어 문장을 /로 나누어서 리스트에 삽입
-        listOfAnswer = new List<string>(English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split('/'));   
-        listOfFake = new List<string>(FakeWord_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split('&'));  
+        listOfAnswer = new List<string>(English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split('/'));    
+        listOfFake = new List<string>(FakeWord_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split('&'));   
 
         // A 리스트의 모든 요소를 먼저 다른 리스트에 추가합니다.
-        combinedList = new List<string>(listOfAnswer); 
+        combinedList = new List<string>(listOfAnswer);   
+
         // B 리스트의 요소를 추가하면서 combinedList의 크기가 8이 되도록 제한합니다.
-        for (int i = 0; combinedList.Count < 8 && i < listOfFake.Count; i++) 
+        for (int i = 0; combinedList.Count < 8 && i < listOfFake.Count; i++)   
         {
             combinedList.Add(listOfFake[i]);
         }
-
 
         SetButtonTexts();
     }
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
     private void SetButtonTexts()
     {
         // 각 버튼에 텍스트 할당
-        for (int i = 0; i < this.GetComponent<ButtonGame>().buttons.Count; i++)
+        for (int i = 0; i < this.GetComponent<ButtonGame>().buttons.Count; i++)  
         {
             // i가 combinedList의 인덱스 범위 내에 있는지 확인
             if (i < combinedList.Count)
@@ -79,5 +79,10 @@ public class GameManager : MonoBehaviour
                 this.GetComponent<ButtonGame>().buttons[i].GetComponentInChildren<Text>().text = combinedList[i];
             }
         }
+    }
+
+    public void SetFinalLevel()
+    {
+        SceneOption.Instance.CurrentLevelNumber = 14;
     }
 }

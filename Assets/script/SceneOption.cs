@@ -38,6 +38,7 @@ public class SceneOption : MonoBehaviour
     public void LoadGameData()  
     {
         UnlockedStageList.Clear(); //기존 데이터 refresh
+        CurrentLevelNumber = 0; //스테이지 레벨 초기화 
 
         if (PlayerPrefs.HasKey("UnlockedChapterNum") || PlayerPrefs.HasKey("UnlockedFinalUnitNum"))  //플레이 데이터가 있을 경우 최종 클리어결과만큼 해금   
         {
