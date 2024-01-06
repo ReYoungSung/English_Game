@@ -3876,7 +3876,6 @@ GameObject:
   - component: {fileID: 243969547}
   - component: {fileID: 243969546}
   - component: {fileID: 243969545}
-  - component: {fileID: 243969548}
   m_Layer: 0
   m_Name: chapter
   m_TagString: Untagged
@@ -3999,18 +3998,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243969542}
   m_CullTransparentMesh: 1
---- !u!114 &243969548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243969542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a88621a4c0ea6ed4d9bbf14533c0537c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &245034461
 GameObject:
   m_ObjectHideFlags: 0
@@ -14124,7 +14111,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 596778994}
         m_TargetAssemblyTypeName: OnMouseDown_SwitchScene, Assembly-CSharp
-        m_MethodName: LoadOtherScene
+        m_MethodName: SellectLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22004,7 +21991,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 601119550}
+      - m_Target: {fileID: 1724703719}
         m_TargetAssemblyTypeName: ObjectSwitch, Assembly-CSharp
         m_MethodName: SwitchObject
         m_Mode: 1

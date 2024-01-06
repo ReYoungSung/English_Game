@@ -6,7 +6,8 @@ public class Exit : MonoBehaviour
 {
     public void OnClickExit()
     {
-        Application.Quit();
         Debug.Log("Button Click");
+        SceneOption.Instance.SaveGameData(); 
+        Application.Quit();
     }
 }

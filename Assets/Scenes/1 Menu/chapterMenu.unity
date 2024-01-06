@@ -214,10 +214,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302002916}
     m_Modifications:
-    - target: {fileID: 3714647785209348546, guid: 625544836aa87da498450552bb5c3c74, type: 3}
-      propertyPath: chapterNum
-      value: 8
-      objectReference: {fileID: 0}
+    - target: {fileID: 4893918233265749137, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 934589643, guid: 378ceadd9f282c241895479712f6bcfe, type: 3}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -233,7 +233,7 @@ PrefabInstance:
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1155120811}
+      objectReference: {fileID: 640789788}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -248,7 +248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadOtherScene
+      value: SellectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -372,10 +372,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302002916}
     m_Modifications:
-    - target: {fileID: 3714647785209348546, guid: 625544836aa87da498450552bb5c3c74, type: 3}
-      propertyPath: chapterNum
-      value: 2
-      objectReference: {fileID: 0}
+    - target: {fileID: 4893918233265749137, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1746097289, guid: 378ceadd9f282c241895479712f6bcfe, type: 3}
+    - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 139835615}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -391,7 +395,7 @@ PrefabInstance:
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1155120811}
+      objectReference: {fileID: 640789788}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -406,7 +410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadOtherScene
+      value: SellectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -523,6 +527,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4893918233265749141, guid: 625544836aa87da498450552bb5c3c74, type: 3}
   m_PrefabInstance: {fileID: 139835613}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &139835615 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4893918233265749137, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+  m_PrefabInstance: {fileID: 139835613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &173390132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -530,10 +545,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302002916}
     m_Modifications:
-    - target: {fileID: 3714647785209348546, guid: 625544836aa87da498450552bb5c3c74, type: 3}
-      propertyPath: chapterNum
-      value: 6
-      objectReference: {fileID: 0}
+    - target: {fileID: 4893918233265749137, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1193032914, guid: 378ceadd9f282c241895479712f6bcfe, type: 3}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -549,7 +564,7 @@ PrefabInstance:
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1155120811}
+      objectReference: {fileID: 640789788}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -564,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadOtherScene
+      value: SellectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -772,10 +787,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302002916}
     m_Modifications:
-    - target: {fileID: 3714647785209348546, guid: 625544836aa87da498450552bb5c3c74, type: 3}
-      propertyPath: chapterNum
-      value: 10
-      objectReference: {fileID: 0}
+    - target: {fileID: 4893918233265749137, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1196236771, guid: 378ceadd9f282c241895479712f6bcfe, type: 3}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -791,7 +806,7 @@ PrefabInstance:
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1155120811}
+      objectReference: {fileID: 640789788}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -806,7 +821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadOtherScene
+      value: SellectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -930,10 +945,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302002916}
     m_Modifications:
-    - target: {fileID: 3714647785209348546, guid: 625544836aa87da498450552bb5c3c74, type: 3}
-      propertyPath: chapterNum
-      value: 11
-      objectReference: {fileID: 0}
+    - target: {fileID: 4893918233265749137, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2073807819, guid: 378ceadd9f282c241895479712f6bcfe, type: 3}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -949,7 +964,7 @@ PrefabInstance:
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1155120811}
+      objectReference: {fileID: 640789788}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -964,7 +979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadOtherScene
+      value: SellectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -1088,10 +1103,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302002916}
     m_Modifications:
-    - target: {fileID: 3714647785209348546, guid: 625544836aa87da498450552bb5c3c74, type: 3}
-      propertyPath: chapterNum
-      value: 9
-      objectReference: {fileID: 0}
+    - target: {fileID: 4893918233265749137, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1933581176, guid: 378ceadd9f282c241895479712f6bcfe, type: 3}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1107,7 +1122,7 @@ PrefabInstance:
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1155120811}
+      objectReference: {fileID: 640789788}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1122,7 +1137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadOtherScene
+      value: SellectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -1314,10 +1329,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302002916}
     m_Modifications:
-    - target: {fileID: 3714647785209348546, guid: 625544836aa87da498450552bb5c3c74, type: 3}
-      propertyPath: chapterNum
-      value: 3
-      objectReference: {fileID: 0}
+    - target: {fileID: 4893918233265749137, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1183118182, guid: 378ceadd9f282c241895479712f6bcfe, type: 3}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1333,7 +1348,7 @@ PrefabInstance:
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1155120811}
+      objectReference: {fileID: 640789788}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1348,7 +1363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadOtherScene
+      value: SellectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -1725,10 +1740,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302002916}
     m_Modifications:
-    - target: {fileID: 3714647785209348546, guid: 625544836aa87da498450552bb5c3c74, type: 3}
-      propertyPath: chapterNum
-      value: 7
-      objectReference: {fileID: 0}
+    - target: {fileID: 4893918233265749137, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1760750301, guid: 378ceadd9f282c241895479712f6bcfe, type: 3}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1744,7 +1759,7 @@ PrefabInstance:
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1155120811}
+      objectReference: {fileID: 640789788}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1759,7 +1774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadOtherScene
+      value: SellectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -1883,10 +1898,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302002916}
     m_Modifications:
-    - target: {fileID: 3714647785209348546, guid: 625544836aa87da498450552bb5c3c74, type: 3}
-      propertyPath: chapterNum
-      value: 5
-      objectReference: {fileID: 0}
+    - target: {fileID: 4893918233265749137, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1542291874, guid: 378ceadd9f282c241895479712f6bcfe, type: 3}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1902,7 +1917,7 @@ PrefabInstance:
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1155120811}
+      objectReference: {fileID: 640789788}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1917,7 +1932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadOtherScene
+      value: SellectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -2039,17 +2054,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4893918233265749141, guid: 625544836aa87da498450552bb5c3c74, type: 3}
   m_PrefabInstance: {fileID: 4893918234266632767}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1155120811 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3714647785209348546, guid: 625544836aa87da498450552bb5c3c74, type: 3}
-  m_PrefabInstance: {fileID: 4893918234266632767}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a88621a4c0ea6ed4d9bbf14533c0537c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1302002915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2219,10 +2223,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302002916}
     m_Modifications:
-    - target: {fileID: 3714647785209348546, guid: 625544836aa87da498450552bb5c3c74, type: 3}
-      propertyPath: chapterNum
-      value: 12
-      objectReference: {fileID: 0}
+    - target: {fileID: 4893918233265749137, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1897303405, guid: 378ceadd9f282c241895479712f6bcfe, type: 3}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -2238,7 +2242,7 @@ PrefabInstance:
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1155120811}
+      objectReference: {fileID: 640789788}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2253,7 +2257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadOtherScene
+      value: SellectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -2446,10 +2450,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302002916}
     m_Modifications:
-    - target: {fileID: 3714647785209348546, guid: 625544836aa87da498450552bb5c3c74, type: 3}
-      propertyPath: chapterNum
-      value: 4
-      objectReference: {fileID: 0}
+    - target: {fileID: 4893918233265749137, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -843930015, guid: 378ceadd9f282c241895479712f6bcfe, type: 3}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -2465,7 +2469,7 @@ PrefabInstance:
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1155120811}
+      objectReference: {fileID: 640789788}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2480,7 +2484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadOtherScene
+      value: SellectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -2853,10 +2857,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302002916}
     m_Modifications:
-    - target: {fileID: 3714647785209348546, guid: 625544836aa87da498450552bb5c3c74, type: 3}
-      propertyPath: chapterNum
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 4893918233265749137, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -326106632, guid: 378ceadd9f282c241895479712f6bcfe, type: 3}
+    - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 139835615}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -2872,7 +2880,7 @@ PrefabInstance:
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1155120811}
+      objectReference: {fileID: 640789788}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2887,7 +2895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: LoadOtherScene
+      value: SellectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4893918233265749138, guid: 625544836aa87da498450552bb5c3c74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
