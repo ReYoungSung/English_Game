@@ -881,11 +881,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 3cbfea07-08e0-41db-b769-59875cb08e8a
+  cloudProjectId: 9543ec18-e4d6-476e-b064-7923db0c689c
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: ballongame
-  organizationId: minyoung0302
+  organizationId: leeyoungsung
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
