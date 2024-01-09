@@ -31,11 +31,10 @@ public class RunningTime : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        string currentSceneName = scene.name;
-        if (scenesToDeleteTimer.Contains(currentSceneName))
+        if (scenesToDeleteTimer.Contains(scene.name))
         {
             // 특정 씬에 도달하면 타이머 오브젝트 삭제
-            Destroy(transform.root.gameObject);
+            Destroy(transform.root.gameObject); 
         }
     }
 
@@ -59,7 +58,7 @@ public class RunningTime : MonoBehaviour
                 // 현재 씬이 타이머 오브젝트를 삭제해야 하는 씬 리스트에 포함된 경우
                 Destroy(transform.root.gameObject); // 타이머 오브젝트 삭제
             }
-            else
+            else 
             {
                 isTimerRunning = false; // 타이머 중지
                 // 여기에서 시간을 기록하거나 필요한 작업을 수행합니다.
