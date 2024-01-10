@@ -38,15 +38,15 @@ public class ChapterButtonManager : MonoBehaviour
 
     public void ShowPopup()
     {
-        if (SceneOption.Instance.ChapterNum <= PlayerPrefs.GetInt("UnlockedChapterNum"))
+        if (SceneOption.Instance.ChapterNum <= PlayerPrefs.GetInt("UnlockedChapterNum"))  
         {
             // 팝업 창을 활성화
-            popup.SetActive(true);
+            popup.SetActive(true);     
         }
         else
         {
-            Debug.Log("아직 입장할 수 없습니다");
-            ClosePopup();
+            Debug.Log("아직 입장할 수 없습니다");   
+            ClosePopup();    
         }
     }
 
