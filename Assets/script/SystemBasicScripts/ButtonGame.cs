@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
+
 public class ButtonGame : MonoBehaviour
 {
     public Text outputText; // 단어 출력을 위한 UI 텍스트
@@ -17,6 +18,9 @@ public class ButtonGame : MonoBehaviour
     public int nextLevel = 0; // 다음 씬의 번호를 설정
 
     private int answerPoint = 0;
+
+    [SerializeField] private GameObject FailImage;
+    [SerializeField] private GameObject thunderImage;
 
     void Start() 
     {
@@ -99,7 +103,9 @@ public class ButtonGame : MonoBehaviour
             // 잘못된 순서
             Debug.Log("잘못된 선택입니다.");
 
-            StartCoroutine(ReLoadThisScene());
+
+
+            StartCoroutine(FailFeedbackAction());
         }
         else
         {
@@ -158,9 +164,13 @@ public class ButtonGame : MonoBehaviour
         }
     }
 
-    private IEnumerator ReLoadThisScene()
+    private IEnumerator FailFeedbackAction()
     {
-        yield return new WaitForSeconds(1.5f);
+        FailImage.SetActive(true);
+        StartCoroutine(FadeInCoroutine());
+        StartCoroutine(CycleBrightness());
+
+        yield return new WaitForSeconds(2f);
 
         // 클릭한 순서 초기화
         clickedSet.Clear();
@@ -168,7 +178,56 @@ public class ButtonGame : MonoBehaviour
         ReloadScene();
     }
 
-        public void ReceiveWord(string word)
+    private IEnumerator FadeInCoroutine()
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < 1f)
+        {
+            // 현재 시간에 따라 알파 값을 업데이트
+            Color currentColor = FailImage.GetComponent<Image>().color;
+            currentColor.a = Mathf.Lerp(0f, 0.8f, elapsedTime / 1f);
+            FailImage.GetComponent<Image>().color = currentColor;
+
+            // 경과 시간 업데이트
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        // 알파 값이 목표 값으로 도달하도록 보장
+        Color finalColor = FailImage.GetComponent<Image>().color;
+        finalColor.a = 0.8f;
+        FailImage.GetComponent<Image>().color = finalColor; 
+    }
+
+    IEnumerator CycleBrightness()
+    {
+        while (true) // 무한 반복
+        {
+            float elapsedTime = 0f;
+
+            // 0에서 1까지 명도를 0.2초 간격으로 반복
+            while (elapsedTime < 0.2f)
+            {
+                float currentBrightness = Mathf.PingPong(Time.time / 0.2f, 0.5f) * 2f; // 0에서 1까지 반복
+                float brightnessValue = currentBrightness * 100f; // 0에서 100으로 변환
+                SetBrightness(brightnessValue);
+
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+        }
+    }
+
+    void SetBrightness(float brightness)
+    {
+        Color originalColor = thunderImage.GetComponent<Image>().color;
+        Color newColor = new Color(originalColor.r, originalColor.g, originalColor.b, brightness / 100f);
+        thunderImage.GetComponent<Image>().color = newColor;
+    }
+
+    public void ReceiveWord(string word)
     {
         receivedWords.Add(word); // 단어 저장
         UpdateOutputText(); // 출력 업데이트
