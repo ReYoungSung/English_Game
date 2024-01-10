@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class OnMouseDown_SwitchScene : MonoBehaviour
 {
+    public Animator playUI;
+    public Animator stateUI;
     private void Start()
     {
+
         SceneOption.Instance.LoadGameData(); //버튼 클릭 전에 현재 입장 가능 스테이지 정보 업데이트
     }
 
@@ -25,6 +30,11 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         SceneOption.Instance.UnitNum = b; 
     }
 
+    public void StartUIMove(){
+        stateUI.SetBool("PlayButtonOnClick",true);
+        playUI.SetBool("PlayButtonOnClick",true);
+        
+    }
     public void LoadOtherScene(string sceneName) 
     {
         SceneManager.LoadScene(sceneName); 
