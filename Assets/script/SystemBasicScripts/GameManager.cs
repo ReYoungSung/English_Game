@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
         //영어 문장을 /로 나누어서 리스트에 삽입
         listOfAnswer = new List<string>(English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split('/'));    
-        listOfFake = new List<string>(FakeWord_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split('&'));   
+        listOfFake = new List<string>(FakeWord_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split(','));   
 
         // A 리스트의 모든 요소를 먼저 다른 리스트에 추가합니다.
         combinedList = new List<string>(listOfAnswer);   
