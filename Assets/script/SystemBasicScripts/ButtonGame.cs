@@ -75,7 +75,7 @@ public class ButtonGame : MonoBehaviour
         }
     }
 
-    public void OnButtonClick(Button button)  
+    public void OnButtonClick(Button button)   
     {
         button.interactable = false;
         clickedSet.Add(button);
@@ -99,10 +99,7 @@ public class ButtonGame : MonoBehaviour
             // 잘못된 순서
             Debug.Log("잘못된 선택입니다.");
 
-            // 클릭한 순서 초기화
-            clickedSet.Clear();
-            // 현재 씬을 다시 로드하여 재시작
-            ReloadScene();
+            StartCoroutine(ReLoadThisScene());
         }
         else
         {
@@ -161,7 +158,17 @@ public class ButtonGame : MonoBehaviour
         }
     }
 
-    public void ReceiveWord(string word)
+    private IEnumerator ReLoadThisScene()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        // 클릭한 순서 초기화
+        clickedSet.Clear();
+        // 현재 씬을 다시 로드하여 재시작
+        ReloadScene();
+    }
+
+        public void ReceiveWord(string word)
     {
         receivedWords.Add(word); // 단어 저장
         UpdateOutputText(); // 출력 업데이트
