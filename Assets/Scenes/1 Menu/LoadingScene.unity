@@ -423,8 +423,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370134542}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8904, y: -1.3444, z: 100}
-  m_LocalScale: {x: 0.18319663, y: 0.21147281, z: 1}
+  m_LocalPosition: {x: -0.9607, y: -1.3268, z: 100}
+  m_LocalScale: {x: 0.18457063, y: 0.21221296, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1265031279}
@@ -870,6 +870,14 @@ PrefabInstance:
     - target: {fileID: 6133154170195473494, guid: bb8df7348f1e4ff498df1c719ba96dea, type: 3}
       propertyPath: m_Colors.m_DisabledColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6133154170195473494, guid: bb8df7348f1e4ff498df1c719ba96dea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 95613903}
+    - target: {fileID: 6133154170195473494, guid: bb8df7348f1e4ff498df1c719ba96dea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadOtherScene
       objectReference: {fileID: 0}
     - target: {fileID: 6133154170195473514, guid: bb8df7348f1e4ff498df1c719ba96dea, type: 3}
       propertyPath: m_Name
