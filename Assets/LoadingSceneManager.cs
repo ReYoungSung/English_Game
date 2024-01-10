@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class LoadingSceneManager : MonoBehaviour
 {
-    public Slider slider;
+    [SerializeField] private GameObject slider;
     public SpriteRenderer backgroundSpriteRenderer;
     public float fillDuration = 3f; // 슬라이더를 채우는 데 걸리는 시간
     public float fadeDuration = 1f; // 배경이 어두워지는 데 걸리는 시간
     private float minBrightness = 0.2f; // 최소 명도값 (어두워질 정도)
+
+    [SerializeField] private GameObject StartButton;
 
     void Start()
     {
@@ -26,7 +28,7 @@ public class LoadingSceneManager : MonoBehaviour
     void InitializeSlider()
     {
         // 슬라이더 초기값 설정
-        slider.value = slider.minValue;
+        slider.GetComponent<Slider>().value = slider.GetComponent<Slider>().minValue;
     }
 
     IEnumerator FadeBackgroundOverTime()
@@ -56,13 +58,13 @@ public class LoadingSceneManager : MonoBehaviour
         yield return new WaitForSeconds(fadeDuration);
 
         float elapsedTime = 0f;
-        float startValue = slider.value;
-        float endValue = slider.maxValue;
+        float startValue = slider.GetComponent<Slider>().value;
+        float endValue = slider.GetComponent<Slider>().maxValue;
 
         while (elapsedTime < fillDuration)
         {
             // 현재 시간에 따라 슬라이더 값을 업데이트
-            slider.value = Mathf.Lerp(startValue, endValue, elapsedTime / fillDuration);
+            slider.GetComponent<Slider>().value = Mathf.Lerp(startValue, endValue, elapsedTime / fillDuration);  
 
             // 경과 시간 업데이트
             elapsedTime += Time.deltaTime;
@@ -71,7 +73,10 @@ public class LoadingSceneManager : MonoBehaviour
         }
 
         // 슬라이더가 완전히 채워지도록 보장
-        slider.value = endValue;
-        SceneManager.LoadScene("stage_unit"); // 적절한 씬 이름으로 변경
+        slider.GetComponent<Slider>().value = endValue;  
+
+        yield return new WaitForSeconds(0.5f);  
+        slider.SetActive(false);  
+        StartButton.SetActive(true);  
     }
 }

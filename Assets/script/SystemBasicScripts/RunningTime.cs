@@ -11,7 +11,7 @@ public class RunningTime : MonoBehaviour
     private float startTime;
     private bool isTimerRunning = true; // 타이머가 실행 중인지 여부
 
-    private static RunningTime instance;  
+    private static RunningTime instance;
 
     private void Awake()
     {
@@ -21,12 +21,12 @@ public class RunningTime : MonoBehaviour
             DontDestroyOnLoad(transform.root.gameObject); // 타이머 오브젝트를 삭제하지 않도록 설정 
             SceneManager.sceneLoaded += OnSceneLoaded; // 씬 로딩 이벤트에 대한 구독 
         }
-        else 
+        else
         {
-            Destroy(gameObject);
+            Destroy(transform.root.gameObject);
         }
 
-        startTime = Time.time; // 씬이 시작될 때 시간 기록 
+        startTime = Time.time; // 씬이 시작될 때 시간 기록  
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -34,7 +34,7 @@ public class RunningTime : MonoBehaviour
         if (scenesToDeleteTimer.Contains(scene.name))
         {
             // 특정 씬에 도달하면 타이머 오브젝트 삭제
-            Destroy(transform.root.gameObject); 
+            Destroy(transform.root.gameObject);
         }
     }
 
@@ -45,7 +45,7 @@ public class RunningTime : MonoBehaviour
             float elapsedTime = Time.time - startTime;
 
             // 시간을 텍스트로 변환하여 화면에 표시
-            string timeString = " " + elapsedTime.ToString("F2"); // 소수점 둘째 자리까지 표시
+            string timeString = FormatTime(elapsedTime);
             timeText.text = timeString;
         }
 
@@ -58,11 +58,26 @@ public class RunningTime : MonoBehaviour
                 // 현재 씬이 타이머 오브젝트를 삭제해야 하는 씬 리스트에 포함된 경우
                 Destroy(transform.root.gameObject); // 타이머 오브젝트 삭제
             }
-            else 
+            else
             {
                 isTimerRunning = false; // 타이머 중지
                 // 여기에서 시간을 기록하거나 필요한 작업을 수행합니다.
             }
+        }
+    }
+
+    private string FormatTime(float timeInSeconds)
+    {
+        int minutes = Mathf.FloorToInt(timeInSeconds / 60);
+        int seconds = Mathf.FloorToInt(timeInSeconds % 60);
+
+        if (timeInSeconds >= 6000f)
+        {
+            return string.Format("{0:000}:{1:00}", minutes, seconds);
+        }
+        else
+        {
+            return string.Format("{0:00}:{1:00}", minutes, seconds);
         }
     }
 }
