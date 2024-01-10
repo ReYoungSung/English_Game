@@ -4,6 +4,7 @@ using UnityEditor.Animations;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class OnMouseDown_SwitchScene : MonoBehaviour
 {
@@ -49,5 +50,19 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
             SceneManager.LoadScene(sceneName);
         else
             Debug.Log("아직 입장할 수 없습니다");
+    }
+
+    // 팝업을 표시하기 위한 함수
+    public void ShowPopup(GameObject popup)
+    {
+        // 팝업 창을 활성화
+        popup.SetActive(true);
+    }
+
+    // 팝업 창을 닫기 위한 함수
+    public void ClosePopup(GameObject popup) 
+    {
+        // 팝업 창을 비활성화
+        popup.SetActive(false);
     }
 }
