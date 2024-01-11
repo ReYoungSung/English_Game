@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System;
 
 public class GameManager : MonoBehaviour
 {   
@@ -45,26 +46,43 @@ public class GameManager : MonoBehaviour
         messageText.text = message;  
     }
 
-    private void UpdateStage() 
+    private void UpdateStage()
     {
         //현재 챕터와 유닛을 불러옴
-        koreanText.text = Korean_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString();   
-        englishText.text = English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Replace("/", " ");   
+        koreanText.text = Korean_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString();
+        englishText.text = English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Replace("/", " ");
 
         //영어 문장을 /로 나누어서 리스트에 삽입    
-        listOfAnswer = new List<string>(English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split('/'));    
-        listOfFake = new List<string>(FakeWord_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split('&'));   
+        if (English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Contains("/"))
+            listOfAnswer = new List<string>(English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries));
+        else
+            listOfAnswer = new List<string>(English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
 
-        // A 리스트의 모든 요소를 먼저 다른 리스트에 추가합니다.  
+        listOfFake = new List<string>(FakeWord_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split('&'));    
+
+        // A 리스트의 모든 요소를 먼저 다른 리스트에 추가합니다.      
         combinedList = new List<string>(listOfAnswer);    
 
-        // B 리스트의 요소를 추가하면서 combinedList의 크기가 8이 되도록 제한합니다.  
+        // B 리스트의 요소를 추가하면서 combinedList의 크기가 8이 되도록 제한합니다.       
         for (int i = 0; combinedList.Count < 8 && i < listOfFake.Count; i++)     
         {
             combinedList.Add(listOfFake[i]);
         }
 
         SetButtonTexts();
+    }
+
+    // 영어나 기호가 아닌지 확인하는 메서드
+    bool IsEnglishOrSymbol(string s)
+    {
+        foreach (char c in s)
+        {
+            if (!(char.IsLetter(c) || char.IsSymbol(c)))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void SetButtonTexts()

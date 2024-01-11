@@ -119,6 +119,5 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
 
         upUI.SetBool("QuickPlayButtonOnClick", true);
         scrollUI.SetBool("QuickPlayButtonOnClick", true);
-
     }
 }

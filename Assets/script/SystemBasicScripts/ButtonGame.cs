@@ -23,7 +23,7 @@ public class ButtonGame : MonoBehaviour
     [SerializeField] private GameObject thunderImage;
 
     void Start() 
-    {
+    { 
         // UI 초기화  
         UpdateOutputText(); 
 

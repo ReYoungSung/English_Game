@@ -29,6 +29,11 @@ public class RunningTime : MonoBehaviour
         startTime = Time.time; // 씬이 시작될 때 시간 기록  
     }
 
+    private void Start()
+    {
+        GameObject.Find("SoudManager").GetComponent<SoundManager>().PlayBGM("InGameBGM");
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scenesToDeleteTimer.Contains(scene.name))

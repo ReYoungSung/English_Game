@@ -12978,87 +12978,19 @@ PrefabInstance:
       value: SoudManager
       objectReference: {fileID: 0}
     - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: bgmList.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: sfxList.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: bgmList.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2b4968c18260019448bf849265f8259f, type: 3}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: bgmList.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 8ec42b5b123bd1145a1ac0760b570a7c, type: 3}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: bgmList.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ad5a66f7601d02f4eb48baeb4cd7510b, type: 3}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: bgmList.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 418209235110c13449814572cdc3fdc8, type: 3}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: sfxList.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: fefafc539bee6504c8dc710b94b9d5d6, type: 3}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: sfxList.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 046451fb8c5523241b7e971906542bc8, type: 3}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: sfxList.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 70deddfee685de04499823579095ee56, type: 3}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: sfxList.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b3a104d3adaf7b74b97dd58ed9438a78, type: 3}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: bgmList.Array.data[0].title
-      value: IntroBGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: bgmList.Array.data[1].title
-      value: MainMenuBGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: bgmList.Array.data[2].title
-      value: InGameBGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: bgmList.Array.data[3].title
-      value: ClearSceneBGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: sfxList.Array.data[0].title
-      value: PlayButtonSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: sfxList.Array.data[1].title
-      value: FailSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: sfxList.Array.data[2].title
-      value: ClearSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: sfxList.Array.data[3].title
-      value: ClickSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: bgmList.Array.data[1].volume
+      propertyPath: sfxList.Array.data[0].volume
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: bgmList.Array.data[2].volume
+      propertyPath: sfxList.Array.data[1].volume
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: bgmList.Array.data[3].volume
+      propertyPath: sfxList.Array.data[2].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[3].volume
       value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []

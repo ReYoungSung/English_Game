@@ -45,7 +45,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmList:
-  - title: BasicBGM
-    clip: {fileID: 8300000, guid: 033766cc31c97904bae4404b8a079544, type: 3}
+  - title: IntroBGM
+    clip: {fileID: 8300000, guid: 2b4968c18260019448bf849265f8259f, type: 3}
     volume: 0.5
-  sfxList: []
+  - title: MainMenuBGM
+    clip: {fileID: 8300000, guid: 8ec42b5b123bd1145a1ac0760b570a7c, type: 3}
+    volume: 0.5
+  - title: InGameBGM
+    clip: {fileID: 8300000, guid: ad5a66f7601d02f4eb48baeb4cd7510b, type: 3}
+    volume: 0.5
+  - title: ClearSceneBGM
+    clip: {fileID: 8300000, guid: 418209235110c13449814572cdc3fdc8, type: 3}
+    volume: 0.5
+  - title: LoadingBGM
+    clip: {fileID: 8300000, guid: 02c1017b47ef8ae4b93f2c30c3e2ddb2, type: 3}
+    volume: 0.5
+  sfxList:
+  - title: PlayButtonSFX
+    clip: {fileID: 8300000, guid: fefafc539bee6504c8dc710b94b9d5d6, type: 3}
+    volume: 0
+  - title: FailSFX
+    clip: {fileID: 8300000, guid: 046451fb8c5523241b7e971906542bc8, type: 3}
+    volume: 0
+  - title: ClearSFX
+    clip: {fileID: 8300000, guid: 70deddfee685de04499823579095ee56, type: 3}
+    volume: 0
+  - title: ClickSFX
+    clip: {fileID: 8300000, guid: b3a104d3adaf7b74b97dd58ed9438a78, type: 3}
+    volume: 0
