@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4ad6129356f474eb30cd7bd7d3aa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundOffButton: {fileID: 6836337525147358531}
+  SoundOnButton: {fileID: 6836337524462230873}
 --- !u!1 &6836337524462230873
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,7 +66,6 @@ GameObject:
   - component: {fileID: 6836337524462230876}
   - component: {fileID: 6836337524462230877}
   - component: {fileID: 6836337524462230878}
-  - component: {fileID: 6836337524462230879}
   m_Layer: 5
   m_Name: SoundOn
   m_TagString: Untagged
@@ -175,18 +176,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6836337524462230879}
-        m_TargetAssemblyTypeName: ObjectSwitch, Assembly-CSharp
-        m_MethodName: SwitchObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 6836337525413391653}
         m_TargetAssemblyTypeName: SoundOnOff, Assembly-CSharp
         m_MethodName: SetSoundVolume
@@ -225,20 +214,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6836337524462230879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6836337524462230873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34540bd31cd5b3e44acef42fa502bd2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originalObject: {fileID: 6836337524462230873}
-  newObject: {fileID: 6836337525147358531}
 --- !u!1 &6836337524714357406
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +387,6 @@ GameObject:
   - component: {fileID: 6836337525147358535}
   - component: {fileID: 6836337525147358528}
   - component: {fileID: 6836337525147358529}
-  - component: {fileID: 6836337525147358533}
   m_Layer: 5
   m_Name: SoundOff
   m_TagString: Untagged
@@ -523,18 +497,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6836337525147358533}
-        m_TargetAssemblyTypeName: ObjectSwitch, Assembly-CSharp
-        m_MethodName: SwitchObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 6836337525413391653}
         m_TargetAssemblyTypeName: SoundOnOff, Assembly-CSharp
         m_MethodName: SetSoundVolume
@@ -573,17 +535,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6836337525147358533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6836337525147358531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34540bd31cd5b3e44acef42fa502bd2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originalObject: {fileID: 6836337525147358531}
-  newObject: {fileID: 6836337524462230873}

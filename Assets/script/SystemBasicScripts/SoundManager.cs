@@ -24,8 +24,8 @@ public class SoundManager : MonoBehaviour
     private Dictionary<string, AudioClip> bgmClips = new Dictionary<string, AudioClip>();
     private Dictionary<string, AudioClip> sfxClips = new Dictionary<string, AudioClip>();
 
-    private float bgmVolume = 1f; // Variable to control overall BGM volume
-    private float sfxVolume = 1f; // Variable to control overall SFX volume
+    [HideInInspector] public float bgmVolume = 1f; // Variable to control overall BGM volume
+    [HideInInspector] public float sfxVolume = 1f; // Variable to control overall SFX volume
 
     private void Awake()
     {
