@@ -597,6 +597,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoudManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 58245ddf735f0a6418068143b8f0b7e8, type: 3}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[0].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[1].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[2].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[3].volume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
 --- !u!1001 &887752325
@@ -1481,7 +1501,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.39000368, y: 15.455003}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384699485
 MonoBehaviour:
@@ -3009,6 +3029,7 @@ MonoBehaviour:
   nextLevel: 0
   FailImage: {fileID: 939182939}
   thunderImage: {fileID: 1639739703}
+  failEnemy: {fileID: 1384699483}
 --- !u!1001 &2050919104
 PrefabInstance:
   m_ObjectHideFlags: 0

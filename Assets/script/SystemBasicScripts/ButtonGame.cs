@@ -21,8 +21,16 @@ public class ButtonGame : MonoBehaviour
 
     [SerializeField] private GameObject FailImage;
     [SerializeField] private GameObject thunderImage;
+    [SerializeField] private GameObject failEnemy;
 
-    void Start() 
+    private SoundManager soundManager;
+
+    private void Awake()
+    {
+        soundManager = GameObject.Find("SoudManager").GetComponent<SoundManager>();
+    }
+
+    private void Start() 
     { 
         // UI 초기화  
         UpdateOutputText(); 
@@ -88,9 +96,8 @@ public class ButtonGame : MonoBehaviour
         if (IsCorrectSequence() == 1)
         {
             // 정답인 경우
-            PlayerPrefs.DeleteKey("CorrectClickCount"); 
-
-            Debug.Log("정답입니다.");
+            PlayerPrefs.DeleteKey("CorrectClickCount");
+            soundManager.PlaySFX("ClearSFX");
 
             // 다음 씬으로 전환
             StartCoroutine(LoadNextScene());
@@ -101,20 +108,21 @@ public class ButtonGame : MonoBehaviour
         else if(IsCorrectSequence() == 3)
         {
             // 잘못된 순서
-            Debug.Log("잘못된 선택입니다.");
+            soundManager.PlaySFX("FailSFX");
 
+            failEnemy.transform.position = button.transform.position;  
 
-
-            StartCoroutine(FailFeedbackAction());
+            StartCoroutine(FailFeedbackAction());        
         }
         else
         {
-            Debug.Log("잘하고 있어요!");
+            //잘 선택하고 있을 때  
+            soundManager.PlaySFX("ClickSFX");     
         }
 
-        buttons.ForEach(button => button.interactable = true);
+        buttons.ForEach(button => button.interactable = true);    
 
-        ReceiveWord(button.GetComponentInChildren<Text>().text);
+        ReceiveWord(button.GetComponentInChildren<Text>().text);  
     }   
 
     private int IsCorrectSequence()
