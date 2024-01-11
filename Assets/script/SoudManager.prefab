@@ -63,13 +63,22 @@ MonoBehaviour:
   sfxList:
   - title: PlayButtonSFX
     clip: {fileID: 8300000, guid: fefafc539bee6504c8dc710b94b9d5d6, type: 3}
-    volume: 0
+    volume: 0.5
   - title: FailSFX
-    clip: {fileID: 8300000, guid: 046451fb8c5523241b7e971906542bc8, type: 3}
-    volume: 0
+    clip: {fileID: 8300000, guid: 58245ddf735f0a6418068143b8f0b7e8, type: 3}
+    volume: 0.5
   - title: ClearSFX
     clip: {fileID: 8300000, guid: 70deddfee685de04499823579095ee56, type: 3}
-    volume: 0
+    volume: 0.5
   - title: ClickSFX
     clip: {fileID: 8300000, guid: b3a104d3adaf7b74b97dd58ed9438a78, type: 3}
-    volume: 0
+    volume: 0.5
+  - title: SellectMenuSFX
+    clip: {fileID: 8300000, guid: dde86324723f1ed4985995e529ae26da, type: 3}
+    volume: 0.5
+  - title: ErrorSFX
+    clip: {fileID: 8300000, guid: 253690a690ecb33469106c80169d4bfc, type: 3}
+    volume: 0.5
+  - title: UnitButtonSFX
+    clip: {fileID: 8300000, guid: 6a445bcd0958e034bb74382d64e21af2, type: 3}
+    volume: 0.5

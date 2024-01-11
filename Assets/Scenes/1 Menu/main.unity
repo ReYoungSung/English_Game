@@ -4591,6 +4591,7 @@ RectTransform:
   - {fileID: 1806661728}
   - {fileID: 2050394670}
   - {fileID: 1676068622}
+  - {fileID: 1942586340}
   m_Father: {fileID: 483272919}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8611,7 +8612,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 36368016}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.2755307
+  m_Size: 0.27553073
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9723,13 +9724,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942586338}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13, y: 4.28, z: 0}
-  m_LocalScale: {x: 0.4923, y: 0.4923, z: 0.4923}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.039998, y: 462.24, z: -9315.999}
+  m_LocalScale: {x: 53.168396, y: 53.168396, z: 53.168396}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 922276111}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1951914215
 GameObject:
@@ -13873,22 +13874,6 @@ PrefabInstance:
     - target: {fileID: 7385970861632135085, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
       propertyPath: m_Name
       value: SoudManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: sfxList.Array.data[0].volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: sfxList.Array.data[1].volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: sfxList.Array.data[2].volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
-      propertyPath: sfxList.Array.data[3].volume
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}

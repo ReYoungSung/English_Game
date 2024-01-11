@@ -17,6 +17,13 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
 
     [SerializeField] private GameObject settingUI;
 
+    private SoundManager soundManager;
+
+    private void Awake()
+    {
+        soundManager = GameObject.Find("SoudManager").GetComponent<SoundManager>();
+    }
+
     private void Start()
     {
 
@@ -39,6 +46,9 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     }
 
     public void StartUIMove(){
+
+        soundManager.PlaySFX("SellectMenuSFX");
+
         stateUI.SetBool("PlayButtonOnClick",true);
         playUI.SetBool("PlayButtonOnClick",true);
         secUI.SetBool("PlayButtonOnClick",true);
@@ -54,6 +64,9 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         LoadSettingUI(false);
     }
     public void BackUIMove(){
+
+        soundManager.PlaySFX("SellectMenuSFX");
+
         stateUI.SetBool("PlayButtonOnClick",false);
         playUI.SetBool("PlayButtonOnClick",false);
         secUI.SetBool("PlayButtonOnClick",false);
@@ -71,6 +84,9 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         LoadSettingUI(false);
     }
     public void SelectUIMove(){
+
+        soundManager.PlaySFX("PlayButtonSFX");
+
         stateUI.SetBool("PlayButtonOnClick",false);
         playUI.SetBool("PlayButtonOnClick",false);
         secUI.SetBool("PlayButtonOnClick",false);
@@ -84,18 +100,26 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     }
     public void LoadOtherScene(string sceneName) 
     {
+        soundManager.PlaySFX("SellectMenuSFX");
         SceneManager.LoadScene(sceneName); 
     }
 
     public void SellectLevel(string sceneName)
     {
         if (SceneOption.Instance.ChapterNum < PlayerPrefs.GetInt("UnlockedChapterNum"))  // 선택한 Chapter가 최대 Chapter 미만일 때 씬을 전환한다 
+        {
+            soundManager.PlaySFX("UnitButtonSFX");
             SceneManager.LoadScene(sceneName);
+        }
         else if (SceneOption.Instance.ChapterNum == PlayerPrefs.GetInt("UnlockedChapterNum") &&
             SceneOption.Instance.UnitNum <= PlayerPrefs.GetInt("UnlockedFinalUnitNum"))  // 선택한 Chapter가 최대 Chapter와 같을 때는 최대 Unit이하 여부를 확인한다
+        {
+            soundManager.PlaySFX("UnitButtonSFX");
             SceneManager.LoadScene(sceneName);
+        }
         else
-            Debug.Log("아직 입장할 수 없습니다");
+            soundManager.PlaySFX("ErrorSFX");
+
     }
 
     // 팝업을 표시하기 위한 함수

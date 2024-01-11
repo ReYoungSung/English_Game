@@ -8,8 +8,12 @@ public class ChapterButtonManager : MonoBehaviour
 
     private Color defaultColor = new Color(1f, 1f, 1f, 0.7f); // Set the alpha value to 0.7 (180/255)
 
+    private SoundManager soundManager;
+
     void Start()
     {
+        soundManager = GameObject.Find("SoudManager").GetComponent<SoundManager>();
+
         // 각 버튼에 클릭 이벤트 추가
         for (int i = 0; i < buttons.Length; i++)
         {
@@ -37,15 +41,16 @@ public class ChapterButtonManager : MonoBehaviour
     }
 
     public void ShowPopup()
-    {
+    {   
         if (SceneOption.Instance.ChapterNum <= PlayerPrefs.GetInt("UnlockedChapterNum"))  
         {
             // 팝업 창을 활성화
-            popup.SetActive(true);     
+            popup.SetActive(true);
+            soundManager.PlaySFX("SellectMenuSFX");
         }
         else
         {
-            Debug.Log("아직 입장할 수 없습니다");   
+            soundManager.PlaySFX("ErrorSFX");
             ClosePopup();    
         }
     }
