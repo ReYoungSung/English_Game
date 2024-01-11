@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4b84caf34764043ae516e15ed13b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scenesToExcludeDeletion: []
+  scenesToDeleteTimer: []
   bgmList:
   - title: IntroBGM
     clip: {fileID: 8300000, guid: 2b4968c18260019448bf849265f8259f, type: 3}

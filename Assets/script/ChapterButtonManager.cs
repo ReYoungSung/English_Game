@@ -8,12 +8,9 @@ public class ChapterButtonManager : MonoBehaviour
 
     private Color defaultColor = new Color(1f, 1f, 1f, 0.7f); // Set the alpha value to 0.7 (180/255)
 
-    private SoundManager soundManager;
 
     void Start()
     {
-        soundManager = GameObject.Find("SoudManager").GetComponent<SoundManager>();
-
         // 각 버튼에 클릭 이벤트 추가
         for (int i = 0; i < buttons.Length; i++)
         {
@@ -46,11 +43,11 @@ public class ChapterButtonManager : MonoBehaviour
         {
             // 팝업 창을 활성화
             popup.SetActive(true);
-            soundManager.PlaySFX("SellectMenuSFX");
+            SoundManager.instance.PlaySFX("SellectMenuSFX");
         }
         else
         {
-            soundManager.PlaySFX("ErrorSFX");
+            SoundManager.instance.PlaySFX("ErrorSFX");
             ClosePopup();    
         }
     }

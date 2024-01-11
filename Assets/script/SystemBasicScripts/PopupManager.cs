@@ -10,6 +10,8 @@ public class PopupManager : MonoBehaviour
     // 팝업을 표시하기 위한 함수
     public void ShowPopup()
     {
+        SoundManager.instance.PlaySFX("SellectMenuSFX");
+
         // 백그라운드 UI 요소를 비활성화
         backgroundUI.SetActive(false);   
 

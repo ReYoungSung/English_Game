@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -17,13 +15,6 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     public bool animating = false;
 
     [SerializeField] private GameObject settingUI;
-
-    private SoundManager soundManager;
-
-    private void Awake()
-    {
-        soundManager = GameObject.Find("SoudManager").GetComponent<SoundManager>();
-    }
 
     private void Start()
     {
@@ -49,21 +40,20 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     public void StartUIMove(){
         if(animating==false){
             animating=true;
-            soundManager.PlaySFX("SellectMenuSFX");
+            SoundManager.instance.PlaySFX("SellectMenuSFX");
 
             stateUI.SetBool("PlayButtonOnClick",true);
             playUI.SetBool("PlayButtonOnClick",true);
             secUI.SetBool("PlayButtonOnClick",true);
             backUI.SetBool("PlayButtonOnClick",true);
 
-            LoadSettingUI(false);
             StartCoroutine(Animating());
         }
     }
     public void BackUIMove(){
         if(animating==false){
             animating=true;
-            soundManager.PlaySFX("SellectMenuSFX");
+            SoundManager.instance.PlaySFX("SellectMenuSFX");
 
             stateUI.SetBool("PlayButtonOnClick",false);
             playUI.SetBool("PlayButtonOnClick",false);
@@ -72,7 +62,6 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
             backUI.SetBool("PlayButtonOnClick",false);
 
             StartCoroutine(ReloadMainMenu());
-            LoadSettingUI(false);
 
             upUI.SetBool("QuickPlayButtonOnClick",false);
             scrollUI.SetBool("QuickPlayButtonOnClick",false);
@@ -85,20 +74,18 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
             upUI.SetBool("QuickPlayButtonOnClick",true);
             scrollUI.SetBool("QuickPlayButtonOnClick",true);
         
-            soundManager.PlaySFX("PlayButtonSFX");
+            SoundManager.instance.PlaySFX("PlayButtonSFX");
 
             secUI.SetBool("PlayButtonOnClick",false);
 
             StartCoroutine(LoadChapterMenu());
-
-            LoadSettingUI(false);
 
             StartCoroutine(Animating());
         }
     }
     public void LoadOtherScene(string sceneName) 
     {
-        soundManager.PlaySFX("SellectMenuSFX");
+        SoundManager.instance.PlaySFX("SellectMenuSFX");
         SceneManager.LoadScene(sceneName); 
     }
 
@@ -106,17 +93,17 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     {
         if (SceneOption.Instance.ChapterNum < PlayerPrefs.GetInt("UnlockedChapterNum"))  // 선택한 Chapter가 최대 Chapter 미만일 때 씬을 전환한다 
         {
-            soundManager.PlaySFX("UnitButtonSFX");
+            SoundManager.instance.PlaySFX("UnitButtonSFX");
             SceneManager.LoadScene(sceneName);
         }
         else if (SceneOption.Instance.ChapterNum == PlayerPrefs.GetInt("UnlockedChapterNum") &&
             SceneOption.Instance.UnitNum <= PlayerPrefs.GetInt("UnlockedFinalUnitNum"))  // 선택한 Chapter가 최대 Chapter와 같을 때는 최대 Unit이하 여부를 확인한다
         {
-            soundManager.PlaySFX("UnitButtonSFX");
+            SoundManager.instance.PlaySFX("UnitButtonSFX");
             SceneManager.LoadScene(sceneName);
         }
         else
-            soundManager.PlaySFX("ErrorSFX");
+            SoundManager.instance.PlaySFX("ErrorSFX");
 
     }
 
@@ -156,13 +143,13 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         animating = false;    
     }
 
-    public void SettingUIMove()
+    public void quickStart()
     {
-        LoadSettingUI(true);
+        SoundManager.instance.PlaySFX("UnitButtonSFX");
+
+        ChangeChapter(PlayerPrefs.GetInt("UnlockedChapterNum"));
+        ChangeUnit(PlayerPrefs.GetInt("UnlockedFinalUnitNum"));
+
+        LoadOtherScene("stage_unit");
     }
-    
-    void LoadSettingUI(bool isHide = true)
-    {
-        settingUI.SetActive(isHide);  
-    } 
 }

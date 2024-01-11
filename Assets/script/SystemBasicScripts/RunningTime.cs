@@ -31,7 +31,8 @@ public class RunningTime : MonoBehaviour
 
     private void Start()
     {
-        GameObject.Find("SoudManager").GetComponent<SoundManager>().PlayBGM("InGameBGM");
+        SoundManager.instance.StopBGM();
+        SoundManager.instance.PlayBGM("InGameBGM");
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -39,7 +40,7 @@ public class RunningTime : MonoBehaviour
         if (scenesToDeleteTimer.Contains(scene.name))
         {
             // 특정 씬에 도달하면 타이머 오브젝트 삭제
-            Destroy(transform.root.gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 
