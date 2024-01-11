@@ -949,7 +949,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 585188cdc4600544eb408bee749e4b3a, type: 3}
-    m_FontSize: 80
+    m_FontSize: 110
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -960,7 +960,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uAC8C\uC784\uC120\uD0DD"
+  m_Text: Select game
 --- !u!222 &79656301
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1542,7 +1542,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB79C\uB364\uBCF5\uC2B5\uD034\uC988\n(\uC5C5\uB370\uC774\uD2B8 \uC608\uC815)"
+  m_Text: 'Random Quiz
+
+    (Not Yet)'
 --- !u!222 &211945648
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4019,7 +4021,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 585188cdc4600544eb408bee749e4b3a, type: 3}
-    m_FontSize: 80
+    m_FontSize: 110
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -4030,7 +4032,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBE60\uB978 \uD50C\uB808\uC774"
+  m_Text: Quick Play
 --- !u!222 &729565724
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8869,7 +8871,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 36368017}
   m_HandleRect: {fileID: 36368016}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 0.000000050193393
   m_Size: 0.27553073
   m_NumberOfSteps: 0
   m_OnValueChanged:
