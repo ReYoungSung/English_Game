@@ -18,7 +18,7 @@ public class ChapterButtonManager : MonoBehaviour
         }
     }
 
-    void InitializeButtons()
+    public void InitializeButtons()
     {
         // 모든 버튼의 색상을 초기화
         foreach (Button button in buttons)

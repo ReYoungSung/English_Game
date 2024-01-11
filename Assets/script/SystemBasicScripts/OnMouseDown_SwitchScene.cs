@@ -58,12 +58,11 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         upUI.SetBool("QuickPlayButtonOnClick",false);
         scrollUI.SetBool("QuickPlayButtonOnClick",false);
 
-        stateUI.SetBool("Back",true);
-        playUI.SetBool("Back",true);
-        secUI.SetBool("Back",true);
-        backUI.SetBool("BackButtonOnClick",true);
-        upUI.SetBool("Back",true);
-        scrollUI.SetBool("Back",true);
+        upUI.SetBool("Back", true);
+        scrollUI.SetBool("Back", true);
+        backUI.SetBool("BackButtonOnClick", true);
+
+        StartCoroutine(ReloadMainMenu());
     }
     public void SelectUIMove(){
         stateUI.SetBool("PlayButtonOnClick",false);
@@ -72,8 +71,8 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         backUI.SetBool("PlayButtonOnClick",false);
 
         secUI.SetBool("QuickPlayButtonOnClick",true);
-        upUI.SetBool("QuickPlayButtonOnClick",true);
-        scrollUI.SetBool("QuickPlayButtonOnClick",true);
+
+        StartCoroutine(LoadChapterMenu());
     }
     public void LoadOtherScene(string sceneName) 
     {
@@ -103,5 +102,23 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     {
         // 팝업 창을 비활성화
         popup.SetActive(false);
+    }
+
+    IEnumerator ReloadMainMenu()
+    {
+        yield return new WaitForSeconds(1f);
+
+        stateUI.SetBool("Back", true);
+        playUI.SetBool("Back", true);
+        secUI.SetBool("Back", true);
+    }
+
+    IEnumerator LoadChapterMenu()
+    {
+        yield return new WaitForSeconds(1f);
+
+        upUI.SetBool("QuickPlayButtonOnClick", true);
+        scrollUI.SetBool("QuickPlayButtonOnClick", true);
+
     }
 }

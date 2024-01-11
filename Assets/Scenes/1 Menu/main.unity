@@ -1981,6 +1981,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 429026434697587702}
+        m_TargetAssemblyTypeName: ChapterButtonManager, Assembly-CSharp
+        m_MethodName: InitializeButtons
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &377230200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2136,7 +2148,7 @@ GameObject:
   - component: {fileID: 427623418}
   - component: {fileID: 427623421}
   m_Layer: 5
-  m_Name: Scroll View
+  m_Name: Chapter Scroll View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6693,7 +6705,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 883991165}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.22670406
+  m_Size: 0.22670408
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8142,7 +8154,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 36368016}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.27553067
+  m_Size: 0.27553073
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12964,6 +12976,90 @@ PrefabInstance:
     - target: {fileID: 7385970861632135085, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
       propertyPath: m_Name
       value: SoudManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: bgmList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: bgmList.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b4968c18260019448bf849265f8259f, type: 3}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: bgmList.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ec42b5b123bd1145a1ac0760b570a7c, type: 3}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: bgmList.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ad5a66f7601d02f4eb48baeb4cd7510b, type: 3}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: bgmList.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 418209235110c13449814572cdc3fdc8, type: 3}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: fefafc539bee6504c8dc710b94b9d5d6, type: 3}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 046451fb8c5523241b7e971906542bc8, type: 3}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 70deddfee685de04499823579095ee56, type: 3}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: b3a104d3adaf7b74b97dd58ed9438a78, type: 3}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: bgmList.Array.data[0].title
+      value: IntroBGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: bgmList.Array.data[1].title
+      value: MainMenuBGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: bgmList.Array.data[2].title
+      value: InGameBGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: bgmList.Array.data[3].title
+      value: ClearSceneBGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[0].title
+      value: PlayButtonSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[1].title
+      value: FailSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[2].title
+      value: ClearSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: sfxList.Array.data[3].title
+      value: ClickSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: bgmList.Array.data[1].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: bgmList.Array.data[2].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385970861632135087, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
+      propertyPath: bgmList.Array.data[3].volume
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c6a50a611a6f434db04f010223b0875, type: 3}
