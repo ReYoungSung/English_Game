@@ -8,8 +8,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: BackButtonOnClick
+  - m_ConditionMode: 2
+    m_ConditionEvent: PlayButtonOnClick
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7479330642856975715}
@@ -86,12 +86,6 @@ AnimatorController:
   m_Name: BackUI
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: BackButtonOnClick
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
   - m_Name: PlayButtonOnClick
     m_Type: 4
     m_DefaultFloat: 0
@@ -171,7 +165,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BackButtonMove2
+  m_Name: BackButtonMoveIn
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -198,7 +192,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BackButtonMove
+  m_Name: BackButtonMoveOut
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

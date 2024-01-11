@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEditorInternal;
@@ -14,6 +14,7 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     public Animator backUI;
     public Animator upUI;
     public Animator scrollUI;
+    public bool animating = false;
 
     [SerializeField] private GameObject settingUI;
 
@@ -44,59 +45,56 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     {
         SceneOption.Instance.UnitNum = b; 
     }
-
+    
     public void StartUIMove(){
+        if(animating==false){
+            animating=true;
+            soundManager.PlaySFX("SellectMenuSFX");
 
-        soundManager.PlaySFX("SellectMenuSFX");
+            stateUI.SetBool("PlayButtonOnClick",true);
+            playUI.SetBool("PlayButtonOnClick",true);
+            secUI.SetBool("PlayButtonOnClick",true);
+            backUI.SetBool("PlayButtonOnClick",true);
 
-        stateUI.SetBool("PlayButtonOnClick",true);
-        playUI.SetBool("PlayButtonOnClick",true);
-        secUI.SetBool("PlayButtonOnClick",true);
-        backUI.SetBool("PlayButtonOnClick",true);
-
-        stateUI.SetBool("Back",false);
-        playUI.SetBool("Back",false);
-        secUI.SetBool("Back",false);
-        backUI.SetBool("BackButtonOnClick",false);
-        upUI.SetBool("Back",false);
-        scrollUI.SetBool("Back",false);
-
-        LoadSettingUI(false);
+            LoadSettingUI(false);
+            StartCoroutine(Animating());
+        }
     }
     public void BackUIMove(){
+        if(animating==false){
+            animating=true;
+            soundManager.PlaySFX("SellectMenuSFX");
 
-        soundManager.PlaySFX("SellectMenuSFX");
+            stateUI.SetBool("PlayButtonOnClick",false);
+            playUI.SetBool("PlayButtonOnClick",false);
 
-        stateUI.SetBool("PlayButtonOnClick",false);
-        playUI.SetBool("PlayButtonOnClick",false);
-        secUI.SetBool("PlayButtonOnClick",false);
-        backUI.SetBool("PlayButtonOnClick",false);
+            secUI.SetBool("PlayButtonOnClick",false);
+            backUI.SetBool("PlayButtonOnClick",false);
 
-        secUI.SetBool("QuickPlayButtonOnClick",false);
-        upUI.SetBool("QuickPlayButtonOnClick",false);
-        scrollUI.SetBool("QuickPlayButtonOnClick",false);
+            StartCoroutine(ReloadMainMenu());
+            LoadSettingUI(false);
 
-        upUI.SetBool("Back", true);
-        scrollUI.SetBool("Back", true);
-        backUI.SetBool("BackButtonOnClick", true); 
-
-        StartCoroutine(ReloadMainMenu());
-        LoadSettingUI(false);
+            upUI.SetBool("QuickPlayButtonOnClick",false);
+            scrollUI.SetBool("QuickPlayButtonOnClick",false);
+            StartCoroutine(Animating());
+        }
     }
     public void SelectUIMove(){
+        if(animating==false){
+            animating=true; 
+            upUI.SetBool("QuickPlayButtonOnClick",true);
+            scrollUI.SetBool("QuickPlayButtonOnClick",true);
+        
+            soundManager.PlaySFX("PlayButtonSFX");
 
-        soundManager.PlaySFX("PlayButtonSFX");
+            secUI.SetBool("PlayButtonOnClick",false);
 
-        stateUI.SetBool("PlayButtonOnClick",false);
-        playUI.SetBool("PlayButtonOnClick",false);
-        secUI.SetBool("PlayButtonOnClick",false);
-        backUI.SetBool("PlayButtonOnClick",false);
+            StartCoroutine(LoadChapterMenu());
 
-        secUI.SetBool("QuickPlayButtonOnClick",true);
-    
-        StartCoroutine(LoadChapterMenu());
+            LoadSettingUI(false);
 
-        LoadSettingUI(false);
+            StartCoroutine(Animating());
+        }
     }
     public void LoadOtherScene(string sceneName) 
     {
@@ -140,9 +138,8 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        stateUI.SetBool("Back", true);
-        playUI.SetBool("Back", true);
-        secUI.SetBool("Back", true);  
+        stateUI.SetBool("PlayButtonOnClick",false);
+        secUI.SetBool("PlayButtonOnClick",false);  
     }
 
     IEnumerator LoadChapterMenu()
@@ -153,6 +150,11 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         scrollUI.SetBool("QuickPlayButtonOnClick", true);       
     }
 
+    IEnumerator Animating()
+    {
+        yield return new WaitForSeconds(1f);
+        animating = false;    
+    }
 
     public void SettingUIMove()
     {
