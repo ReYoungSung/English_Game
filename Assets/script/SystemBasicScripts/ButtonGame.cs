@@ -102,6 +102,7 @@ public class ButtonGame : MonoBehaviour
         {
             // 잘못된 순서
             SoundManager.instance.PlaySFX("FailSFX");
+            RunningTime.Instance.MissingPoint++;
 
             failEnemy.transform.position = button.transform.position;  
 

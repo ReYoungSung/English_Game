@@ -58,10 +58,20 @@ public class GameManager : MonoBehaviour
         else
             listOfAnswer = new List<string>(English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
 
-        listOfFake = new List<string>(FakeWord_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split('&'));    
+        listOfFake = new List<string>(FakeWord_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split('&'));
+
+        // 만약 리스트가 비어 있거나 최대 2개의 요소만 포함되어 있다면
+        if (listOfFake.Count >= 0 && listOfFake.Count <= 2) 
+        {
+            // 기본 값들을 추가합니다
+            listOfFake.Add("JGL");
+            listOfFake.Add("Songalak");
+            listOfFake.Add("YSR");
+            listOfFake.Add("SYH");
+        }
 
         // A 리스트의 모든 요소를 먼저 다른 리스트에 추가합니다.      
-        combinedList = new List<string>(listOfAnswer);    
+        combinedList = new List<string>(listOfAnswer);     
 
         // B 리스트의 요소를 추가하면서 combinedList의 크기가 8이 되도록 제한합니다.       
         for (int i = 0; combinedList.Count < 8 && i < listOfFake.Count; i++)     

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1885952919222541020}
   - component: {fileID: 1885952919222541019}
   - component: {fileID: 1885952919222541018}
-  - component: {fileID: 1885952919222541021}
   m_Layer: 5
   m_Name: timer
   m_TagString: Untagged
@@ -81,26 +80,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 00:00
---- !u!114 &1885952919222541021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885952919222541023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ad1c78f6d037846b05a58711383b1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeText: {fileID: 1885952919222541018}
-  scenesToExcludeDeletion:
-  - stage_unit
-  - test_unit
-  scenesToDeleteTimer:
-  - main
-  - chapterMenu
-  - gameover
 --- !u!1 &1885952919454196943
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,6 +92,7 @@ GameObject:
   - component: {fileID: 1885952919454196939}
   - component: {fileID: 1885952919454196938}
   - component: {fileID: 1885952919454196941}
+  - component: {fileID: 8519836366848747321}
   m_Layer: 5
   m_Name: TimerCanvas
   m_TagString: Untagged
@@ -203,6 +183,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8519836366848747321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885952919454196943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32283b91c5085148bc61501f593e038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeText: {fileID: 1885952919222541018}
 --- !u!1 &8621420140391062872
 GameObject:
   m_ObjectHideFlags: 0

@@ -63,7 +63,7 @@ public class SoundManager : MonoBehaviour
             StopBGM();
             PlayBGM("IntroBGM");
         }
-        else if (sceneName == "main")
+        else if (sceneName == "main") 
         {
             StopBGM();
             PlayBGM("MainMenuBGM");
@@ -78,7 +78,11 @@ public class SoundManager : MonoBehaviour
             StopBGM();
             PlayBGM("ClearSceneBGM", false);
         }
-        //인게임 BGM은 Timer 스크립트에 넣어둠
+        else if(sceneName == "stage_unit" && RunningTime.Instance.isTimerRunning == false)
+        {
+            StopBGM();
+            PlayBGM("InGameBGM");
+        }
     }
 
     private void OnEnable()
