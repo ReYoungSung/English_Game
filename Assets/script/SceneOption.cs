@@ -31,7 +31,7 @@ public class SceneOption : MonoBehaviour
     {
         //PlayerPrefs.DeleteAll(); //나중에 지워야 함
 
-        LoadGameData(); 
+        LoadGameData();
     }
 
     // 게임 시작 시 호출할 메서드 

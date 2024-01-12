@@ -16,6 +16,7 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
 
     [SerializeField] private GameObject settingUI;
 
+
     private void Start()
     {
         SceneOption.Instance.LoadGameData(); //버튼 클릭 전에 현재 입장 가능 스테이지 정보 업데이트
@@ -28,7 +29,7 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
 
     public void ChangeChapter(int a)  
     {
-        SceneOption.Instance.ChapterNum = a;  
+        SceneOption.Instance.ChapterNum = a;
     }
 
     public void ChangeUnit(int b) 
