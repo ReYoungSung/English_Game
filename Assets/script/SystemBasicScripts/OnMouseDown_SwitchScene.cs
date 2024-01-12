@@ -18,7 +18,6 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
 
     private void Start()
     {
-
         SceneOption.Instance.LoadGameData(); //버튼 클릭 전에 현재 입장 가능 스테이지 정보 업데이트
     }
 
@@ -37,22 +36,26 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         SceneOption.Instance.UnitNum = b; 
     }
     
-    public void StartUIMove(){
-        if(animating==false){
-            animating=true;
-            SoundManager.instance.PlaySFX("SellectMenuSFX");
+    public void StartUIMove()
+    {
+        if(animating == false)
+        {
+            animating = true;    
+            SoundManager.instance.PlaySFX("SellectMenuSFX");   
 
-            stateUI.SetBool("PlayButtonOnClick",true);
-            playUI.SetBool("PlayButtonOnClick",true);
-            secUI.SetBool("PlayButtonOnClick",true);
-            backUI.SetBool("PlayButtonOnClick",true);
+            stateUI.SetBool("PlayButtonOnClick",true); 
+            playUI.SetBool("PlayButtonOnClick",true);  
+            secUI.SetBool("PlayButtonOnClick",true);   
+            backUI.SetBool("PlayButtonOnClick",true);  
 
-            StartCoroutine(Animating());
-        }
-    }
-    public void BackUIMove(){
-        if(animating==false){
-            animating=true;
+            StartCoroutine(Animating());   
+        }     
+    }    
+    public void BackUIMove()
+    {
+        if(animating == false)
+        {
+            animating = true;
             SoundManager.instance.PlaySFX("SellectMenuSFX");
 
             stateUI.SetBool("PlayButtonOnClick",false);
@@ -69,7 +72,8 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         }
     }
     public void SelectUIMove(){
-        if(animating==false){
+        if(animating==false)
+        {
             animating=true; 
             upUI.SetBool("QuickPlayButtonOnClick",true);
             scrollUI.SetBool("QuickPlayButtonOnClick",true);
@@ -104,7 +108,6 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         }
         else
             SoundManager.instance.PlaySFX("ErrorSFX");
-
     }
 
     // 팝업을 표시하기 위한 함수

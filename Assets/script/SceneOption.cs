@@ -10,7 +10,7 @@ public class SceneOption : MonoBehaviour
     public int ChapterNum = 1;
     public int UnitNum = 1;
      
-    public int CurrentLevelNumber = 0;
+    public int CurrentLevelNumber = 1;
 
     public List<int> UnlockedStageList = new List<int>();
 
@@ -26,7 +26,7 @@ public class SceneOption : MonoBehaviour
             return instance;  
         }
     } 
-
+    
     private void Awake()
     {
         //PlayerPrefs.DeleteAll(); //나중에 지워야 함
@@ -38,7 +38,7 @@ public class SceneOption : MonoBehaviour
     public void LoadGameData()  
     {
         UnlockedStageList.Clear(); //기존 데이터 refresh
-        CurrentLevelNumber = 0; //스테이지 레벨 초기화 
+        CurrentLevelNumber = 1; //스테이지 레벨 초기화 
          
         if (PlayerPrefs.HasKey("UnlockedChapterNum") || PlayerPrefs.HasKey("UnlockedFinalUnitNum"))  //플레이 데이터가 있을 경우 최종 클리어결과만큼 해금   
         {
@@ -55,11 +55,6 @@ public class SceneOption : MonoBehaviour
             PlayerPrefs.SetInt("UnlockedFinalUnitNum", 1);
             UnlockedStageList.Add(0); //튜토리얼 용 Chapter Index 추가 
             UnlockedStageList.Add(1); //Chapter1 Unit1 해금
-        }
-
-        foreach (int value in UnlockedStageList)
-        {
-            Debug.Log(value);
         }
     }
 

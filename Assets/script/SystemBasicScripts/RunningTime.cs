@@ -9,7 +9,9 @@ public class RunningTime : MonoBehaviour
 
     public float TimerNum; // 타이머 값
     public int MissingPoint = 0; // 실수 값
+    public bool isHintOpen = false; // 실수 값
     public bool isTimerRunning = false; // 타이머가 실행 중인지 여부
+    public int CheckTurnNum = 0;
 
     public static RunningTime Instance  
     {
@@ -57,6 +59,7 @@ public class RunningTime : MonoBehaviour
             isTimerRunning = false; // 타이머 중지
             TimerNum = 0;
             MissingPoint = 0;
+            isHintOpen = false;
         }
 
         // 타이머가 실행 중이면 시간 증가

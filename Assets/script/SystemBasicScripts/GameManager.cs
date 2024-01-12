@@ -48,17 +48,32 @@ public class GameManager : MonoBehaviour
 
     private void UpdateStage()
     {
+        string koreanOutput = Korean_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString();
+        string englishOutput = English_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString().Replace("/", " ");
+
         //현재 챕터와 유닛을 불러옴
-        koreanText.text = Korean_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString();
-        englishText.text = English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Replace("/", " ");
+        if (koreanOutput.Length >= 23)
+        {
+            koreanText.fontSize = 35;
+        }
+
+        if (englishOutput.Length >= 33)
+        {
+            englishText.fontSize = 55;
+        }
+
+        koreanText.text = koreanOutput;
+        englishText.text = englishOutput;
+
+
 
         //영어 문장을 /로 나누어서 리스트에 삽입    
-        if (English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Contains("/"))
-            listOfAnswer = new List<string>(English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries));
+        if (English_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString().Contains("/"))
+            listOfAnswer = new List<string>(English_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString().Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries));
         else
-            listOfAnswer = new List<string>(English_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
+            listOfAnswer = new List<string>(English_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
 
-        listOfFake = new List<string>(FakeWord_Dialog[SceneOption.Instance.CurrentLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split('&'));
+        listOfFake = new List<string>(FakeWord_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString().Split('&'));
 
         // 만약 리스트가 비어 있거나 최대 2개의 요소만 포함되어 있다면
         if (listOfFake.Count >= 0 && listOfFake.Count <= 2) 
@@ -111,6 +126,6 @@ public class GameManager : MonoBehaviour
 
     public void SetFinalLevel()
     {
-        SceneOption.Instance.CurrentLevelNumber = 14;
+        SceneOption.Instance.CurrentLevelNumber = 15;
     }
 }

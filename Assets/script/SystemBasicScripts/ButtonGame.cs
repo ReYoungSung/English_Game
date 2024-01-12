@@ -92,13 +92,22 @@ public class ButtonGame : MonoBehaviour
             PlayerPrefs.DeleteKey("CorrectClickCount");
             SoundManager.instance.PlaySFX("ClearSFX");
 
-            // 다음 씬으로 전환
-            StartCoroutine(LoadNextScene());
-
             // 클릭한 순서 초기화
             clickedSet.Clear();
+
+            RunningTime.Instance.CheckTurnNum++;
+
+            //세 번 반복 후 다음 씬으로 전환
+            if (RunningTime.Instance.CheckTurnNum == 3)
+            {
+                StartCoroutine(LoadNextScene());
+            }
+            else
+            {
+                StartCoroutine(ReloadRepeatScene()); 
+            }
         }
-        else if(IsCorrectSequence() == 3)
+        else if(IsCorrectSequence() == 3) 
         {
             // 잘못된 순서
             SoundManager.instance.PlaySFX("FailSFX");
@@ -149,20 +158,21 @@ public class ButtonGame : MonoBehaviour
 
     private IEnumerator LoadNextScene()
     {
-        // 대기 시간을 두고 다음 동작을 수행
-        yield return new WaitForSeconds(1.5f); 
+        SceneOption.Instance.CurrentLevelNumber++;
 
-        if (SceneOption.Instance.CurrentLevelNumber < 14)
+        yield return new WaitForSeconds(1.5f);
+
+        RunningTime.Instance.CheckTurnNum = 0;
+
+        if (SceneOption.Instance.CurrentLevelNumber < 16) 
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            SceneOption.Instance.CurrentLevelNumber++;
-            Debug.Log(SceneOption.Instance.CurrentLevelNumber);
+            ReloadScene(); 
         }
-        else
+        else //최종단계 클리어 시 
         {
-            SceneOption.Instance.CurrentLevelNumber = 0;
-            SceneOption.Instance.SaveGameData();
-            SceneManager.LoadScene("clear");
+            SceneOption.Instance.CurrentLevelNumber = 1; 
+            SceneOption.Instance.SaveGameData(); 
+            SceneManager.LoadScene("clear"); 
         }
     }
 
@@ -176,6 +186,15 @@ public class ButtonGame : MonoBehaviour
 
         // 클릭한 순서 초기화
         clickedSet.Clear();
+        // 현재 씬을 다시 로드하여 재시작
+        ReloadScene();
+    }
+
+    private IEnumerator ReloadRepeatScene()
+    {
+        // 대기 시간을 두고 다음 동작을 수행
+        yield return new WaitForSeconds(1.5f);
+
         // 현재 씬을 다시 로드하여 재시작
         ReloadScene();
     }
@@ -231,14 +250,25 @@ public class ButtonGame : MonoBehaviour
 
     public void ReceiveWord(string word)
     {
-        receivedWords.Add(word); // 단어 저장
-        UpdateOutputText(); // 출력 업데이트
+        receivedWords.Add(word);
+        UpdateOutputText();
     }
 
     private void UpdateOutputText()
     {
-        // 저장된 단어들을 순서대로 출력 텍스트에 표시
-        string output = string.Join("  ", receivedWords.ToArray());
+        string output = string.Join(" ", receivedWords.ToArray());
         outputText.text = output;
+
+        // Check the length of the concatenated string
+        if (output.Length > 30)
+        {
+            // If it exceeds 30 characters, set the font size to 55
+            outputText.fontSize = 55;
+        }
+        else
+        {
+            // Otherwise, set the font size to the default value (you may adjust this as needed)
+            outputText.fontSize = 80;// Your default font size here;
+        }
     }
 }
