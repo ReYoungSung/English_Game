@@ -18,6 +18,18 @@ EditorBuildSettings:
     path: Assets/Scenes/2 GameScene/clear.unity
     guid: 37108db2c3b04b9488faded63bd1ea9c
   - enabled: 1
+    path: Assets/Scenes/1 Menu/LoadingSceneForTest.unity
+    guid: 1c7d965f00c09da41855ad4e98690c5e
+  - enabled: 1
+    path: Assets/Scenes/2 GameScene/Test_unit.unity
+    guid: b2780ac8d39e99f4186b937c998f977d
+  - enabled: 1
     path: Assets/Scenes/2 GameScene/gameover.unity
-    guid: fd7431255fb6d754f9dfb8f8aa1e68da
+    guid: 941eb115aff11ea45b435683918d38d0
+  - enabled: 1
+    path: Assets/Scenes/2 GameScene/clearForTest.unity
+    guid: 16b80730dfba1134ebc4121775092aef
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

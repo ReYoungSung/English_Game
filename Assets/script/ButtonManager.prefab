@@ -44,3 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88621a4c0ea6ed4d9bbf14533c0537c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playUI: {fileID: 0}
+  stateUI: {fileID: 0}
+  secUI: {fileID: 0}
+  backUI: {fileID: 0}
+  upUI: {fileID: 0}
+  scrollUI: {fileID: 0}
+  animating: 0
+  settingUI: {fileID: 0}

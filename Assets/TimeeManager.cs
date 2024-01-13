@@ -9,14 +9,23 @@ public class TimeeManager : MonoBehaviour
     public Text timeText; // Text 컴포넌트에 연결할 텍스트 UI
     public Text missingText = null; // Text 컴포넌트에 연결할 텍스트 UI
 
+    private string CurrentSceneName;
+
+    private void Awake()
+    {
+        CurrentSceneName = SceneManager.GetActiveScene().name; ;
+    }
+
     private void Update()
     {
         // 시간을 텍스트로 변환하여 화면에 표시
         string timeString = FormatTime(RunningTime.Instance.TimerNum);
         timeText.text = timeString;
 
-        if(missingText != null)
+        if(missingText != null && CurrentSceneName == "clear") 
             missingText.text = RunningTime.Instance.MissingPoint.ToString();
+        else if(missingText != null)
+            missingText.text = (3 - RunningTime.Instance.MissingPoint).ToString(); //최대 체력인 3에서 실수 횟수 제거 
     }
 
     private string FormatTime(float timeInSeconds)

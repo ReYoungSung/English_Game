@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4b84caf34764043ae516e15ed13b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenesToExcludeDeletion: []
-  scenesToDeleteTimer: []
   bgmList:
   - title: IntroBGM
     clip: {fileID: 8300000, guid: 2b4968c18260019448bf849265f8259f, type: 3}
@@ -61,6 +59,12 @@ MonoBehaviour:
     volume: 0.5
   - title: LoadingBGM
     clip: {fileID: 8300000, guid: 02c1017b47ef8ae4b93f2c30c3e2ddb2, type: 3}
+    volume: 0.5
+  - title: TestFailBGM
+    clip: {fileID: 8300000, guid: 18abe7bbfd28aab4abd8452b4a74d9e2, type: 3}
+    volume: 0.5
+  - title: InTestBGM
+    clip: {fileID: 8300000, guid: 986c9b48697e7a440bc23de368ea87a0, type: 3}
     volume: 0.5
   sfxList:
   - title: PlayButtonSFX
@@ -84,3 +88,5 @@ MonoBehaviour:
   - title: UnitButtonSFX
     clip: {fileID: 8300000, guid: 6a445bcd0958e034bb74382d64e21af2, type: 3}
     volume: 0.5
+  bgmVolume: 1
+  sfxVolume: 1

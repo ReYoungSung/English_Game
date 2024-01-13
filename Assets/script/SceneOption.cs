@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneOption : MonoBehaviour
 {
@@ -14,24 +15,49 @@ public class SceneOption : MonoBehaviour
 
     public List<int> UnlockedStageList = new List<int>();
 
+    [HideInInspector] public string previousModeName;
+
     public static SceneOption Instance
     {
         get
         {
             if (instance == null)
-            {   
-                instance = new GameObject("SceneOption").AddComponent<SceneOption>();
-                DontDestroyOnLoad(instance.gameObject); // 씬이 변경되어도 파괴되지 않도록 설정 
+            {    
+                instance = new GameObject("SceneOption").AddComponent<SceneOption>();             
+                DontDestroyOnLoad(instance.gameObject); // 씬이 변경되어도 파괴되지 않도록 설정   
             }   
-            return instance;  
+            return instance;   
         }
-    } 
-    
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 각 씬에 따라 BGM 변경
+        string sceneName = scene.name;
+
+        if (sceneName == "stage_unit" || sceneName == "Test_unit")
+        {
+            previousModeName = sceneName;
+        }
+        Debug.Log(previousModeName);
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private void Awake()
     {
         //PlayerPrefs.DeleteAll(); //나중에 지워야 함
 
         PlayerPrefs.SetInt("UnlockedChapterNum", 11);
+        PlayerPrefs.SetInt("UnlockedFinalUnitNum", 21);
 
         LoadGameData();
     }
@@ -39,8 +65,7 @@ public class SceneOption : MonoBehaviour
     // 게임 시작 시 호출할 메서드 
     public void LoadGameData()  
     {
-        UnlockedStageList.Clear(); //기존 데이터 refresh
-        CurrentLevelNumber = 1; //스테이지 레벨 초기화 
+        UnlockedStageList.Clear(); //기존 데이터 refresh 
          
         if (PlayerPrefs.HasKey("UnlockedChapterNum") || PlayerPrefs.HasKey("UnlockedFinalUnitNum"))  //플레이 데이터가 있을 경우 최종 클리어결과만큼 해금   
         {
@@ -61,15 +86,15 @@ public class SceneOption : MonoBehaviour
     }
 
     // 게임 스테이지 클리어 시 호출할 메서드 
-    public void SaveGameData() 
+    public void SaveGameData()  
     {
         if (UnlockedStageList.Count-1 == ChapterNum) //현재 열린 챕터가 현재 챕터와 동일한지 판단
         {
-            if (UnitNum == 15) //현재 열린 스테이지 중 마지막 단계를 클리어했을 때 새로운 챕터 잠금 해금
+            if (UnitNum == 21) //현재 열린 스테이지 중 마지막 단계를 클리어했을 때 새로운 챕터 잠금 해금
             {
                 UnlockedStageList.Add(1);  
             }
-            else if (UnlockedStageList[ChapterNum] < 15) //현재 열린 마지막 스테이지지만 유닛은 마지막이 아니면 새로운 유닛 해금
+            else if (UnlockedStageList[ChapterNum] < 21) //현재 열린 마지막 스테이지지만 유닛은 마지막이 아니면 새로운 유닛 해금
             {
                 UnlockedStageList[ChapterNum] = UnitNum + 1;     
             }

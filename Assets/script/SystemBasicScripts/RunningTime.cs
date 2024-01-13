@@ -46,11 +46,11 @@ public class RunningTime : MonoBehaviour
         string currentSceneName = SceneManager.GetActiveScene().name;
 
         // 특정 씬에서만 타이머 실행 여부 결정
-        if (currentSceneName == "stage_unit")
+        if (currentSceneName == "stage_unit" || currentSceneName == "Test_unit")
         {
             isTimerRunning = true;
         }
-        else if( currentSceneName == "clear")
+        else if( currentSceneName == "clear" || currentSceneName == "clearForTest")
         {
             isTimerRunning = false;
         }

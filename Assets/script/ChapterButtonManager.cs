@@ -65,7 +65,7 @@ public class ChapterButtonManager : MonoBehaviour
     {
         // 팝업 창을 비활성화
         popup.SetActive(false);
-    }
+    } 
 
     // 조건에 따라 버튼의 세 번째 자식을 비활성화하는 함수
     void DeactivateButtons()

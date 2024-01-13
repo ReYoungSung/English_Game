@@ -17,7 +17,7 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     [SerializeField] private GameObject settingUI;
 
 
-    private void Start()
+    private void Start() 
     {
         SceneOption.Instance.LoadGameData(); //버튼 클릭 전에 현재 입장 가능 스테이지 정보 업데이트
     }
@@ -28,9 +28,9 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     }
 
     public void ChangeChapter(int a)  
-    {
+    { 
         SceneOption.Instance.ChapterNum = a;
-    }
+    } 
 
     public void ChangeUnit(int b) 
     {
@@ -94,7 +94,7 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         SceneManager.LoadScene(sceneName); 
     }
 
-    public void SellectLevel(string sceneName)
+    public void SellectLevel(string sceneName) 
     {
         if (SceneOption.Instance.ChapterNum < PlayerPrefs.GetInt("UnlockedChapterNum"))  // 선택한 Chapter가 최대 Chapter 미만일 때 씬을 전환한다 
         {
@@ -155,5 +155,49 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         ChangeUnit(PlayerPrefs.GetInt("UnlockedFinalUnitNum"));
 
         LoadOtherScene("stage_unit");
+    }
+
+    public void ReStartGame()
+    {
+        SceneManager.LoadScene(SceneOption.Instance.previousModeName);
+    }
+
+    public void LoadNextLevel()
+    {
+        int nextChapterNum = SceneOption.Instance.ChapterNum;
+        int nextUnitNum = SceneOption.Instance.UnitNum;
+
+        //챕터의 마지막 Unit인지 구분
+        if (SceneOption.Instance.UnitNum < 21) 
+        {
+            nextUnitNum++;
+        }
+        else
+        {
+            nextUnitNum = 1;
+            nextChapterNum++;
+        }
+
+        if (nextChapterNum < PlayerPrefs.GetInt("UnlockedChapterNum"))  // 현재 Chapter가 최대 Chapter 미만일 때 씬을 전환한다 
+        {
+            SceneOption.Instance.UnitNum++;
+
+            SoundManager.instance.PlaySFX("UnitButtonSFX");
+            SceneManager.LoadScene("LoadingScene"); 
+        }
+        else if (nextChapterNum == PlayerPrefs.GetInt("UnlockedChapterNum") &&
+            nextUnitNum <= PlayerPrefs.GetInt("UnlockedFinalUnitNum"))  // 다음 Chapter가 최대 Chapter와 같을 때는 최대 Unit이하 여부를 확인한다
+        {
+            SceneOption.Instance.UnitNum = 1;
+            SceneOption.Instance.ChapterNum++;
+
+            SoundManager.instance.PlaySFX("UnitButtonSFX");
+            SceneManager.LoadScene("LoadingScene");
+        }
+        else 
+        {
+            SoundManager.instance.PlaySFX("ErrorSFX");
+
+        }
     }
 }

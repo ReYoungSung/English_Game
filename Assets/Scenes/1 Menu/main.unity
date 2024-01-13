@@ -2531,10 +2531,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2013204765}
     - target: {fileID: 8271489538812492683, guid: 56344472de07ea1449d36962eae67577, type: 3}
-      propertyPath: PlayUI
-      value: 
-      objectReference: {fileID: 9100000, guid: 113f0cf429bc20e498d75d0133d3e61e, type: 2}
-    - target: {fileID: 8271489538812492683, guid: 56344472de07ea1449d36962eae67577, type: 3}
       propertyPath: backUI
       value: 
       objectReference: {fileID: 377230198}
@@ -2542,10 +2538,6 @@ PrefabInstance:
       propertyPath: playUI
       value: 
       objectReference: {fileID: 162959374}
-    - target: {fileID: 8271489538812492683, guid: 56344472de07ea1449d36962eae67577, type: 3}
-      propertyPath: StateUI
-      value: 
-      objectReference: {fileID: 9100000, guid: 7d412af99e5a29140b3e4e955b7bf43f, type: 2}
     - target: {fileID: 8271489538812492683, guid: 56344472de07ea1449d36962eae67577, type: 3}
       propertyPath: stateUI
       value: 
@@ -2558,10 +2550,6 @@ PrefabInstance:
       propertyPath: settingUI
       value: 
       objectReference: {fileID: 922276110}
-    - target: {fileID: 8271489538812492683, guid: 56344472de07ea1449d36962eae67577, type: 3}
-      propertyPath: unitButtonManager
-      value: 
-      objectReference: {fileID: 5709046082845113175}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56344472de07ea1449d36962eae67577, type: 3}
 --- !u!114 &326851857 stripped

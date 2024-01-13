@@ -23,6 +23,10 @@ public class LoadingSceneManager : MonoBehaviour
 
         // 슬라이더를 채우는 메서드 시작
         StartCoroutine(FillSliderOverTime());
+
+        //게임 시작 전 로딩으로 게임 기본 정보 초기화
+        RunningTime.Instance.MissingPoint = 0;
+        SceneOption.Instance.CurrentLevelNumber = 1;
     }
 
     void InitializeSlider()

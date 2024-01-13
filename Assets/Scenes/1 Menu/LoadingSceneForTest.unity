@@ -194,11 +194,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD55C\uAE00 \uBB38\uC7A5\uC5D0 \uB9DE\uAC8C \uC601\uC5B4 \uB2E8\uC5B4\uB97C
-    \uC870\uD569\uD574\uC8FC\uC138\uC694\n\uB2E8\uC5B4\uB97C \uC870\uD569\uD574 \uBB38\uC7A5\uC744
-    \uB9DE\uCD9C\uB54C\uB9C8\uB2E4 \uC4F0\uB808\uAE30\uB97C \uC218\uAC70\uD560 \uC218
-    \uC788\uC2B5\uB2C8\uB2E4\n\uCD5C\uB300\uD55C \uBE60\uB974\uAC8C \uBC14\uB2E4\uB97C
-    \uC9C0\uCF1C\uC8FC\uC138\uC694!"
+  m_Text: "Test\uB294 \uCD1D 3\uAC1C\uC758 \uBAA9\uC228\uC744 \uAC00\uC9C0\uACE0
+    \uC788\uC73C\uBA70\n\uBAA8\uB450 \uC783\uC744 \uC2DC \uC2E4\uD328\uD558\uAC8C
+    \uB429\uB2C8\uB2E4\n\uB9CC\uC57D \uC131\uACF5\uD558\uBA74 \uB2E4\uC74C \uB2E8\uACC4\uAC00
+    \uC5F4\uB9B4\uAC70\uC5D0\uC694!"
 --- !u!222 &93983173
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1364,7 +1363,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: stage_unit
+          m_StringArgument: Test_unit
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &8599600337871979285

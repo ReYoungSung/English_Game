@@ -3,10 +3,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
-
+using InGameScript;
 
 public class ButtonGame : MonoBehaviour
 {
+    private GameManager gameManager;
+
     public Text outputText; // 단어 출력을 위한 UI 텍스트
 
     public List<Button> buttons; // 버튼 리스트
@@ -15,18 +17,23 @@ public class ButtonGame : MonoBehaviour
     public List<Button> clickedSet = new List<Button>(); // 클릭한 버튼을 저장한 리스트 
     private List<string> receivedWords = new List<string>(); // 전달받은 단어 저장 리스트 
 
-    public int nextLevel = 0; // 다음 씬의 번호를 설정
-
     private int answerPoint = 0;
 
     [SerializeField] private GameObject FailImage;
     [SerializeField] private GameObject thunderImage;
     [SerializeField] private GameObject failEnemy;
-    
-    private void Start() 
-    { 
+
+    private void Update()
+    {
+        Debug.Log(SceneOption.Instance.CurrentLevelNumber);
+    }
+
+    private void Start()
+    {
+        gameManager = this.GetComponent<GameManager>();
+
         // UI 초기화  
-        UpdateOutputText(); 
+        UpdateOutputText();
 
         // 이전에 눌렀던 정답을 PlayerPrefs에서 읽어옴 
         if (PlayerPrefs.HasKey("CorrectClickCount"))
@@ -35,13 +42,13 @@ public class ButtonGame : MonoBehaviour
         }
 
         // 버튼 위치 정보를 초기화
-        InitializeButtonPositions(); 
+        InitializeButtonPositions();
 
         // 버튼들을 랜덤하게 섞기
         ShuffleButtons();
 
 
-        for (int i = 0; i < this.GetComponent<GameManager>().listOfAnswer.Count; i++)
+        for (int i = 0; i < gameManager.listOfAnswer.Count; i++)
         {
             answerButtons.Add(buttons[i]);
         }
@@ -60,7 +67,7 @@ public class ButtonGame : MonoBehaviour
 
     void ShuffleButtons()
     {
-        int buttonCount = buttons.Count; 
+        int buttonCount = buttons.Count;
 
         // 버튼 위치를 섞기 위해 Fisher-Yates 알고리즘 사용
         for (int i = buttonCount - 1; i > 0; i--)
@@ -69,7 +76,7 @@ public class ButtonGame : MonoBehaviour
 
             // 현재 버튼 위치와 랜덤하게 선택된 버튼 위치를 교환,ll
             Vector3 tempPosition = buttonPositions[i];
-            buttonPositions[i] = buttonPositions[randomIndex];
+            buttonPositions[i] = buttonPositions[randomIndex]; 
             buttonPositions[randomIndex] = tempPosition;
         }
 
@@ -80,7 +87,7 @@ public class ButtonGame : MonoBehaviour
         }
     }
 
-    public void OnButtonClick(Button button)   
+    public void OnButtonClick(Button button)
     {
         button.interactable = false;
         clickedSet.Add(button);
@@ -95,45 +102,53 @@ public class ButtonGame : MonoBehaviour
             // 클릭한 순서 초기화
             clickedSet.Clear();
 
-            RunningTime.Instance.CheckTurnNum++;
-
-            //세 번 반복 후 다음 씬으로 전환
-            if (RunningTime.Instance.CheckTurnNum == 3)
+            //테스트 모드인지 아닌지 구분 후 적용
+            if (gameManager.currentGameMode == GameManager.GameMode.test)
             {
                 StartCoroutine(LoadNextScene());
             }
-            else
+            else  //기본 연습 버전일 때는 
             {
-                StartCoroutine(ReloadRepeatScene()); 
+                RunningTime.Instance.CheckTurnNum++;
+
+                //세 번 반복 후 다음 씬으로 전환
+                if (RunningTime.Instance.CheckTurnNum == 3)
+                {
+                    StartCoroutine(LoadNextScene());   
+                }
+                else
+                {
+                    StartCoroutine(ReloadRepeatScene());
+                }
             }
         }
-        else if(IsCorrectSequence() == 3) 
+        else if (IsCorrectSequence() == 3)
         {
             // 잘못된 순서
             SoundManager.instance.PlaySFX("FailSFX");
-            RunningTime.Instance.MissingPoint++;
+            RunningTime.Instance.MissingPoint++; 
 
-            failEnemy.transform.position = button.transform.position;  
+            failEnemy.transform.position = button.transform.position;
 
-            StartCoroutine(FailFeedbackAction());        
+            StartCoroutine(FailFeedbackAction());
         }
         else
         {
             //잘 선택하고 있을 때  
-            SoundManager.instance.PlaySFX("ClickSFX");     
+            SoundManager.instance.PlaySFX("ClickSFX");
         }
 
-        buttons.ForEach(button => button.interactable = true);    
+        buttons.ForEach(button => button.interactable = true);
 
-        ReceiveWord(button.GetComponentInChildren<Text>().text);  
-    }   
+        ReceiveWord(button.GetComponentInChildren<Text>().text);
+    }
 
     private int IsCorrectSequence()
-    {   
+    {
         //순서대로 올바른 풍선만 눌렀을 때 1로 반환
         for (int i = 0; i < clickedSet.Count; i++)
         {
-            if (clickedSet[i] != answerButtons[i]) 
+            if (clickedSet[i] != answerButtons[i])
             {
                 answerPoint = 0;
                 return 3; //3일 때는 실패로 재시작
@@ -141,9 +156,9 @@ public class ButtonGame : MonoBehaviour
             else
             {
                 answerPoint++;
-                if(answerPoint == answerButtons.Count) 
+                if (answerPoint == answerButtons.Count)
                 {
-                    return 1; //1일 때는 성공으로 다음 단계로 이동 
+                    return 1; //1일 때는 성공 
                 }
             }
         }
@@ -151,27 +166,34 @@ public class ButtonGame : MonoBehaviour
         return 2; //2일 때는 잘선택하고 있는 중을 표시
     }
 
-    private void ReloadScene() 
+    private void ReloadScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private IEnumerator LoadNextScene()
     {
+        SceneOption.Instance.CurrentLevelNumber++; 
+
         yield return new WaitForSeconds(1.5f);
 
-        SceneOption.Instance.CurrentLevelNumber++;
         RunningTime.Instance.CheckTurnNum = 0;
 
-        if (SceneOption.Instance.CurrentLevelNumber < 16) 
+        int finalLevelIndex = (gameManager.currentGameMode == GameManager.GameMode.test) ? 9 : 15;
+
+        if (SceneOption.Instance.CurrentLevelNumber <= finalLevelIndex)
         {
-            ReloadScene(); 
+            ReloadScene();
         }
         else //최종단계 클리어 시 
         {
-            SceneOption.Instance.CurrentLevelNumber = 1; 
-            SceneOption.Instance.SaveGameData(); 
-            SceneManager.LoadScene("clear"); 
+            if (gameManager.currentGameMode == GameManager.GameMode.test)
+            {
+                SceneOption.Instance.SaveGameData();
+                SceneManager.LoadScene("clearForTest");
+            }
+            else
+                SceneManager.LoadScene("clear");
         }
     }
 
@@ -182,11 +204,22 @@ public class ButtonGame : MonoBehaviour
         StartCoroutine(CycleBrightness());
 
         yield return new WaitForSeconds(2f);
-
         // 클릭한 순서 초기화
         clickedSet.Clear();
-        // 현재 씬을 다시 로드하여 재시작
-        ReloadScene();
+
+        if (gameManager.currentGameMode == GameManager.GameMode.test)
+        {
+            if (RunningTime.Instance.MissingPoint >= 3)
+            {
+                SceneManager.LoadScene("gameover"); 
+            }
+            else
+                ReloadScene();
+        }
+        else
+        {
+            ReloadScene();
+        }
     }
 
     private IEnumerator ReloadRepeatScene()
@@ -218,7 +251,7 @@ public class ButtonGame : MonoBehaviour
         // 알파 값이 목표 값으로 도달하도록 보장
         Color finalColor = FailImage.GetComponent<Image>().color;
         finalColor.a = 0.8f;
-        FailImage.GetComponent<Image>().color = finalColor; 
+        FailImage.GetComponent<Image>().color = finalColor;
     }
 
     IEnumerator CycleBrightness()
@@ -255,14 +288,14 @@ public class ButtonGame : MonoBehaviour
 
     private void UpdateOutputText()
     {
-        string output = string.Join(" ", receivedWords.ToArray());
-        outputText.text = output;
+        string output = string.Join(" ", receivedWords.ToArray());  
+        outputText.text = output;  
 
         // Check the length of the concatenated string
-        if (this.GetComponent<GameManager>().englishAnswer.Length >= 38)
+        if (gameManager.englishAnswer.Length >= 38)
         {
             // If it exceeds 30 characters, set the font size to 55
-            outputText.fontSize = 60; 
+            outputText.fontSize = 60;
         }
         else
         {

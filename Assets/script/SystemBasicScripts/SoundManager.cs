@@ -68,8 +68,8 @@ public class SoundManager : MonoBehaviour
             StopBGM();
             PlayBGM("MainMenuBGM");
         }
-        else if (sceneName == "LoadingScene")
-        {
+        else if (sceneName == "LoadingScene" || sceneName == "LoadingSceneForTest")  
+        {   
             StopBGM();
             PlayBGM("LoadingBGM", false);
         }
@@ -78,10 +78,25 @@ public class SoundManager : MonoBehaviour
             StopBGM();
             PlayBGM("ClearSceneBGM", false);
         }
+        else if (sceneName == "clearForTest")
+        {
+            StopBGM();
+            PlaySFX("TestClearSFX");
+        }
+        else if(sceneName == "gameover")
+        {
+            StopBGM();
+            PlayBGM("TestFailBGM", false);  
+        }
         else if(sceneName == "stage_unit" && RunningTime.Instance.isTimerRunning == false)
         {
             StopBGM();
             PlayBGM("InGameBGM");
+        }
+        else if (sceneName == "Test_unit" && RunningTime.Instance.isTimerRunning == false)
+        {
+            StopBGM();
+            PlayBGM("InTestBGM");
         }
     }
 
