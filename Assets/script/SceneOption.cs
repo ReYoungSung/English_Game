@@ -31,6 +31,8 @@ public class SceneOption : MonoBehaviour
     {
         //PlayerPrefs.DeleteAll(); //나중에 지워야 함
 
+        PlayerPrefs.SetInt("UnlockedChapterNum", 11);
+
         LoadGameData();
     }
 

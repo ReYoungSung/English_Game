@@ -158,10 +158,9 @@ public class ButtonGame : MonoBehaviour
 
     private IEnumerator LoadNextScene()
     {
-        SceneOption.Instance.CurrentLevelNumber++;
-
         yield return new WaitForSeconds(1.5f);
 
+        SceneOption.Instance.CurrentLevelNumber++;
         RunningTime.Instance.CheckTurnNum = 0;
 
         if (SceneOption.Instance.CurrentLevelNumber < 16) 
@@ -260,10 +259,10 @@ public class ButtonGame : MonoBehaviour
         outputText.text = output;
 
         // Check the length of the concatenated string
-        if (output.Length > 30)
+        if (this.GetComponent<GameManager>().englishAnswer.Length >= 38)
         {
             // If it exceeds 30 characters, set the font size to 55
-            outputText.fontSize = 55;
+            outputText.fontSize = 60; 
         }
         else
         {

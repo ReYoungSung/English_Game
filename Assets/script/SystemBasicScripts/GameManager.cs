@@ -17,12 +17,15 @@ public class GameManager : MonoBehaviour
     private Dictionary<Button, string> buttonWords = new Dictionary<Button, string>();   
 
     private List<Dictionary<string, object>> Korean_Dialog;
-    private List<Dictionary<string, object>> English_Dialog;
+    [HideInInspector] public List<Dictionary<string, object>> English_Dialog;
     private List<Dictionary<string, object>> FakeWord_Dialog;
 
     public List<string> listOfAnswer = new List<string>();     
     public List<string> listOfFake = new List<string>();       
-    private List<string> combinedList = new List<string>();     
+    private List<string> combinedList = new List<string>();
+
+    [HideInInspector] public string englishAnswer;
+    [HideInInspector] public string koreanOutput;
 
     private void Awake()  
     { 
@@ -48,24 +51,24 @@ public class GameManager : MonoBehaviour
 
     private void UpdateStage()
     {
-        string koreanOutput = Korean_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString();
-        string englishOutput = English_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString().Replace("/", " ");
+        koreanOutput = Korean_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString();
+        englishAnswer = English_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString().Replace("/", " ");
 
         //현재 챕터와 유닛을 불러옴
-        if (koreanOutput.Length >= 23)
+        if (koreanOutput.Length >= 25)
         {
             koreanText.fontSize = 35;
         }
 
-        if (englishOutput.Length >= 33)
+        Debug.Log(englishAnswer.Length);
+
+        if (englishAnswer.Length >= 38)
         {
-            englishText.fontSize = 55;
+            englishText.fontSize = 60;
         }
 
         koreanText.text = koreanOutput;
-        englishText.text = englishOutput;
-
-
+        englishText.text = englishAnswer;
 
         //영어 문장을 /로 나누어서 리스트에 삽입    
         if (English_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString().Contains("/"))
@@ -73,7 +76,7 @@ public class GameManager : MonoBehaviour
         else
             listOfAnswer = new List<string>(English_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
 
-        listOfFake = new List<string>(FakeWord_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString().Split('&'));
+        listOfFake = new List<string>(FakeWord_Dialog[SceneOption.Instance.CurrentLevelNumber-1][SceneOption.Instance.UnitNum.ToString()].ToString().Replace(" ","").Split('&'));
 
         // 만약 리스트가 비어 있거나 최대 2개의 요소만 포함되어 있다면
         if (listOfFake.Count >= 0 && listOfFake.Count <= 2) 
