@@ -10,7 +10,16 @@ public class PlayerLevelFeedback : MonoBehaviour
 
     void Start()
     {
-        ChapterNum.text = PlayerPrefs.GetInt("UnlockedChapterNum").ToString();
-        UnitNum.text = ((PlayerPrefs.GetInt("UnlockedFinalUnitNum") * 100) / 21).ToString()+"%";
+        if (PlayerPrefs.GetInt("UnlockedChapterNum") <= 12)
+            ChapterNum.text = PlayerPrefs.GetInt("UnlockedChapterNum").ToString();
+        else
+            ChapterNum.text = "Master";
+
+        if (PlayerPrefs.GetInt("UnlockedChapterNum") > 12)
+            UnitNum.text = "100%";
+        else if (PlayerPrefs.GetInt("UnlockedFinalUnitNum") < 21)
+            UnitNum.text = ((PlayerPrefs.GetInt("UnlockedFinalUnitNum") * 100) / 21).ToString()+"%";
+        else 
+            UnitNum.text = ((1 * 100) / 21).ToString() + "%";  
     }
 }

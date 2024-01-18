@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     }
 
     // 현재 계절 변수
-    public GameMode currentGameMode;
+    public GameMode currentGameMode;  
 
     public Text messageText; // 메시지를 표시할 UI 텍스트
     public Text koreanText; // 한국어 뜻을 표시할 UI 텍스트  
@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public string englishAnswer;
     [HideInInspector] public string koreanOutput;
+
 
     private void Awake()
     {
@@ -81,22 +82,25 @@ public class GameManager : MonoBehaviour
         englishText.text = englishAnswer;
 
         //영어 문장을 /로 나누어서 리스트에 삽입    
-        if (English_Dialog[SceneOption.Instance.CurrentLevelNumber - 1][SceneOption.Instance.UnitNum.ToString()].ToString().Contains("/"))
-            listOfAnswer = new List<string>(English_Dialog[adjustedLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries));
+        string inputString = English_Dialog[adjustedLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString();
+
+        if (inputString.Contains("/"))
+            listOfAnswer = new List<string>(inputString.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries));
         else
-            listOfAnswer = new List<string>(English_Dialog[adjustedLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
+            listOfAnswer = new List<string>(inputString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
+
 
         listOfFake = new List<string>(FakeWord_Dialog[adjustedLevelNumber][SceneOption.Instance.UnitNum.ToString()].ToString().Replace(" ", "").Split('&'));
 
-        // 만약 리스트가 비어 있거나 최대 2개의 요소만 포함되어 있다면
-        if (listOfFake.Count >= 0 && listOfFake.Count <= 2)
+        // 만약 리스트가 비어 있거나 2개 이하라면
+        if (listOfFake.Count <= 2)
         {
             // 기본 값들을 추가합니다
             listOfFake.Add("JGL");
             listOfFake.Add("Songalak");
             listOfFake.Add("YSR");
             listOfFake.Add("SYH");
-        }
+        } 
 
         // A 리스트의 모든 요소를 먼저 다른 리스트에 추가합니다.      
         combinedList = new List<string>(listOfAnswer);
@@ -139,7 +143,14 @@ public class GameManager : MonoBehaviour
 
     public void SetFinalLevel()
     {
-        SceneOption.Instance.CurrentLevelNumber = (currentGameMode == GameMode.test) ? 9 : 15;
+        int SceneNumDvelope = (currentGameMode == GameMode.test) ? 9 : 15;
+        
+
+        if(SceneOption.Instance.CurrentLevelNumber < SceneNumDvelope)
+        {
+            SceneOption.Instance.CurrentLevelNumber++;
+        }
+
     }
 }
 

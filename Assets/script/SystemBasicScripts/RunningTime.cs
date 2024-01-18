@@ -3,9 +3,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public class RunningTime : MonoBehaviour
-{
-    private static RunningTime instance;
+public class RunningTime : MonoBehaviour     
+{  
+    private static RunningTime instance;   
 
     public float TimerNum; // 타이머 값
     public int MissingPoint = 0; // 실수 값

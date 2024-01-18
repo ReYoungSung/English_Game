@@ -4,15 +4,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadingSceneManager : MonoBehaviour
-{
+{ 
     [SerializeField] private GameObject slider;
     public SpriteRenderer backgroundSpriteRenderer;
     public float fillDuration = 3f; // 슬라이더를 채우는 데 걸리는 시간
     public float fadeDuration = 1f; // 배경이 어두워지는 데 걸리는 시간
     private float minBrightness = 0.2f; // 최소 명도값 (어두워질 정도)
 
-    [SerializeField] private GameObject StartButton;
-
+    [SerializeField] private GameObject StartButton;    
+     
     void Start()
     {
         // 슬라이더 초기화
@@ -27,7 +27,7 @@ public class LoadingSceneManager : MonoBehaviour
         //게임 시작 전 로딩으로 게임 기본 정보 초기화
         RunningTime.Instance.MissingPoint = 0;
         SceneOption.Instance.CurrentLevelNumber = 1;
-    }
+    }   
 
     void InitializeSlider()
     {

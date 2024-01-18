@@ -81,7 +81,7 @@ public class SoundManager : MonoBehaviour
         else if (sceneName == "clearForTest")
         {
             StopBGM();
-            PlaySFX("TestClearSFX");
+            PlayBGM("TestClearBGM", false);
         }
         else if(sceneName == "gameover")
         {

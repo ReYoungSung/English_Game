@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using InGameScript;
+using System.Linq;
 
 public class ButtonGame : MonoBehaviour
 {
@@ -23,10 +24,6 @@ public class ButtonGame : MonoBehaviour
     [SerializeField] private GameObject thunderImage;
     [SerializeField] private GameObject failEnemy;
 
-    private void Update()
-    {
-        Debug.Log(SceneOption.Instance.CurrentLevelNumber);
-    }
 
     private void Start()
     {
@@ -38,7 +35,7 @@ public class ButtonGame : MonoBehaviour
         // 이전에 눌렀던 정답을 PlayerPrefs에서 읽어옴 
         if (PlayerPrefs.HasKey("CorrectClickCount"))
         {
-            PlayerPrefs.DeleteKey("CorrectClickCount");
+            PlayerPrefs.DeleteKey("CorrectClickCount");  
         }
 
         // 버튼 위치 정보를 초기화
@@ -148,7 +145,7 @@ public class ButtonGame : MonoBehaviour
         //순서대로 올바른 풍선만 눌렀을 때 1로 반환
         for (int i = 0; i < clickedSet.Count; i++)
         {
-            if (clickedSet[i] != answerButtons[i])
+            if (!IsEnglishAnswerContained())
             {
                 answerPoint = 0;
                 return 3; //3일 때는 실패로 재시작
@@ -165,6 +162,21 @@ public class ButtonGame : MonoBehaviour
         answerPoint = 0;
         return 2; //2일 때는 잘선택하고 있는 중을 표시
     }
+
+    // 클릭된 버튼들의 텍스트를 순서대로 합친 문자열을 생성하는 함수
+    private string ConcatenateButtonText(List<Button> buttons)
+    {
+        return string.Join(" ", buttons.Select(button => button.GetComponentInChildren<Text>().text));
+    }
+
+    // gameManager.englishAnswer의 앞부분부터 포함되는지 여부를 확인하는 함수
+    private bool IsEnglishAnswerContained()
+    {
+        string concatenatedButtonText = ConcatenateButtonText(clickedSet);
+        return gameManager.englishAnswer.StartsWith(concatenatedButtonText);
+    }
+
+
 
     private void ReloadScene()
     {
@@ -243,9 +255,9 @@ public class ButtonGame : MonoBehaviour
             FailImage.GetComponent<Image>().color = currentColor;
 
             // 경과 시간 업데이트
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.deltaTime;      
 
-            yield return null;
+            yield return null;      
         }
 
         // 알파 값이 목표 값으로 도달하도록 보장

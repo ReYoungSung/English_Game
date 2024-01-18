@@ -55,10 +55,8 @@ public class SceneOption : MonoBehaviour
     private void Awake()
     {
         //PlayerPrefs.DeleteAll(); //나중에 지워야 함
-
-        PlayerPrefs.SetInt("UnlockedChapterNum", 11);
-        PlayerPrefs.SetInt("UnlockedFinalUnitNum", 21);
-
+        //PlayerPrefs.SetInt("UnlockedChapterNum", 12);
+        //PlayerPrefs.SetInt("UnlockedFinalUnitNum", 21);
         LoadGameData();
     }
 

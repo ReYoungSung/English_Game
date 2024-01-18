@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UIElements;
 
 public class OnMouseDown_SwitchScene : MonoBehaviour
@@ -14,8 +15,12 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     public Animator scrollUI;
     public bool animating = false;
 
-    [SerializeField] private GameObject settingUI;
+    public GameObject Character;
+    private float appearanceTime = 4f; // 등장 시간 (초)
+    private float minScale = 0.2f; // 최소 크기
+    private float maxScale = 1f; // 최대 크기
 
+    [SerializeField] private GameObject settingUI;  
 
     private void Start() 
     {
@@ -47,7 +52,7 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
             stateUI.SetBool("PlayButtonOnClick",true); 
             playUI.SetBool("PlayButtonOnClick",true);  
             secUI.SetBool("PlayButtonOnClick",true);   
-            backUI.SetBool("PlayButtonOnClick",true);  
+            backUI.SetBool("PlayButtonOnClick",true);
 
             StartCoroutine(Animating());   
         }     
@@ -108,7 +113,7 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
             SceneManager.LoadScene(sceneName);
         }
         else
-            SoundManager.instance.PlaySFX("ErrorSFX");
+            SoundManager.instance.PlaySFX("ErrorSFX");  
     }
 
     // 팝업을 표시하기 위한 함수
@@ -160,6 +165,7 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     public void ReStartGame()
     {
         SceneManager.LoadScene(SceneOption.Instance.previousModeName);
+        SceneOption.Instance.CurrentLevelNumber = 1; 
     }
 
     public void LoadNextLevel()
@@ -168,36 +174,57 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         int nextUnitNum = SceneOption.Instance.UnitNum;
 
         //챕터의 마지막 Unit인지 구분
-        if (SceneOption.Instance.UnitNum < 21) 
+        if (SceneOption.Instance.UnitNum < 21)  
         {
             nextUnitNum++;
         }
         else
         {
             nextUnitNum = 1;
-            nextChapterNum++;
+            nextChapterNum++; 
         }
 
-        if (nextChapterNum < PlayerPrefs.GetInt("UnlockedChapterNum"))  // 현재 Chapter가 최대 Chapter 미만일 때 씬을 전환한다 
+        if (PlayerPrefs.GetInt("UnlockedChapterNum") <= 12)
         {
-            SceneOption.Instance.UnitNum++;
+            if (nextChapterNum < PlayerPrefs.GetInt("UnlockedChapterNum"))  // 현재 Chapter가 최대 Chapter 미만일 때 씬을 전환한다 
+            {
+                SceneOption.Instance.UnitNum++;
 
-            SoundManager.instance.PlaySFX("UnitButtonSFX");
-            SceneManager.LoadScene("LoadingScene"); 
+                SoundManager.instance.PlaySFX("UnitButtonSFX");
+                SceneManager.LoadScene("LoadingScene");
+            }
+            else if (nextChapterNum == PlayerPrefs.GetInt("UnlockedChapterNum") &&
+                nextUnitNum <= PlayerPrefs.GetInt("UnlockedFinalUnitNum"))  // 다음 Chapter가 최대 Chapter와 같을 때는 최대 Unit이하 여부를 확인한다
+            {
+                SceneOption.Instance.UnitNum = 1;
+                SceneOption.Instance.ChapterNum++;
+
+                SoundManager.instance.PlaySFX("UnitButtonSFX");
+                SceneManager.LoadScene("LoadingScene");
+            }
+            else
+            {
+                SoundManager.instance.PlaySFX("ErrorSFX");
+
+            }
         }
-        else if (nextChapterNum == PlayerPrefs.GetInt("UnlockedChapterNum") &&
-            nextUnitNum <= PlayerPrefs.GetInt("UnlockedFinalUnitNum"))  // 다음 Chapter가 최대 Chapter와 같을 때는 최대 Unit이하 여부를 확인한다
+        else
         {
-            SceneOption.Instance.UnitNum = 1;
-            SceneOption.Instance.ChapterNum++;
-
-            SoundManager.instance.PlaySFX("UnitButtonSFX");
-            SceneManager.LoadScene("LoadingScene");
+            SceneManager.LoadScene("main");
         }
-        else 
-        {
-            SoundManager.instance.PlaySFX("ErrorSFX");
+    }
 
-        }
+    public void LoadRandomTest()
+    {
+        // 무작위로 Chapter 선택
+        int randomChapterNum = UnityEngine.Random.Range(1, PlayerPrefs.GetInt("UnlockedChapterNum"));
+  
+        int randomUnitNum = UnityEngine.Random.Range(1, 22);
+
+        // SceneOption.Instance에 값을 설정
+        SceneOption.Instance.ChapterNum = randomChapterNum;
+        SceneOption.Instance.UnitNum = randomUnitNum;
+
+        SellectLevel("LoadingSceneForTest");  
     }
 }
