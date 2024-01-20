@@ -14,7 +14,7 @@ public class CheckTurnSystem : MonoBehaviour
     [SerializeField] private Text chUnitText;
 
     [SerializeField] private GameManager gameManager;
-
+     
     private void Start()
     {
         chUnitText.text = "CH" + SceneOption.Instance.ChapterNum.ToString() + "  " + "UNIT" + SceneOption.Instance.UnitNum.ToString();
@@ -30,8 +30,6 @@ public class CheckTurnSystem : MonoBehaviour
         {
             updateTurnNum();
         }
-               
-            
     }
 
     private void updateTurnNum()

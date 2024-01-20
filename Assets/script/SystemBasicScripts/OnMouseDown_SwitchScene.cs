@@ -27,11 +27,6 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         SceneOption.Instance.LoadGameData(); //버튼 클릭 전에 현재 입장 가능 스테이지 정보 업데이트
     }
 
-    private void Update()
-    {
-        Debug.Log("챕터 번호:"+SceneOption.Instance.ChapterNum + " | 유닛 번호:"+ SceneOption.Instance.UnitNum);
-    }
-
     public void ChangeChapter(int a)  
     { 
         SceneOption.Instance.ChapterNum = a;
@@ -216,15 +211,22 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
 
     public void LoadRandomTest()
     {
-        // 무작위로 Chapter 선택
-        int randomChapterNum = UnityEngine.Random.Range(1, PlayerPrefs.GetInt("UnlockedChapterNum"));
-  
-        int randomUnitNum = UnityEngine.Random.Range(1, 22);
+        if (PlayerPrefs.GetInt("UnlockedChapterNum") != 1)
+        {
+            // 무작위로 Chapter 선택
+            int randomChapterNum = UnityEngine.Random.Range(1, PlayerPrefs.GetInt("UnlockedChapterNum"));
 
-        // SceneOption.Instance에 값을 설정
-        SceneOption.Instance.ChapterNum = randomChapterNum;
-        SceneOption.Instance.UnitNum = randomUnitNum;
+            int randomUnitNum = UnityEngine.Random.Range(1, 22);
 
-        SellectLevel("LoadingSceneForTest");  
+            // SceneOption.Instance에 값을 설정
+            SceneOption.Instance.ChapterNum = randomChapterNum;
+            SceneOption.Instance.UnitNum = randomUnitNum;
+
+            SellectLevel("LoadingSceneForTest");
+        }
+        else
+        {
+            SoundManager.instance.PlaySFX("ErrorSFX");
+        }
     }
 }

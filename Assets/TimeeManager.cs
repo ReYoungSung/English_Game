@@ -11,7 +11,7 @@ public class TimeeManager : MonoBehaviour
 
     private string CurrentSceneName;
 
-    private void Awake()
+    private void Awake() 
     {
         CurrentSceneName = SceneManager.GetActiveScene().name; ;
     }

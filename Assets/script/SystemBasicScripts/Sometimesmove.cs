@@ -17,8 +17,11 @@ public class Sometimesmove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 dirPos = pos;
-        dirPos.y = dirPos.y + moveMax * Mathf.Sin(Time.time * speed);
-        transform.position = dirPos;
+        if (RunningTime.Instance.isPauseTimer == false) 
+        {
+            Vector3 dirPos = pos;
+            dirPos.y = dirPos.y + moveMax * Mathf.Sin(Time.time * speed);
+            transform.position = dirPos;
+        }
     }
 }

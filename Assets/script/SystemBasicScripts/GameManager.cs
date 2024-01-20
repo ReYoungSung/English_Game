@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         FakeWord_Dialog = CSVReader.Read("Chapter" + SceneOption.Instance.ChapterNum.ToString() + "_FSP");
 
         //현재 챕터 및 UNIT의 스테이지에 맞게 게임 내용 변경
-        UpdateStage();
+        UpdateStage(); 
     }
 
     private void RestartScene()
@@ -70,12 +70,12 @@ public class GameManager : MonoBehaviour
         //현재 챕터와 유닛을 불러옴
         if (koreanOutput.Length >= 25)
         {
-            koreanText.fontSize = 35;
+            koreanText.fontSize = 50; 
         } 
 
         if (englishAnswer.Length >= 38)
         {
-            englishText.fontSize = 60;
+            englishText.fontSize = 65;
         }
 
         koreanText.text = koreanOutput;
@@ -135,6 +135,10 @@ public class GameManager : MonoBehaviour
             // i가 combinedList의 인덱스 범위 내에 있는지 확인
             if (i < combinedList.Count)
             {
+                if (combinedList[i].Length >= 13)
+                {
+                    englishText.fontSize = 50;  
+                }
                 // 각 버튼의 텍스트 컴포넌트에 combinedList의 요소 할당
                 this.GetComponent<ButtonGame>().buttons[i].GetComponentInChildren<Text>().text = combinedList[i];
             }

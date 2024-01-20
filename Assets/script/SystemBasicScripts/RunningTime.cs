@@ -12,6 +12,7 @@ public class RunningTime : MonoBehaviour
     public bool isHintOpen = false; // 실수 값
     public bool isTimerRunning = false; // 타이머가 실행 중인지 여부
     public int CheckTurnNum = 0;
+    public bool isPauseTimer = false;
 
     public static RunningTime Instance  
     {
@@ -42,6 +43,14 @@ public class RunningTime : MonoBehaviour
 
     private void Update()
     {
+        if (isPauseTimer == false) 
+        {
+            Timer();
+        }
+    }
+
+    private void Timer()
+    {
         // 현재 활성화된 씬의 이름 가져오기
         string currentSceneName = SceneManager.GetActiveScene().name;
 
@@ -50,7 +59,7 @@ public class RunningTime : MonoBehaviour
         {
             isTimerRunning = true;
         }
-        else if( currentSceneName == "clear" || currentSceneName == "clearForTest")
+        else if (currentSceneName == "clear" || currentSceneName == "clearForTest")
         {
             isTimerRunning = false;
         }
@@ -59,7 +68,9 @@ public class RunningTime : MonoBehaviour
             isTimerRunning = false; // 타이머 중지
             TimerNum = 0;
             MissingPoint = 0;
+            CheckTurnNum = 0;
             isHintOpen = false;
+            SceneOption.Instance.CurrentLevelNumber = 1;
         }
 
         // 타이머가 실행 중이면 시간 증가
@@ -67,5 +78,15 @@ public class RunningTime : MonoBehaviour
         {
             TimerNum += Time.deltaTime;
         }
+    }
+
+    public void ResetGame() 
+    {
+        TimerNum = 0;
+        MissingPoint = 0;
+        CheckTurnNum = 0;
+        isHintOpen = false;
+        isPauseTimer = false;
+        SceneOption.Instance.CurrentLevelNumber = 1;
     }
 }

@@ -102,6 +102,7 @@ public class ButtonGame : MonoBehaviour
             //테스트 모드인지 아닌지 구분 후 적용
             if (gameManager.currentGameMode == GameManager.GameMode.test)
             {
+                RunningTime.Instance.isHintOpen = false;
                 StartCoroutine(LoadNextScene());
             }
             else  //기본 연습 버전일 때는 
@@ -122,11 +123,16 @@ public class ButtonGame : MonoBehaviour
         else if (IsCorrectSequence() == 3)
         {
             // 잘못된 순서
-            SoundManager.instance.PlaySFX("FailSFX");
-            RunningTime.Instance.MissingPoint++; 
+            SoundManager.instance.PlaySFX("FailSFX");    
+            RunningTime.Instance.MissingPoint++;     
 
             failEnemy.transform.position = button.transform.position;
 
+
+            if (gameManager.currentGameMode == GameManager.GameMode.test)
+            {
+                RunningTime.Instance.isHintOpen = true;
+            }
             StartCoroutine(FailFeedbackAction());
         }
         else
@@ -135,9 +141,9 @@ public class ButtonGame : MonoBehaviour
             SoundManager.instance.PlaySFX("ClickSFX");
         }
 
-        buttons.ForEach(button => button.interactable = true);
+        buttons.ForEach(button => button.interactable = true);        
 
-        ReceiveWord(button.GetComponentInChildren<Text>().text);
+        ReceiveWord(button.GetComponentInChildren<Text>().text);      
     }
 
     private int IsCorrectSequence()
@@ -300,14 +306,14 @@ public class ButtonGame : MonoBehaviour
 
     private void UpdateOutputText()
     {
-        string output = string.Join(" ", receivedWords.ToArray());  
+        string output = string.Join(" ", receivedWords.ToArray());    
         outputText.text = output;  
 
         // Check the length of the concatenated string
-        if (gameManager.englishAnswer.Length >= 38)
+        if (gameManager.englishAnswer.Length >= 38) 
         {
             // If it exceeds 30 characters, set the font size to 55
-            outputText.fontSize = 60;
+            outputText.fontSize = 65; 
         }
         else
         {
