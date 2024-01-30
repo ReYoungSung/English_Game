@@ -27,6 +27,10 @@ public class SoundManager : MonoBehaviour
     [HideInInspector] public float bgmVolume = 1f; // Variable to control overall BGM volume
     [HideInInspector] public float sfxVolume = 1f; // Variable to control overall SFX volume
 
+    private bool isBGMPlaying = false;
+    private float pausedTime;
+
+
     private void Awake()
     {
         if (instance == null)
@@ -118,10 +122,21 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        bgmSource.clip = bgmClips[bgmTitle];
-        bgmSource.volume = bgmVolume;
-        bgmSource.loop = loop;
+        bgmSource.clip = bgmClips[bgmTitle]; 
+        bgmSource.volume = bgmVolume; 
+        bgmSource.loop = loop; 
         bgmSource.Play();
+
+        if (isBGMPlaying)
+        {
+            bgmSource.time = pausedTime;
+            bgmSource.Play();
+        }
+        else
+        {
+            bgmSource.Play();
+            isBGMPlaying = true;
+        }
     }
 
 
@@ -139,7 +154,21 @@ public class SoundManager : MonoBehaviour
     // BGM 정지 메서드
     public void StopBGM()
     {
-        bgmSource.Stop();
+        if (bgmSource.isPlaying)
+        {
+            bgmSource.Pause();
+            isBGMPlaying = false;
+            pausedTime = bgmSource.time;
+        }
+    }
+
+    public void RePlayBGM()
+    {
+        if (!isBGMPlaying)
+        {
+            bgmSource.UnPause();
+            isBGMPlaying = true;
+        }
     }
 
     // 전체 BGM 볼륨 조절 메서드

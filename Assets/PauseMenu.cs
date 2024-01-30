@@ -10,13 +10,15 @@ public class PauseMenu : MonoBehaviour
     public void pauseGame()
     {
         SoundManager.instance.PlaySFX("SellectMenuSFX");
+        SoundManager.instance.StopBGM();
         RunningTime.Instance.isPauseTimer = true;
         PauseWindow.SetActive(true);
     }
 
     public void unPauseGame()
     {
-        SoundManager.instance.PlaySFX("SellectMenuSFX"); 
+        SoundManager.instance.PlaySFX("SellectMenuSFX");
+        SoundManager.instance.RePlayBGM();
         RunningTime.Instance.isPauseTimer = false; 
         PauseWindow.SetActive(false); 
     }
@@ -31,7 +33,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ReStartGame()
     {
-        SceneManager.LoadScene(SceneOption.Instance.previousModeName);
+        SceneManager.LoadScene(SceneOption.Instance.previousModeName); 
         RunningTime.Instance.isPauseTimer = false;
         RunningTime.Instance.ResetGame(); 
     }
