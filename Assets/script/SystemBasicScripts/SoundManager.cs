@@ -62,10 +62,11 @@ public class SoundManager : MonoBehaviour
         // 각 씬에 따라 BGM 변경
         string sceneName = scene.name;
 
+        pausedTime = 0; //리셋
+
         if (sceneName == "IntroScene")
         {
             StopBGM();
-            PlayBGM("IntroBGM");
         }
         else if (sceneName == "main") 
         {
@@ -73,7 +74,7 @@ public class SoundManager : MonoBehaviour
             PlayBGM("MainMenuBGM");
         }
         else if (sceneName == "LoadingScene" || sceneName == "LoadingSceneForTest")  
-        {   
+        {
             StopBGM();
             PlayBGM("LoadingBGM", false);
         }
@@ -125,7 +126,6 @@ public class SoundManager : MonoBehaviour
         bgmSource.clip = bgmClips[bgmTitle]; 
         bgmSource.volume = bgmVolume; 
         bgmSource.loop = loop; 
-        bgmSource.Play();
 
         if (isBGMPlaying)
         {

@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
     }
 
     // 영어나 기호가 아닌지 확인하는 메서드
-    bool IsEnglishOrSymbol(string s)
+    private bool IsEnglishOrSymbol(string s)
     {
         foreach (char c in s)
         {
@@ -154,7 +154,6 @@ public class GameManager : MonoBehaviour
         {
             SceneOption.Instance.CurrentLevelNumber++;
         }
-
     }
 }
 

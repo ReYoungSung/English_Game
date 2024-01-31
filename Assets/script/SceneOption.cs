@@ -17,6 +17,8 @@ public class SceneOption : MonoBehaviour
 
     [HideInInspector] public string previousModeName;
 
+    bool isHaveLisense = false;
+
     public static SceneOption Instance
     {
         get
@@ -30,7 +32,7 @@ public class SceneOption : MonoBehaviour
         }
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)      
     {
         // 각 씬에 따라 BGM 변경
         string sceneName = scene.name;
@@ -39,7 +41,6 @@ public class SceneOption : MonoBehaviour
         {
             previousModeName = sceneName;
         }
-        Debug.Log(previousModeName);
     }
 
     private void OnEnable()
@@ -55,8 +56,8 @@ public class SceneOption : MonoBehaviour
     private void Awake()
     {
         //PlayerPrefs.DeleteAll(); //나중에 지워야 함  
-        PlayerPrefs.SetInt("UnlockedChapterNum", 2);  
-        PlayerPrefs.SetInt("UnlockedFinalUnitNum", 1);  
+        PlayerPrefs.SetInt("UnlockedChapterNum", 1);  
+        PlayerPrefs.SetInt("UnlockedFinalUnitNum", 5);   
         LoadGameData();  
     }   
 
@@ -86,21 +87,24 @@ public class SceneOption : MonoBehaviour
     // 게임 스테이지 클리어 시 호출할 메서드 
     public void SaveGameData()  
     {
-        if (UnlockedStageList.Count-1 == ChapterNum) //현재 열린 챕터가 현재 챕터와 동일한지 판단
+        if (isHaveLisense)
         {
-            if (UnitNum == 21) //현재 열린 스테이지 중 마지막 단계를 클리어했을 때 새로운 챕터 잠금 해금
+            if (UnlockedStageList.Count - 1 == ChapterNum) //현재 열린 챕터가 현재 챕터와 동일한지 판단
             {
-                UnlockedStageList.Add(1);  
+                if (UnitNum == 21) //현재 열린 스테이지 중 마지막 단계를 클리어했을 때 새로운 챕터 잠금 해금
+                {
+                    UnlockedStageList.Add(1);
+                }
+                else if (UnlockedStageList[ChapterNum] < 21) //현재 열린 마지막 스테이지지만 유닛은 마지막이 아니면 새로운 유닛 해금
+                {
+                    UnlockedStageList[ChapterNum] = UnitNum + 1;
+                }
             }
-            else if (UnlockedStageList[ChapterNum] < 21) //현재 열린 마지막 스테이지지만 유닛은 마지막이 아니면 새로운 유닛 해금
-            {
-                UnlockedStageList[ChapterNum] = UnitNum + 1;     
-            }
-        }
 
-        PlayerPrefs.SetInt("UnlockedChapterNum", UnlockedStageList.Count-1);  
-        PlayerPrefs.SetInt("UnlockedFinalUnitNum", UnlockedStageList[UnlockedStageList.Count-1]);  
-        PlayerPrefs.Save(); 
+            PlayerPrefs.SetInt("UnlockedChapterNum", UnlockedStageList.Count - 1);
+            PlayerPrefs.SetInt("UnlockedFinalUnitNum", UnlockedStageList[UnlockedStageList.Count - 1]);
+            PlayerPrefs.Save();
+        }
     }
 
     // 어플리케이션이 종료될 때 호출되는 이벤트

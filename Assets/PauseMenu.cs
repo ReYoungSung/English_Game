@@ -7,6 +7,8 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject PauseWindow;
 
+    [SerializeField] private GameManager gameManager;
+
     public void pauseGame()
     {
         SoundManager.instance.PlaySFX("SellectMenuSFX");
@@ -33,7 +35,11 @@ public class PauseMenu : MonoBehaviour
 
     public void ReStartGame()
     {
-        SceneManager.LoadScene(SceneOption.Instance.previousModeName); 
+        if(gameManager.currentGameMode == GameManager.GameMode.test)
+            SceneManager.LoadScene("LoadingSceneForTest"); 
+        else
+            SceneManager.LoadScene("LoadingScene"); 
+
         RunningTime.Instance.isPauseTimer = false;
         RunningTime.Instance.ResetGame(); 
     }

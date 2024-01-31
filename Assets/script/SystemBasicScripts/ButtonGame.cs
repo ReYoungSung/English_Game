@@ -183,7 +183,6 @@ public class ButtonGame : MonoBehaviour
     }
 
 
-
     private void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
