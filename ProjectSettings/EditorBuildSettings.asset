@@ -15,21 +15,21 @@ EditorBuildSettings:
     path: Assets/Scenes/1 Menu/LoadingScene.unity
     guid: 0af793c04d053c6469d3f5780814124f
   - enabled: 1
-    path: Assets/Scenes/2 GameScene/stage_unit.unity
-    guid: 69d3acbbea6681d4ab9f16f81f9f5335
-  - enabled: 1
     path: Assets/Scenes/1 Menu/LoadingSceneForTest.unity
     guid: 1c7d965f00c09da41855ad4e98690c5e
   - enabled: 1
+    path: Assets/Scenes/2 GameScene/stage_unit.unity
+    guid: 69d3acbbea6681d4ab9f16f81f9f5335
+  - enabled: 1
     path: Assets/Scenes/2 GameScene/Test_unit.unity
-    guid: b2780ac8d39e99f4186b937c998f977d
+    guid: 5d651bade5ca24c419c006c3f03fc93d
   - enabled: 1
     path: Assets/Scenes/2 GameScene/clear.unity
     guid: 37108db2c3b04b9488faded63bd1ea9c
   - enabled: 1
-    path: Assets/Scenes/2 GameScene/gameover.unity
-    guid: 941eb115aff11ea45b435683918d38d0
-  - enabled: 1
     path: Assets/Scenes/2 GameScene/clearForTest.unity
-    guid: 16b80730dfba1134ebc4121775092aef
+    guid: 0c204de1c730c2040831ff40de236944
+  - enabled: 1
+    path: Assets/Scenes/2 GameScene/gameover.unity
+    guid: b86e6de41a5ac624097262100ff5b706
   m_configObjects: {}

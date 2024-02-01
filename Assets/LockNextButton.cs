@@ -15,12 +15,12 @@ public class LockNextButton : MonoBehaviour
     {
         if (SceneOption.Instance.ChapterNum < PlayerPrefs.GetInt("UnlockedChapterNum"))  
         {
-            this.transform.GetChild(1).gameObject.SetActive(false);
+            this.transform.GetChild(0).gameObject.SetActive(false);
         }
         else if (SceneOption.Instance.ChapterNum == PlayerPrefs.GetInt("UnlockedChapterNum") &&
             SceneOption.Instance.UnitNum < PlayerPrefs.GetInt("UnlockedFinalUnitNum"))    //다음 단계가 열려야지 이 버튼 잠금도 풀린다
         {
-            this.transform.GetChild(1).gameObject.SetActive(false);
+            this.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 }
