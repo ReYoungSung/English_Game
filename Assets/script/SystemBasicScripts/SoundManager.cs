@@ -11,7 +11,7 @@ public class AudioData
     [Range(0f, 1f)] public float volume = 1f; // Volume for each audio clip
 }
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : MonoBehaviour 
 {
     public static SoundManager instance;
 
@@ -29,7 +29,6 @@ public class SoundManager : MonoBehaviour
 
     private bool isBGMPlaying = false;
     private float pausedTime;
-
 
     private void Awake()
     {
@@ -175,7 +174,7 @@ public class SoundManager : MonoBehaviour
     public void SetBGMVolume(float volume)
     {
         bgmVolume = Mathf.Clamp01(volume);
-        bgmSource.volume = bgmVolume;
+        bgmSource.volume = bgmVolume; 
     }
 
     // 전체 SFX 볼륨 조절 메서드

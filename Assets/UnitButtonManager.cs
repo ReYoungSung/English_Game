@@ -6,8 +6,8 @@ public class UnitButtonManager : MonoBehaviour
     public Button[] buttons;
     private int unlockedChapterNum; 
     private int unlockedUnitNum;    
-    private Color defaultColor = new Color(1f, 1f, 1f, 0.7f); // Set the alpha value to 0.7 (180/255)
-
+    private Color defaultColor = new Color(1f, 1f, 1f, 1f); // Set the alpha value to 0.7 (180/255)
+    private Color toggleColor = new Color(0.8f, 0.8f, 0.8f, 1f); // Set the alpha value to 1 
 
     private void Awake()
     {
@@ -19,9 +19,11 @@ public class UnitButtonManager : MonoBehaviour
             buttons[i].onClick.AddListener(() => OnButtonClick(index));
         }
         */
-
         unlockedChapterNum = PlayerPrefs.GetInt("UnlockedChapterNum");
         unlockedUnitNum = PlayerPrefs.GetInt("UnlockedFinalUnitNum");
+
+
+        InitializeButtons();
     }
 
     private void Update()
@@ -44,7 +46,7 @@ public class UnitButtonManager : MonoBehaviour
         InitializeButtons();
 
         // 클릭된 버튼의 색상을 변경
-        buttons[clickedButtonIndex].GetComponent<Image>().color = Color.red;
+        buttons[clickedButtonIndex].GetComponent<Image>().color = toggleColor;
     }
 
     public void SetUnitButton()
@@ -71,16 +73,18 @@ public class UnitButtonManager : MonoBehaviour
         {
             if (i + 1 <= unlockedUnitNum) 
             {
-                buttons[i].transform.GetChild(1).gameObject.SetActive(false); 
+                buttons[i].transform.GetChild(1).gameObject.SetActive(false);
+                buttons[i].GetComponent<Image>().enabled = true;
             }
         }
     }
 
     private void activateAllButtons()
     {
-        foreach (Button button in buttons)
+        for (int i = 0; i < buttons.Length; i++)
         {
-            button.transform.GetChild(1).gameObject.SetActive(false);
+            buttons[i].transform.GetChild(1).gameObject.SetActive(false);
+            buttons[i].GetComponent<Image>().enabled = true;
         }
     }
 }

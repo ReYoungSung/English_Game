@@ -119,6 +119,8 @@ public class ButtonGame : MonoBehaviour
                     StartCoroutine(ReloadRepeatScene());
                 }
             }
+
+            ReceiveWord(button.GetComponentInChildren<Text>().text);
         }
         else if (IsCorrectSequence() == 3)
         {
@@ -139,11 +141,11 @@ public class ButtonGame : MonoBehaviour
         {
             //잘 선택하고 있을 때  
             SoundManager.instance.PlaySFX("ClickSFX");
+
+            ReceiveWord(button.GetComponentInChildren<Text>().text);
         }
 
-        buttons.ForEach(button => button.interactable = true);        
-
-        ReceiveWord(button.GetComponentInChildren<Text>().text);      
+        buttons.ForEach(button => button.interactable = true);            
     }
 
     private int IsCorrectSequence()

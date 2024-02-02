@@ -31,4 +31,5 @@ public class CameraResolution : MonoBehaviour
 
         cam.rect = rt;
     }
+
 }

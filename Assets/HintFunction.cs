@@ -8,13 +8,13 @@ public class HintFunction : MonoBehaviour
     [SerializeField] private GameObject HintOnButton;
     [SerializeField] private GameObject HintText;
 
-    private void Awake()
+    private void Awake() 
     {
-        if (RunningTime.Instance.isHintOpen == false)
+        if (RunningTime.Instance.isHintOpen == false) 
         {
             HintOnButton.SetActive(true);
             HintOffButton.SetActive(false);
-            HintText.SetActive(false);
+            HintText.SetActive(false); 
         }
         else
         {
@@ -28,15 +28,15 @@ public class HintFunction : MonoBehaviour
     {
         if (RunningTime.Instance.isHintOpen == false) 
         {
-            HintOnButton.SetActive(true);
-            HintOffButton.SetActive(false);
+            HintOnButton.SetActive(true); 
+            HintOffButton.SetActive(false); 
             HintText.SetActive(false); 
         }
         else
         {
-            HintOnButton.SetActive(false);
-            HintOffButton.SetActive(true);
-            HintText.SetActive(true);
+            HintOnButton.SetActive(false); 
+            HintOffButton.SetActive(true); 
+            HintText.SetActive(true); 
         }
     }
 

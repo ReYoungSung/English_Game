@@ -11,13 +11,15 @@ public class CheckTurnSystem : MonoBehaviour
     [SerializeField] private GameObject Blank3;
 
     [SerializeField] private Slider progressBar;
-    [SerializeField] private Text chUnitText;
+    [SerializeField] private Text chText;
+    [SerializeField] private Text unitText;
 
     [SerializeField] private GameManager gameManager;
      
     private void Start()
     {
-        chUnitText.text = "CH" + SceneOption.Instance.ChapterNum.ToString() + "  " + "UNIT" + SceneOption.Instance.UnitNum.ToString();
+        chText.text = "CH" + SceneOption.Instance.ChapterNum.ToString();
+        unitText.text = "UNIT" + SceneOption.Instance.UnitNum.ToString();
     }
 
     private void Update()

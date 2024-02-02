@@ -11,7 +11,6 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     public Animator stateUI;
     public Animator secUI;
     public Animator backUI;
-    public Animator upUI;
     public Animator scrollUI;
     public bool animating = false;
 
@@ -67,7 +66,6 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
 
             StartCoroutine(ReloadMainMenu());
 
-            upUI.SetBool("QuickPlayButtonOnClick",false);
             scrollUI.SetBool("QuickPlayButtonOnClick",false);
             StartCoroutine(Animating());
         }
@@ -76,7 +74,6 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
         if(animating==false)
         {
             animating=true; 
-            upUI.SetBool("QuickPlayButtonOnClick",true);
             scrollUI.SetBool("QuickPlayButtonOnClick",true);
         
             SoundManager.instance.PlaySFX("PlayButtonSFX");
@@ -137,7 +134,7 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         
-        upUI.SetBool("QuickPlayButtonOnClick", true);
+        //upUI.SetBool("QuickPlayButtonOnClick", true);
         scrollUI.SetBool("QuickPlayButtonOnClick", true);       
     }
 
@@ -153,14 +150,15 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
 
         ChangeChapter(PlayerPrefs.GetInt("UnlockedChapterNum"));
         ChangeUnit(PlayerPrefs.GetInt("UnlockedFinalUnitNum"));
+        RunningTime.Instance.ResetGame();
 
-        LoadOtherScene("stage_unit");
+        LoadOtherScene("stage_unit"); 
     }
 
     public void ReStartGame()
     {
         SceneManager.LoadScene(SceneOption.Instance.previousModeName);
-        SceneOption.Instance.CurrentLevelNumber = 1; 
+        RunningTime.Instance.ResetGame();
     }
 
     public void LoadNextLevel()

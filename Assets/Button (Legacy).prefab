@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1876404504957380358}
   - component: {fileID: 1876404504957380361}
   - component: {fileID: 8390917564258779793}
-  - component: {fileID: 8034402778787662411}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -30,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 1876404504957380363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.0075, y: 0.0075, z: 0.009332636}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1876404505274481363}
@@ -63,14 +62,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7176471}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4b854b889499f8b409e6bc6bed30bb96, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5479d40ec244245499f5eac8f0d65583, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -124,18 +123,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 085445974f5186c4dbb6c80a0c2fd9d2, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ButtonGame, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 1876404504957380361}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!114 &8390917564258779793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,19 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96852dd64efd7e54d84b01aa77688b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &8034402778787662411
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1876404504957380363}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 230.02437, y: 298.57208, z: 0.99969584}
-  m_Center: {x: 0.7139766, y: 129.2409, z: 0.00015204138}
 --- !u!1 &1876404505274481362
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,8 +182,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -23, y: 109}
-  m_SizeDelta: {x: 387.29, y: -339.79}
+  m_AnchoredPosition: {x: -0.000015258789, y: -14}
+  m_SizeDelta: {x: 92.14, y: -104.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1876404505274481361
 CanvasRenderer:
@@ -228,16 +214,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 3f90729cb5c1cf341802cf1559d64431, type: 3}
+    m_FontSize: 60
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: make

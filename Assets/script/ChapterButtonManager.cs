@@ -6,7 +6,8 @@ public class ChapterButtonManager : MonoBehaviour
     public Button[] buttons;
     public GameObject popup;
 
-    private Color defaultColor = new Color(1f, 1f, 1f, 0.7f); // Set the alpha value to 0.7 (180/255)
+    private Color defaultColor = new Color(1f, 1f, 1f, 1f); // Set the alpha value to 0.9
+    private Color toggleColor = new Color(0.8f, 0.8f, 0.8f, 1f); // Set the alpha value to 1 
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class ChapterButtonManager : MonoBehaviour
 
         // DeactivateButtons 함수를 호출하여 조건에 따라 세 번째 자식을 비활성화
         DeactivateButtons();
+        InitializeButtons();
     }
 
     public void InitializeButtons()
@@ -38,7 +40,7 @@ public class ChapterButtonManager : MonoBehaviour
         InitializeButtons();
 
         // 클릭된 버튼의 색상을 변경
-        buttons[clickedButtonIndex].GetComponent<Image>().color = Color.red;
+        buttons[clickedButtonIndex].GetComponent<Image>().color = toggleColor;
 
         // 버튼의 크기를 1.1배로 키우기
         RectTransform buttonRectTransform = buttons[clickedButtonIndex].GetComponent<RectTransform>();
@@ -77,6 +79,7 @@ public class ChapterButtonManager : MonoBehaviour
             if (i + 1 <= unlockedChapterNum)
             {
                 buttons[i].transform.GetChild(2).gameObject.SetActive(false);
+                buttons[i].GetComponent<Image>().enabled = true; 
             }
         }
     }

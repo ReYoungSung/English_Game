@@ -11,7 +11,7 @@ public class PlayerLevelFeedback : MonoBehaviour
     void Start()
     {
         if (PlayerPrefs.GetInt("UnlockedChapterNum") <= 12)
-            ChapterNum.text = PlayerPrefs.GetInt("UnlockedChapterNum").ToString();
+            ChapterNum.text = "CH."+PlayerPrefs.GetInt("UnlockedChapterNum").ToString();
         else
             ChapterNum.text = "Master";
 
