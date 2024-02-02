@@ -1,13 +1,13 @@
-
 using UnityEngine;
 
 public class CameraResolution : MonoBehaviour
 {
-    /// <summary>
-    /// 해당 스크립트를 각각의 카메라에 추가
-    /// 에디터 Screen Match Mode 를 Expand로 해줘야함
-    /// </summary>
-    private void Awake()
+    private void Start()
+    {
+        AdjustCameraResolution(); 
+    }
+
+    private void AdjustCameraResolution()
     {
         Camera cam = GetComponent<Camera>();
 
@@ -31,5 +31,4 @@ public class CameraResolution : MonoBehaviour
 
         cam.rect = rt;
     }
-
 }

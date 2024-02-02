@@ -21,6 +21,7 @@ public class ChapterButtonManager : MonoBehaviour
         // DeactivateButtons 함수를 호출하여 조건에 따라 세 번째 자식을 비활성화
         DeactivateButtons();
         InitializeButtons();
+        Invoke("DeactivateButtons",2f);
     }
 
     public void InitializeButtons()

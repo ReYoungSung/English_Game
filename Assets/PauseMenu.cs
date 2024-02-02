@@ -9,6 +9,18 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] private GameManager gameManager;
 
+    public void Start()
+    {
+        if (RunningTime.Instance.isPauseTimer == false)
+        {
+            PauseWindow.SetActive(false);
+        }
+        else
+        {
+            PauseWindow.SetActive(true);
+        }
+    }
+
     public void pauseGame()
     {
         SoundManager.instance.PlaySFX("SellectMenuSFX");

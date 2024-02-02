@@ -29,7 +29,7 @@ public class TableOfContentDisplay : MonoBehaviour
         int startRange2 = 11;
         int endRange2 = 20;
 
-        chapterNum.text = SceneOption.Instance.ChapterNum.ToString();
+        chapterNum.text = "Chater."+SceneOption.Instance.ChapterNum.ToString();
 
         for (int i = startRange1; i <= endRange1; i++)
         {
