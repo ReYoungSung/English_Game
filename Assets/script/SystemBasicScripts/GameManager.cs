@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         //현재 챕터와 유닛을 불러옴
         if (koreanOutput.Length >= 25)
         {
-            koreanText.fontSize = 50; 
+            koreanText.fontSize = 40; 
         } 
 
         if (englishAnswer.Length >= 38)
