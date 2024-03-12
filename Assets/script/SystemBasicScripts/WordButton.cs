@@ -5,14 +5,11 @@ namespace InGameScript
 {
     public class WordButton : MonoBehaviour
     {
-        private GameManager manager; // 게임 매니저 스크립트 참조
-
         private Button button;
 
         private void Start()
         {
             button = GetComponent<Button>();
-            manager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
             // 버튼 클릭 이벤트에 버튼 사라지기 함수 연결
             button.onClick.AddListener(HideButton);

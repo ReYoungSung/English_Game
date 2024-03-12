@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
 
         if (englishAnswer.Length >= 38)
         {
-            englishText.fontSize = 65;
+            englishText.fontSize = 55;
         }
 
         koreanText.text = koreanOutput;
@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
             {
                 if (combinedList[i].Length >= 13)
                 {
-                    englishText.fontSize = 50;  
+                    englishText.fontSize = 45;  
                 }
                 // 각 버튼의 텍스트 컴포넌트에 combinedList의 요소 할당
                 this.GetComponent<ButtonGame>().buttons[i].GetComponentInChildren<Text>().text = combinedList[i];
