@@ -314,7 +314,7 @@ public class ButtonGame : MonoBehaviour
         if (gameManager.englishAnswer.Length >= 38) 
         {
             // If it exceeds 30 characters, set the font size to 55
-            outputText.fontSize = 65; 
+            outputText.fontSize = 55; 
         }
         else
         {
