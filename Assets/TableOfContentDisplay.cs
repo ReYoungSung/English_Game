@@ -13,41 +13,45 @@ public class TableOfContentDisplay : MonoBehaviour
     public Text Table2OfChapter;
     [SerializeField] private Text chapterNum;
 
+    [HideInInspector] public int TableChapterNum;
+
     public void Awake()
     {
         //CSV 파일에서 데이터 파싱 
         TableDialog = CSVReader.Read("TopicOfChapters");  
     }
 
-    public void popupTableWindow()
+    public void popupTableWindow(int tableNum)
     {
+        TableChapterNum = tableNum;
+
         Table1OfChapter.text = "";
         Table2OfChapter.text = "";
 
         int startRange1 = 0;
         int endRange1 = 10;
         int startRange2 = 11;
-        int endRange2 = 20;
+        int endRange2 = 20; 
 
-        chapterNum.text = "Chater."+SceneOption.Instance.ChapterNum.ToString();
+        chapterNum.text = "Chater."+ TableChapterNum.ToString();  
 
         for (int i = startRange1; i <= endRange1; i++)
         {
-            Table1OfChapter.text += TableDialog[i][SceneOption.Instance.ChapterNum.ToString()].ToString() + "\n";
+            Table1OfChapter.text += TableDialog[i][TableChapterNum.ToString()].ToString() + "\n";  
         }
 
         for (int i = startRange2; i <= endRange2; i++)
         {
-            Table2OfChapter.text += TableDialog[i][SceneOption.Instance.ChapterNum.ToString()].ToString() + "\n";
+            Table2OfChapter.text += TableDialog[i][TableChapterNum.ToString()].ToString() + "\n";  
         }
 
-        SoundManager.instance.PlaySFX("SellectMenuSFX");
-        tableWindow1.SetActive(true);
+        SoundManager.instance.PlaySFX("SellectMenuSFX");  
+        tableWindow1.SetActive(true);  
     }
 
-    public void unPopupTableWindow()
+    public void unPopupTableWindow()  
     {
-        SoundManager.instance.PlaySFX("SellectMenuSFX"); 
-        tableWindow1.SetActive(false); 
+        SoundManager.instance.PlaySFX("SellectMenuSFX");  
+        tableWindow1.SetActive(false);  
     } 
 }

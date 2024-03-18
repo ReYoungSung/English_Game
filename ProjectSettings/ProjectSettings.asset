@@ -864,7 +864,7 @@ PlayerSettings:
     Build: 0
     Collab: 0
     Game Performance: 0
-    Purchasing: 0
+    Purchasing: 1
     UDP: 0
     Unity Ads: 0
   luminIcon:
@@ -884,7 +884,7 @@ PlayerSettings:
   cloudProjectId: 9543ec18-e4d6-476e-b064-7923db0c689c
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: ballongame
+  projectName: PlommingEnglish
   organizationId: leeyoungsung
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
