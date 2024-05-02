@@ -17,7 +17,7 @@ public class SceneOption : MonoBehaviour
 
     [HideInInspector] public string previousModeName;
 
-    bool isHaveLisense = false;
+    private bool isHaveLisense = false;
 
     public static SceneOption Instance
     {
@@ -30,6 +30,18 @@ public class SceneOption : MonoBehaviour
             }   
             return instance;   
         }
+    }
+
+    public bool GetLicenseStatus
+    {
+        get { return isHaveLisense; }
+    }
+
+    public void UnlockLicense()
+    {
+        this.isHaveLisense = true;
+        PlayerPrefs.SetInt("UnlockedChapterNum", ++CurrentLevelNumber);
+        Debug.Log(CurrentLevelNumber);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)      
@@ -56,7 +68,7 @@ public class SceneOption : MonoBehaviour
     private void Awake()
     {
         //PlayerPrefs.DeleteAll(); //나중에 지워야 함  
-        PlayerPrefs.SetInt("UnlockedChapterNum", 12);  
+        PlayerPrefs.SetInt("UnlockedChapterNum", CurrentLevelNumber);  
         PlayerPrefs.SetInt("UnlockedFinalUnitNum", 21);   
         LoadGameData();  
     }   
@@ -111,5 +123,5 @@ public class SceneOption : MonoBehaviour
     private void OnApplicationQuit()
     {
         PlayerPrefs.Save();
-    }   
+    }
 }
