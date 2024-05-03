@@ -866,7 +866,7 @@ PlayerSettings:
     Build: 0
     Collab: 0
     Game Performance: 0
-    Purchasing: 1
+    Purchasing: 0
     UDP: 0
     Unity Ads: 0
   luminIcon:
@@ -883,11 +883,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 0284f224-94ae-4ece-b955-49fd0a4571b2
+  cloudProjectId: 007e2c23-d6c3-41e0-9134-e1eeaa859035
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Plomming English
-  organizationId: park1654
+  projectName: "\uBC88\uAC1C\uC601\uC5B4"
+  organizationId: leeyoungsung
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
