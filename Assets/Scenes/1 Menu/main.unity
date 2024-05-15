@@ -17003,14 +17003,6 @@ PrefabInstance:
       propertyPath: onPurchaseComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1204861646}
-    - target: {fileID: 5050109900010877086, guid: a06a0775ddc28b94e9bd658310ff5d9a, type: 3}
-      propertyPath: onPurchaseFailed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnUnlockFailed
-      objectReference: {fileID: 0}
-    - target: {fileID: 5050109900010877086, guid: a06a0775ddc28b94e9bd658310ff5d9a, type: 3}
-      propertyPath: onPurchaseComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnUnlockChapter
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a06a0775ddc28b94e9bd658310ff5d9a, type: 3}
 --- !u!224 &1986149462378718136 stripped
