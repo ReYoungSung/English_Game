@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2306535169320855835}
   - component: {fileID: 9179037230226110787}
   - component: {fileID: 5050109900010877086}
-  - component: {fileID: 4230981978941659877}
   - component: {fileID: 1217670667}
   m_Layer: 0
   m_Name: Lock
@@ -101,9 +100,9 @@ MonoBehaviour:
   onPurchaseComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4230981978941659877}
-        m_TargetAssemblyTypeName: IAPPurchaseManager, Assembly-CSharp
-        m_MethodName: OnPurchaseCompleted
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LicenseUnlockManager, Assembly-CSharp
+        m_MethodName: OnUnlockChapter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -115,23 +114,23 @@ MonoBehaviour:
         m_CallState: 2
   onPurchaseFailed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LicenseUnlockManager, Assembly-CSharp
+        m_MethodName: OnUnlockFailed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onProductFetched:
     m_PersistentCalls:
       m_Calls: []
   button: {fileID: 1217670667}
---- !u!114 &4230981978941659877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1218807281116692256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f3e913959320bd44b61f8f3fd44909b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1217670667
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,9 +6,16 @@ public class ChapterButtonManager : MonoBehaviour
 {
     public Button[] buttons;
     public GameObject popup;
+    private LicenseUnlockManager licenseUnlockManager = null;
+    private bool lockDeactivated = false;
 
     private Color defaultColor = new Color(1f, 1f, 1f, 1f); // Set the alpha value to 0.9
     private Color toggleColor = new Color(0.8f, 0.8f, 0.8f, 1f); // Set the alpha value to 1 
+
+    private void Awake()
+    {
+        licenseUnlockManager = GameObject.Find("LicenseManager").GetComponent<LicenseUnlockManager>();
+    }
 
     void Start()
     {
@@ -22,6 +30,15 @@ public class ChapterButtonManager : MonoBehaviour
         DeactivateButtons();
         InitializeButtons();
         Invoke("DeactivateButtons",2f);
+    }
+
+    private void Update()
+    {
+        if(!lockDeactivated && licenseUnlockManager.LicensesUnlocked)
+        {
+            DeactivateAllChapterLocks();
+            lockDeactivated = true;
+        }
     }
 
     public void InitializeButtons()
@@ -71,7 +88,7 @@ public class ChapterButtonManager : MonoBehaviour
     } 
 
     // 조건에 따라 버튼의 세 번째 자식을 비활성화하는 함수
-    void DeactivateButtons()
+    public void DeactivateButtons()
     {
         int unlockedChapterNum = PlayerPrefs.GetInt("UnlockedChapterNum");
 
@@ -83,5 +100,18 @@ public class ChapterButtonManager : MonoBehaviour
                 buttons[i].GetComponent<Image>().enabled = true; 
             }
         }
+    }
+
+    public void DeactivateAllChapterLocks()
+    {
+        PlayerPrefs.SetInt("UnlockedChapterNum", buttons.Length);
+        for(int i =0; i < buttons.Length; ++i)
+            DeactivateChapterLock(i);
+    }
+
+    public void DeactivateChapterLock(int buttonIndex)
+    {
+        buttons[buttonIndex].transform.GetChild(2).gameObject.SetActive(false);
+        buttons[buttonIndex].GetComponent<Image>().enabled = true;
     }
 }

@@ -17,8 +17,6 @@ public class SceneOption : MonoBehaviour
 
     [HideInInspector] public string previousModeName;
 
-    private bool isHaveLisense = false;
-
     public static SceneOption Instance
     {
         get
@@ -32,14 +30,8 @@ public class SceneOption : MonoBehaviour
         }
     }
 
-    public bool GetLicenseStatus
-    {
-        get { return isHaveLisense; }
-    }
-
     public void UnlockLicense()
     {
-        this.isHaveLisense = true;
         PlayerPrefs.SetInt("UnlockedChapterNum", ++CurrentLevelNumber);
         Debug.Log(CurrentLevelNumber);
     }
