@@ -864,9 +864,9 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     Build: 0
-    Collab: 0
+    Collab: 1
     Game Performance: 0
-    Purchasing: 0
+    Purchasing: 1
     UDP: 0
     Unity Ads: 0
   luminIcon:
@@ -883,7 +883,7 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 007e2c23-d6c3-41e0-9134-e1eeaa859035
+  cloudProjectId: 9543ec18-e4d6-476e-b064-7923db0c689c
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: "\uBC88\uAC1C\uC601\uC5B4"
