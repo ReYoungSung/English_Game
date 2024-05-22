@@ -29,6 +29,7 @@ public class ChapterButtonManager : MonoBehaviour
         // DeactivateButtons 함수를 호출하여 조건에 따라 세 번째 자식을 비활성화
         DeactivateButtons();
         InitializeButtons();
+        licenseUnlockManager.VerifyLicense();
         Invoke("DeactivateButtons",2f);
     }
 
@@ -36,7 +37,7 @@ public class ChapterButtonManager : MonoBehaviour
     {
         if(!lockDeactivated && licenseUnlockManager.LicensesUnlocked)
         {
-            DeactivateAllChapterLocks();
+            DeactivateAllPurchaseLocks();
             lockDeactivated = true;
         }
     }
@@ -50,6 +51,7 @@ public class ChapterButtonManager : MonoBehaviour
             RectTransform buttonRectTransform = button.GetComponent<RectTransform>();
             buttonRectTransform.localScale = new Vector3(5.0f, 5.0f, 5.0f);
         }
+
     }
 
     void OnButtonClick(int clickedButtonIndex)
@@ -102,16 +104,15 @@ public class ChapterButtonManager : MonoBehaviour
         }
     }
 
-    public void DeactivateAllChapterLocks()
+    public void DeactivateAllPurchaseLocks()
     {
-        PlayerPrefs.SetInt("UnlockedChapterNum", buttons.Length);
         for(int i =0; i < buttons.Length; ++i)
-            DeactivateChapterLock(i);
+            DeactivatePurchaseLock(i);
     }
 
-    public void DeactivateChapterLock(int buttonIndex)
+    public void DeactivatePurchaseLock(int buttonIndex)
     {
-        buttons[buttonIndex].transform.GetChild(2).gameObject.SetActive(false);
+        buttons[buttonIndex].transform.GetChild(3).gameObject.SetActive(false);
         buttons[buttonIndex].GetComponent<Image>().enabled = true;
     }
 }

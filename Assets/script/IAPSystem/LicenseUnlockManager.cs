@@ -19,6 +19,7 @@ public class LicenseUnlockManager : MonoBehaviour
         //PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
+        SignIn();
     }
 
     private void SignIn()
@@ -30,17 +31,7 @@ public class LicenseUnlockManager : MonoBehaviour
     {
         if (status == SignInStatus.Success)
         {
-            SceneOption.Instance.ChapterNum = PlayerPrefs.GetInt("UnlockedChapterNum");
-            SceneOption.Instance.UnitNum = PlayerPrefs.GetInt("UnlockedFinalUnitNum");
-            int licenseStatus = PlayerPrefs.GetInt("HasLicense");
-            if(licenseStatus == 1)
-            {
-                licenseUnlocked = true;
-            }
-            else
-            {
-                licenseUnlocked = false;
-            }
+            VerifyLicense();
             Debug.Log("Android login success");
         }
         else
@@ -54,7 +45,6 @@ public class LicenseUnlockManager : MonoBehaviour
 
     public void OnUnlockChapter()
     {
-        SignIn();
         licenseUnlocked = true;
         PlayerPrefs.SetInt("HasLicense", 1);
     }
@@ -62,5 +52,18 @@ public class LicenseUnlockManager : MonoBehaviour
     public void OnUnlockFailed()
     {
         Debug.Log("Chapter unlock failed");
+    }
+
+    public void VerifyLicense()
+    {
+        int licenseStatus = PlayerPrefs.GetInt("HasLicense");
+        if (licenseStatus == 1)
+        {
+            licenseUnlocked = true;
+        }
+        else
+        {
+            licenseUnlocked = false;
+        }
     }
 }

@@ -9,7 +9,7 @@ public class SceneOption : MonoBehaviour
     private static SceneOption instance;
 
     public int ChapterNum = 1;
-    public int UnitNum = 1;
+    public int UnitNum = 5;
      
     public int CurrentLevelNumber = 1;
 
@@ -60,8 +60,8 @@ public class SceneOption : MonoBehaviour
     private void Awake()
     {
         //PlayerPrefs.DeleteAll(); //나중에 지워야 함  
-        PlayerPrefs.SetInt("UnlockedChapterNum", CurrentLevelNumber);  
-        PlayerPrefs.SetInt("UnlockedFinalUnitNum", 21);   
+        //PlayerPrefs.SetInt("UnlockedChapterNum", 2);  
+        //PlayerPrefs.SetInt("UnlockedFinalUnitNum", 21);   
         LoadGameData();  
     }   
 
@@ -96,6 +96,7 @@ public class SceneOption : MonoBehaviour
             if (UnitNum == 21) //현재 열린 스테이지 중 마지막 단계를 클리어했을 때 새로운 챕터 잠금 해금
             {
                 UnlockedStageList.Add(1);
+
             }
             else if (UnlockedStageList[ChapterNum] < 21) //현재 열린 마지막 스테이지지만 유닛은 마지막이 아니면 새로운 유닛 해금
             {
