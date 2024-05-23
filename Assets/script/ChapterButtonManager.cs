@@ -1,5 +1,3 @@
-using System.ComponentModel;
-using UnityEditor.Purchasing;
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.UI;

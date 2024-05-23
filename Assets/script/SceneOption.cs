@@ -19,8 +19,6 @@ public class SceneOption : MonoBehaviour
     public List<int> UnlockedStageList = new List<int>();
 
     [HideInInspector] public string previousModeName;
-    LicenseUnlockManager licenceManager =
-        GameObject.Find("LicenseManager").gameObject.GetComponent<LicenseUnlockManager>();
 
     public static SceneOption Instance
     {
@@ -28,7 +26,7 @@ public class SceneOption : MonoBehaviour
         {
             if (instance == null)
             {    
-                instance = new GameObject("SceneOption").AddComponent<SceneOption>();             
+                instance = new GameObject("SceneOption").AddComponent<SceneOption>();
                 DontDestroyOnLoad(instance.gameObject); // 씬이 변경되어도 파괴되지 않도록 설정   
             }   
             return instance;   
@@ -62,7 +60,7 @@ public class SceneOption : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    private void Awake()
+    private void Start()
     {
         //PlayerPrefs.DeleteAll(); //나중에 지워야 함
         if (IsInitialLaunch() || !PlayerPrefs.HasKey("InitialLaunch"))
@@ -81,11 +79,6 @@ public class SceneOption : MonoBehaviour
     private bool IsInitialLaunch()
     {
         return PlayerPrefs.GetInt("InitialLaunch") == 0;
-    }
-
-    private void Start()
-    {
-        
     }
 
     // 게임 시작 시 호출할 메서드 
@@ -150,6 +143,7 @@ public class SceneOption : MonoBehaviour
             PlayerPrefs.SetInt("UnlockedFinalUnitNum", 6);
             PlayerPrefs.Save();
         }
+        LicenseUnlockManager.Instance.SaveData();
     }
 
     public void SaveGameData()
