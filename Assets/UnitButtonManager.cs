@@ -4,8 +4,6 @@ using UnityEngine.UI;
 public class UnitButtonManager : MonoBehaviour
 {
     public Button[] buttons;
-    private int unlockedChapterNum; 
-    private int unlockedUnitNum;    
     private Color defaultColor = new Color(1f, 1f, 1f, 1f); // Set the alpha value to 0.7 (180/255)
     private Color toggleColor = new Color(0.8f, 0.8f, 0.8f, 1f); // Set the alpha value to 1 
 
@@ -19,9 +17,6 @@ public class UnitButtonManager : MonoBehaviour
             buttons[i].onClick.AddListener(() => OnButtonClick(index));
         }
         */
-        unlockedChapterNum = PlayerPrefs.GetInt("UnlockedChapterNum");
-        unlockedUnitNum = PlayerPrefs.GetInt("UnlockedFinalUnitNum");
-
 
         InitializeButtons();
     }
@@ -51,19 +46,18 @@ public class UnitButtonManager : MonoBehaviour
 
     public void SetUnitButton()
     {
+        int unlockedChapterNum = PlayerPrefs.GetInt("UnlockedChapterNum");
         if (SceneOption.Instance.ChapterNum == unlockedChapterNum)
-        {
             DeactivateButtons();
-        }
-        else if (SceneOption.Instance.ChapterNum < unlockedChapterNum)
-        {
+        else
             activateAllButtons();
-        }
     }
 
     // 조건에 따라 버튼의 두 번째 자식을 비활성화하는 함수
     private void DeactivateButtons()
     {
+        int unlockedChapterNum = PlayerPrefs.GetInt("UnlockedChapterNum");
+        int unlockedUnitNum = PlayerPrefs.GetInt("UnlockedFinalUnitNum");
         foreach (Button button in buttons)
         {
             button.transform.GetChild(1).gameObject.SetActive(true);
@@ -87,4 +81,13 @@ public class UnitButtonManager : MonoBehaviour
             buttons[i].GetComponent<Image>().enabled = true;
         }
     }
+
+    //private void ActivateButtonsUpTo(int unitNum)
+    //{
+    //    for(int i = 0; i < unitNum; ++i)
+    //    {
+    //        GameObject subButton = buttons[i].transform.GetChild(1).gameObject;
+    //        subButton.transform.GetChild(0).gameObject.SetActive(false);
+    //    }
+    //}
 }

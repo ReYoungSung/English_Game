@@ -206,9 +206,9 @@ public class ButtonGame : MonoBehaviour
         }
         else //최종단계 클리어 시 
         {
+            SceneOption.Instance.SaveGameData(gameManager.currentGameMode);
             if (gameManager.currentGameMode == GameManager.GameMode.test)
             {
-                SceneOption.Instance.SaveGameData();
                 SceneManager.LoadScene("clearForTest");
             }
             else

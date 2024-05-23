@@ -3,14 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
+using UnityEngine.Purchasing;
+using UnityEngine.Events;
 
 public class LicenseUnlockManager : MonoBehaviour
 {
+    private static LicenseUnlockManager instance;
+    public UnityAction<UnityEngine.Purchasing.Product> OnUnlockChapterAction;
+
+    public static LicenseUnlockManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new GameObject("LicenseManager").AddComponent<LicenseUnlockManager>();
+                DontDestroyOnLoad(instance.gameObject); // 씬이 변경되어도 파괴되지 않도록 설정   
+            }
+            return instance;
+        }
+    }
+
     private bool licenseUnlocked = false;
     public bool LicensesUnlocked
     {
         get { return licenseUnlocked;}
         set { licenseUnlocked = value; }
+    }
+
+    private void Awake()
+    {
+        OnUnlockChapterAction += OnUnlockChapter;
     }
 
     private void Start()
@@ -43,7 +66,8 @@ public class LicenseUnlockManager : MonoBehaviour
         }
     }
 
-    public void OnUnlockChapter()
+
+    public void OnUnlockChapter(UnityEngine.Purchasing.Product product)
     {
         licenseUnlocked = true;
         PlayerPrefs.SetInt("HasLicense", 1);

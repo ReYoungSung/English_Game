@@ -1,5 +1,7 @@
 using System.ComponentModel;
+using UnityEditor.Purchasing;
 using UnityEngine;
+using UnityEngine.Purchasing;
 using UnityEngine.UI;
 
 public class ChapterButtonManager : MonoBehaviour 
@@ -11,11 +13,6 @@ public class ChapterButtonManager : MonoBehaviour
 
     private Color defaultColor = new Color(1f, 1f, 1f, 1f); // Set the alpha value to 0.9
     private Color toggleColor = new Color(0.8f, 0.8f, 0.8f, 1f); // Set the alpha value to 1 
-
-    private void Awake()
-    {
-        licenseUnlockManager = GameObject.Find("LicenseManager").GetComponent<LicenseUnlockManager>();
-    }
 
     void Start()
     {
@@ -29,13 +26,13 @@ public class ChapterButtonManager : MonoBehaviour
         // DeactivateButtons 함수를 호출하여 조건에 따라 세 번째 자식을 비활성화
         DeactivateButtons();
         InitializeButtons();
-        licenseUnlockManager.VerifyLicense();
+        LicenseUnlockManager.Instance.VerifyLicense();
         Invoke("DeactivateButtons",2f);
     }
 
     private void Update()
     {
-        if(!lockDeactivated && licenseUnlockManager.LicensesUnlocked)
+        if(!lockDeactivated && LicenseUnlockManager.Instance.LicensesUnlocked)
         {
             DeactivateAllPurchaseLocks();
             lockDeactivated = true;
@@ -44,12 +41,26 @@ public class ChapterButtonManager : MonoBehaviour
 
     public void InitializeButtons()
     {
+        int first = 0;
         // 모든 버튼의 색상을 초기화
         foreach (Button button in buttons)
         {
             button.GetComponent<Image>().color = defaultColor;
             RectTransform buttonRectTransform = button.GetComponent<RectTransform>();
             buttonRectTransform.localScale = new Vector3(5.0f, 5.0f, 5.0f);
+
+            if (0 < first)
+            {
+                button.transform.GetChild(3).gameObject.GetComponent<CodelessIAPButton>().
+                    onPurchaseComplete.AddListener(
+                        LicenseUnlockManager.Instance.OnUnlockChapterAction
+                    );
+            }
+            else
+            {
+                button.transform.GetChild(3).gameObject.SetActive(false);
+            }
+            ++first;
         }
 
     }

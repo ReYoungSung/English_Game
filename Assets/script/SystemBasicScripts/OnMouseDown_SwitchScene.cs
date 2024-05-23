@@ -105,7 +105,9 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
             SceneManager.LoadScene(sceneName);
         }
         else
-            SoundManager.instance.PlaySFX("ErrorSFX");  
+        {
+            SoundManager.instance.PlaySFX("ErrorSFX");
+        }
     }
 
     // 팝업을 표시하기 위한 함수
@@ -189,8 +191,10 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
             else if (nextChapterNum == PlayerPrefs.GetInt("UnlockedChapterNum") &&
                 nextUnitNum <= PlayerPrefs.GetInt("UnlockedFinalUnitNum"))  // 다음 Chapter가 최대 Chapter와 같을 때는 최대 Unit이하 여부를 확인한다
             {
-                SceneOption.Instance.UnitNum = 1;
-                SceneOption.Instance.ChapterNum++;
+                SceneOption.Instance.UnitNum = nextUnitNum;
+                SceneOption.Instance.ChapterNum = nextChapterNum;
+                PlayerPrefs.SetInt("UnlockedChapterNum", nextChapterNum);
+                PlayerPrefs.SetInt("UnlockedFinalUnitNum", nextUnitNum);
 
                 SoundManager.instance.PlaySFX("UnitButtonSFX");
                 SceneManager.LoadScene("LoadingScene");
@@ -198,7 +202,6 @@ public class OnMouseDown_SwitchScene : MonoBehaviour
             else
             {
                 SoundManager.instance.PlaySFX("ErrorSFX");
-
             }
         }
         else
