@@ -1,3 +1,4 @@
+using GooglePlayGames;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -62,23 +63,17 @@ public class SceneOption : MonoBehaviour
 
     private void Start()
     {
+
         //PlayerPrefs.DeleteAll(); //나중에 지워야 함
-        if (IsInitialLaunch() || !PlayerPrefs.HasKey("InitialLaunch"))
-        {
-            PlayerPrefs.SetInt("UnlockedChapterNum", 1);
-            PlayerPrefs.SetInt("UnlockedFinalUnitNum", 21);
-            PlayerPrefs.SetInt("InitialLaunch", 1);
-        }
+        PlayGamesPlatform.DebugLogEnabled = true;
+        PlayGamesPlatform.Activate();
+        LicenseUnlockManager.Instance.SignIn();
+        LicenseUnlockManager.Instance.LoadData();
         LicenseUnlockManager.Instance.VerifyLicense();
         Debug.Log("chapter number" + PlayerPrefs.GetInt("UnlockedChapterNum"));
         Debug.Log("unit number" + PlayerPrefs.GetInt("UnlockedFinalUnitNum"));
 
         LoadGameData();
-    }
-
-    private bool IsInitialLaunch()
-    {
-        return PlayerPrefs.GetInt("InitialLaunch") == 0;
     }
 
     // 게임 시작 시 호출할 메서드 

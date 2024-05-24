@@ -42,16 +42,7 @@ public class LicenseUnlockManager : MonoBehaviour
         OnUnlockChapterAction += OnUnlockChapter;
     }
 
-    private void Start()
-    {
-        //var config = new PlayGamesClientConfiguration.Builder().EnableSavedGames().Build();
-        //PlayGamesPlatform.InitializeInstance(config);
-        PlayGamesPlatform.DebugLogEnabled = true;
-        PlayGamesPlatform.Activate();
-        SignIn();
-    }
-
-    private void SignIn()
+    public void SignIn()
     {
         PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
     }
@@ -78,6 +69,7 @@ public class LicenseUnlockManager : MonoBehaviour
     {
         licenseUnlocked = true;
         PlayerPrefs.SetInt("HasLicense", 1);
+        SaveData();
     }
 
     public void OnUnlockFailed()
@@ -119,7 +111,8 @@ public class LicenseUnlockManager : MonoBehaviour
             GameData gameData = new GameData();
             gameData.chapter = PlayerPrefs.GetInt("UnlockedChapterNum");
             gameData.unit = PlayerPrefs.GetInt("UnlockedFinalUnitNum");
-            gameData.licenseUnlocked = licenseUnlocked;
+            gameData.hasLicense = PlayerPrefs.GetInt("HasLicense");
+            //gameData.initialLaunch = PlayerPrefs.GetInt("InitialLaunch");
 
             var update = new SavedGameMetadataUpdate.Builder().Build();
             var json = JsonUtility.ToJson(gameData);
@@ -130,9 +123,15 @@ public class LicenseUnlockManager : MonoBehaviour
 
     private void OnSavedGameWritten(SavedGameRequestStatus status, ISavedGameMetadata data)
     {
-        if(status != SavedGameRequestStatus.Success)
+        if(status == SavedGameRequestStatus.Success)
         {
             Debug.Log("저장 성공");
+            int chapter = PlayerPrefs.GetInt("UnlockedChapterNum");
+            int unit = PlayerPrefs.GetInt("UnlockedFinalUnitNum");
+            int hasLicense = PlayerPrefs.GetInt("HasLicense");
+            Debug.Log("UnlockedChapterNum" + chapter);
+            Debug.Log("UnlockedFinalUnitNum" + unit);
+            Debug.Log("HasLicense" + hasLicense);
         }
         else
         {
@@ -170,6 +169,10 @@ public class LicenseUnlockManager : MonoBehaviour
         if(data == "")
         {
             Debug.Log("데이터 없음 초기 데이터 저장");
+            PlayerPrefs.SetInt("UnlockedChapterNum", 1);
+            PlayerPrefs.SetInt("UnlockedFinalUnitNum", 6);
+            PlayerPrefs.SetInt("HasLicense", 0);
+            //PlayerPrefs.SetInt("InitialLaunch", 1);
             SaveData();
         }
         else
@@ -180,7 +183,14 @@ public class LicenseUnlockManager : MonoBehaviour
 
             PlayerPrefs.SetInt("UnlockedChapterNum", gameData.chapter);
             PlayerPrefs.SetInt("UnlockedFinalUnitNum", gameData.unit);
-            licenseUnlocked = gameData.licenseUnlocked;
+            PlayerPrefs.SetInt("HasLicense", gameData.hasLicense);
+            //PlayerPrefs.SetInt("InitialLaunch", gameData.initialLaunch);
+
+            Debug.Log("UnlockedChapterNum" + gameData.chapter);
+            Debug.Log("UnlockedFinalUnitNum" + gameData.unit);
+            Debug.Log("HasLicense" + gameData.hasLicense);
+            //Debug.Log("InitialLaunch" + gameData.initialLaunch);
+
             VerifyLicense();
         }
     }
@@ -190,5 +200,6 @@ public class GameData
 {
     public int chapter;
     public int unit;
-    public bool licenseUnlocked;
+    public int hasLicense;
+    //public int initialLaunch; // 해당 구글 계정을 이용한 첫 실행인지의 여부
 }
