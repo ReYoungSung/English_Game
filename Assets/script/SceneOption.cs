@@ -114,17 +114,14 @@ public class SceneOption : MonoBehaviour
                         UnlockedStageList[ChapterNum] = MAX_UNIT;
                         UnlockedStageList.Add(1);
                     }
-                    //UnlockedStageList.Add(1); // 테스트 통과시 마지막 유닛 클리어 여부 상관 없이 챕터 해금
-                }
-            }
-            else if (gameMode == GameManager.GameMode.practice)
-            {
-                if (UnlockedStageList.Count - 1 == ChapterNum) //현재 열린 챕터가 현재 챕터와 동일한지 판단
-                {
-                    if (UnlockedStageList[ChapterNum] < MAX_UNIT) //현재 열린 마지막 스테이지지만 유닛은 마지막이 아니면 새로운 유닛 해금
+                    else
                     {
-                        UnlockedStageList[ChapterNum] = UnitNum + 1;
+                        if (UnlockedStageList[ChapterNum] < MAX_UNIT) //현재 열린 마지막 스테이지지만 유닛은 마지막이 아니면 새로운 유닛 해금
+                        {
+                            UnlockedStageList[ChapterNum] = UnitNum + 1;
+                        }
                     }
+                    //UnlockedStageList.Add(1); // 테스트 통과시 마지막 유닛 클리어 여부 상관 없이 챕터 해금
                 }
             }
             PlayerPrefs.SetInt("UnlockedChapterNum", UnlockedStageList.Count - 1);

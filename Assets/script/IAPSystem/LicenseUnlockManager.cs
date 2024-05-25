@@ -93,12 +93,15 @@ public class LicenseUnlockManager : MonoBehaviour
     public void SaveData()
     {
         ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
-        savedGameClient.OpenWithAutomaticConflictResolution(
-            fileName,
-            DataSource.ReadCacheOrNetwork,
-            ConflictResolutionStrategy.UseLastKnownGood,
-            OnSavedGameOpened
-            );
+        if (savedGameClient != null)
+        {
+            savedGameClient.OpenWithAutomaticConflictResolution(
+                fileName,
+                DataSource.ReadCacheOrNetwork,
+                ConflictResolutionStrategy.UseLastKnownGood,
+                OnSavedGameOpened
+                );
+        }
     }
 
     private void OnSavedGameOpened(SavedGameRequestStatus status, ISavedGameMetadata game)
