@@ -60,7 +60,6 @@ public class ChapterButtonManager : MonoBehaviour
             }
             ++first;
         }
-
     }
 
     void OnButtonClick(int clickedButtonIndex)
