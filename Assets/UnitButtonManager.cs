@@ -39,18 +39,16 @@ public class UnitButtonManager : MonoBehaviour
         // 모든 버튼의 색상을 초기화
         foreach (Button button in buttons)
         {
+            Button childButton = button.transform.GetChild(2).gameObject.GetComponent<Button>();
             button.gameObject.GetComponent<Image>().enabled = true;
             button.GetComponent<Image>().color = defaultColor;
             if (5 < first)
             {
-                button.transform.GetChild(2).gameObject.GetComponent<CodelessIAPButton>().
-                    onPurchaseComplete.AddListener(
-                        LicenseUnlockManager.Instance.OnUnlockChapterAction
-                    );
+                childButton.onClick.AddListener(PurchaseWindowManager.Instance.PopUp);
             }
             else
             {
-                button.transform.GetChild(2).gameObject.SetActive(false);
+                childButton.gameObject.SetActive(false);
             }
             ++first;
         }

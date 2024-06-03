@@ -49,10 +49,7 @@ public class ChapterButtonManager : MonoBehaviour
 
             if (0 < first)
             {
-                button.transform.GetChild(3).gameObject.GetComponent<CodelessIAPButton>().
-                    onPurchaseComplete.AddListener(
-                        LicenseUnlockManager.Instance.OnUnlockChapterAction
-                    );
+                button.transform.GetChild(3).GetComponent<Button>().onClick.AddListener(PurchaseWindowManager.Instance.PopUp);
             }
             else
             {
